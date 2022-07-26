@@ -33,12 +33,16 @@ class Auth extends CI_Controller
         $email      = $this->input->post('email');
         $password   = $this->input->post('password');
 
-        $data['user']   = $this->Website_model->getSessionUser();
+        // $user   = $this->Website_model->getSessionUser();
+        $user = $this->db->get_where('user',['email' =>$email])->row_array();
 
+        // tesx($user);
         // jika usernya ada
         if ($user) {
             // jika usernya aktif
             if ($user['is_active'] == 1) {
+
+                
                 // cek password
                 if (password_verify($password, $user['password'])) {
                     $data = [

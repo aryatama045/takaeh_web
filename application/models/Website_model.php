@@ -11,6 +11,13 @@ class Website_model extends CI_Model
 	}
 
 	public function getSessionUser(){
+
+		if($this->session->userdata('email') != NULL){
+			$email = $this->input->post('email');
+		}else{
+			$email = $this->session->userdata('email');
+		}
+		
 		$query = $this->db->get_where('user',
 		['email' =>$this->session->userdata('email')])
 		->row_array();
