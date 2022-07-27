@@ -1,5 +1,4 @@
-<?php
-defined('BASEPATH') or exit('No direct script access allowed');
+<?php defined('BASEPATH') or exit('No direct script access allowed');
 
 class Auth extends CI_Controller
 {
@@ -42,7 +41,6 @@ class Auth extends CI_Controller
             // jika usernya aktif
             if ($user['is_active'] == 1) {
 
-                
                 // cek password
                 if (password_verify($password, $user['password'])) {
                     $data = [

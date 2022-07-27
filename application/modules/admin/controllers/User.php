@@ -48,15 +48,15 @@ class User extends Admin_Controller
 		if($data){
 			foreach ($data as $key => $value) {
 					$buttons    = '';
-                    
 					$buttons   .= '
-                                <a href="'.base_url("user/edit/".$value['id']).'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-                                <i class="fa fa-plus fa-sm text-white-50"></i> Edit</a>';
+                        <a href="'.base_url("user/edit/".$value['id']).'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                        <i class="fa fa-plus fa-sm text-white-50"></i> Edit</a>';
                     if($value['role'] != 'Administrator'){
-                    $buttons   .= '
-                                <a href="'.base_url("user/delete/".$value['id']).'" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm">
-                                <i class="fa fa-trash fa-sm text-white-50"></i> Delete</a>';}
-                                
+                        $buttons   .= '
+                            <a href="'.base_url("user/delete/".$value['id']).'" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm">
+                            <i class="fa fa-trash fa-sm text-white-50"></i> Delete</a>';
+                    }
+
 					$output['data'][$key] = array(
 						$buttons,
 						$value['name'],
