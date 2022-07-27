@@ -56,7 +56,7 @@
 	// PENGECEKAN DYNAMIC ENVIRONMENT SESUAI HOST SERVER
 	switch ($_SERVER['HTTP_HOST']) {
 		case 'localhost':
-			$env = 'development';
+			$env = 'developments';
 			break;
 		case 'www.takaeh.development':
 			$env = 'testing';
@@ -65,10 +65,10 @@
 			$env = 'production';
 			break;
 		default:
-			$env = 'development';
+			$env = 'developments';
 			break;
 	}
-	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
+	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'developments');
 
 /*
  *---------------------------------------------------------------
@@ -80,7 +80,7 @@
  */
 switch (ENVIRONMENT)
 {
-	case 'development':
+	case 'developments':
 		error_reporting(-1);
 		ini_set('display_errors', 1);
 	break;
