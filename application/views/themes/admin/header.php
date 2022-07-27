@@ -33,7 +33,7 @@
     <link rel="stylesheet" href="<?= base_url('themes/admin/') ?>css/vendor/component-custom-switch.min.css" />
 
     <link rel="stylesheet" href="<?= base_url('themes/admin/') ?>css/dore.light.bluenavy.min.css" />
-    
+
     <!-- <link rel="stylesheet" href="<?= base_url('themes/admin/') ?>css/dore.dark.bluenavy.min.css" /> -->
 
 	<link rel="stylesheet" href="<?= base_url('themes/admin/') ?>css/main.css" />
@@ -41,11 +41,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" />
 	<!-- <link rel="stylesheet" href="<?= base_url('themes/admin/') ?>bootstrap-datetimepicker.min.css">
 	<link rel="stylesheet" href="<?= base_url('themes/admin/') ?>magnific-popup.css"> -->
-    
+
 </head>
 
 
 
 <body id="app-container" class="menu-default ">
-    <main>
+
 
