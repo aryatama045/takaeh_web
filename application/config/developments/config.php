@@ -106,7 +106,7 @@ $config['charset'] = 'UTF-8';
 | If you would like to use the 'hooks' feature you must enable it by
 | setting this variable to TRUE (boolean).  See the user guide for details.
 |
-*/ 
+*/
 // $config['enable_hooks'] = FALSE;
 $config['enable_hooks'] = true;
 /*
@@ -331,7 +331,7 @@ $config['cache_query_string'] = FALSE;
 | https://codeigniter.com/userguide3/libraries/encryption.html
 |
 */
-$config['encryption_key'] = '';
+$config['encryption_key'] = 'https://takaeh.com/';
 
 /*
 |--------------------------------------------------------------------------
