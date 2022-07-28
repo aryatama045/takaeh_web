@@ -8557,15 +8557,15 @@ table th {
 }
 
 .search-area-6 .search-fields {
-    min-height: 65px;
-    line-height: 65px;
+    min-height: 45px;
+    line-height: 45px;
     padding: 0;
-    background: #fff;
+    background: #ffffff;
     border-radius: 0;
     width: 100% !important;
     cursor: pointer;
     border: none;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .06);
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 75%);
 }
 
 .search-area-6 .selectBox-dropdown .selectBox-arrow {
@@ -8578,8 +8578,9 @@ table th {
 }
 
 .search-area-6 .search-button {
-    height: 65px;
+    height: 45px;
     border-radius: 0 5px 5px 0;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 75%);
 }
 
 .search-area-6 .sf2 {

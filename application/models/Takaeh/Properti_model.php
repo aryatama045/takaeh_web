@@ -13,6 +13,16 @@
             $this->area 	= $this->load->database('db_area',TRUE);
         }
 
+        public function fetch_data()
+        {
+
+        }
+
+        public function count_all()
+        {
+            
+        }
+
 		// Get Properti
         public function get_properties(){
             $query = $this->master->get('properties');
