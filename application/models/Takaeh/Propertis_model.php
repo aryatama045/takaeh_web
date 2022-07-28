@@ -5,13 +5,13 @@
 
 	defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Properti_model extends CI_Model {
+class Propertis_model extends CI_Model {
 
-        function __construct(){
-            parent::__construct();
-            $this->master 	= $this->load->database('master',TRUE);
-            $this->area 	= $this->load->database('db_area',TRUE);
-        }
+    function __construct(){
+        parent::__construct();
+        $this->master 	= $this->load->database('master',TRUE);
+        $this->area 	= $this->load->database('db_area',TRUE);
+    }
 
     function fetch_filter_type($type)
     {
@@ -24,43 +24,42 @@ class Properti_model extends CI_Model {
 
     function make_query($title, $tipe, $lokasi)
     {
-        $query = "SELECT * FROM product WHERE product_status = '1'";
+        $query = "SELECT * FROM properties WHERE properties_active = '1'";
 
-        if(isset($minimum_price, $maximum_price) && !empty($minimum_price) &&  !empty($maximum_price))
+        if(isset($title))
         {
-        $query .= "AND product_price BETWEEN '".$minimum_price."' AND '".$maximum_price."' ";
+            $query .= " AND properties_title LIKE '%".$title."%' ";
         }
 
-        if(isset($brand))
+        if(isset($tipe))
         {
-        $brand_filter = implode("','", $brand);
-        $query .= "
-            AND product_brand IN('".$brand_filter."')
-        ";
+            $query .= " AND properties_tipe LIKE '%".$tipe."%' ";
         }
 
-        if(isset($ram))
-        {
-        $ram_filter = implode("','", $ram);
-        $query .= "
-            AND product_ram IN('".$ram_filter."')
-        ";
-        }
+        // if(isset($minimum_price, $maximum_price) && !empty($minimum_price) &&  !empty($maximum_price))
+        // {
+        // $query .= "AND product_price BETWEEN '".$minimum_price."' AND '".$maximum_price."' ";
+        // }
 
-        if(isset($storage))
-        {
-        $storage_filter = implode("','", $storage);
-        $query .= "
-            AND product_storage IN('".$storage_filter."')
-        ";
-        }
+        // $where_search_nama = "";
+		// if($search_nama !== ""){
+		// 	$where_search_nama = "AND nama_lengkap LIKE '%".$search_nama."%'";
+		// }
+
+        // if(isset($ram))
+        // {
+        //     $ram_filter = implode("','", $ram);
+        //     $query .= " AND product_ram IN('".$ram_filter."') ";
+        // }
+
+
         return $query;
     }
 
     function count_all($title, $tipe, $lokasi)
     {
         $query = $this->make_query($title, $tipe, $lokasi);
-        $data = $this->db->query($query);
+        $data = $this->hrd->query($query);
         return $data->num_rows();
     }
 

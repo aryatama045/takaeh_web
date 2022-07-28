@@ -86,9 +86,12 @@ class Properti extends Takaeh_Controller {
 		sleep(1);
 		// $minimum_price 	= $this->input->post('minimum_price');
 		// $maximum_price 	= $this->input->post('maximum_price');
-		$title 		= $this->input->post('title');
+		// $title 		= $this->input->post('title');
+		$title 		= 'tes';
 		$lokasi 	= $this->input->post('lokasi');
 		$tipe 		= $this->input->post('tipe');
+
+		tesx($title);
 
 		$total		= $this->mProperties->count_all($title, $tipe, $lokasi);
 
@@ -96,7 +99,7 @@ class Properti extends Takaeh_Controller {
 		$config = array();
 		$config['base_url'] = '#';
 		$config['total_rows'] 	= $total;
-		$config['per_page'] 	= 8;
+		$config['per_page'] 	= 16;
 		$config['uri_segment'] 	= 3;
 		$config['use_page_numbers'] = TRUE;
 
