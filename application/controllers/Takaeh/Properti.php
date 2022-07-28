@@ -21,18 +21,18 @@ class Properti extends Takaeh_Controller {
 					'page'		=> '-Properties');
 		// $agent = $this->session->userdata('name');
 		$jum	= $this->mProperties->get_properties();
-		$page	= $this->uri->segment(5);
+		$page	= $this->uri->segment(3);
 		if(!$page):
 			$off = 0;
 		else:
 			$off = $page;
 		endif;
-		$limit=16;
+		$limit=18;
 		$offset = $off > 0 ? (($off - 1) * $limit) : $off;
-		$config['base_url'] = base_url() . 'properti/';
+		$config['base_url'] = base_url() . 'properti/page/';
 		$config['total_rows'] = $jum->num_rows();
 		$config['per_page'] = $limit;
-		$config['uri_segment'] = 5;
+		$config['uri_segment'] = 3;
 		$config['use_page_numbers']=TRUE;
 
 	    //Tambahan untuk styling

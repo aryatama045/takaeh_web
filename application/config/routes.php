@@ -58,6 +58,6 @@ $route['admin-login']   = 'admin/auth';
 $route['dashboard']     = 'admin/dashboard';
 
 $route['home']              = 'takaeh/home';
-$route['properti']   = 'takaeh/properti/index';
+$route['properti']          = 'takaeh/properti/index';
 $route['properti/(:any)']   = 'takaeh/properti/index/$1';
-$route['properti/page/(:any)/(:num)']	='takaeh/properti/index/$1/$2';
+$route['properti/page/(:any)']	='takaeh/properti/index/$1';

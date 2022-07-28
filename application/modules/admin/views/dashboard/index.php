@@ -252,14 +252,16 @@
                 <div class="card-body">
                     <h5 class="mb-4 border-bottom"> <i class="simple-icon-grid"></i> Application</h5>
 
-                    <div class="simple-line-icons">
-                        <div class="glyph">
-                            <div class="glyph-icon simple-icon-user"></div>
-                            <div class="class-name">simple-icon-user</div>
+                        <div class="simple-line-icons">
+                            <div class="glyph">
+                                <div class="glyph-icon simple-icon-user"></div>
+                                <div class="class-name">simple-icon-user</div>
+                            </div>
                         </div>
-                    </div>
+
                 </div>
             </div>
+
 
             <div class="card">
                 <div class="card-body">
