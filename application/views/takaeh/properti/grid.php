@@ -3,10 +3,11 @@
 <div class="sub-banner">
     <div class="container">
         <div class="breadcrumb-area">
-            <h1>Properties GRID</h1>
+            <h1><?= $title_page ?></h1>
             <ul class="breadcrumbs">
-                <li><a href="<?= base_url() ?>">Home</a></li>
-                <li class="active"><?= ucfirst($this->uri->segment(1)) ?></li>
+                <li ><?= ucfirst($this->uri->segment(1)) ?></li>
+                <?php $link=$this->uri->segment(2); if(isset($link)) { ?>
+                <li class="active"><?= ucfirst($this->uri->segment(2)) ?></li><?php } ?>
             </ul>
         </div>
     </div>

@@ -132,7 +132,7 @@ class Propertis_model extends CI_Model {
                             </div>
                             <div class="footer">
                                 <a href="#">
-                                    <i class="fa fa-user"></i> Jhon Doe
+                                    <i class="fa fa-arrow-right"></i> Detail
                                 </a>
                                 <span>
                                     <i class="fa fa-calendar-o"></i> 2 day ago

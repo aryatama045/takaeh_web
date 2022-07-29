@@ -50,14 +50,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 
-$route['translate_uri_dashes']  = FALSE;
-$route['default_controller']    = 'admin/auth';
+
+$route['default_controller']    = 'home';
 $route['404_override']          = 'auth/page404';
+$route['translate_uri_dashes']  = FALSE;
 
 $route['admin-login']   = 'admin/auth';
 $route['dashboard']     = 'admin/dashboard';
 
-$route['home']              = 'takaeh/home';
-$route['properti']          = 'properti/index';
+$route['home']          = 'takaeh/home';
+// $route['properti']      = 'properti/index';
 // $route['properti/(:any)']   = 'takaeh/properti/index/$1';
 // $route['properti/page/(:any)']	='takaeh/properti/index/$1';

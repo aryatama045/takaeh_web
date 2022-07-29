@@ -214,9 +214,10 @@ class Auth extends CI_Controller
     public function page404()
     {
 
-        $req_uri = $_SERVER['REQUEST_URI'];     // $req_uri = /myproject/backend
+        $req_uri = $_SERVER['REQUEST_URI'];
+        // $req_uri = /myproject/backend
         $req_uri = explode('/', $req_uri);
-        $req_uri = $req_uri[4];                 // $req_uri[2] = backend
+        $req_uri = $req_uri[3];
 
         // tesx($req_uri);
 
@@ -232,11 +233,12 @@ class Auth extends CI_Controller
             $this->load->view('themes/admin/footer', $data);      // Not found controller for backend
         }else {
             $data['title'] = 'Page 404';
-            $this->load->view('themes/public/header', $data);
-            $this->load->view('themes/public/sidebar', $data);
-            $this->load->view('themes/public/topbar', $data);
-            $this->load->view('themes/public/pages/page404', $data);
-            $this->load->view('themes/public/footer', $data); 
+
+            $this->load->view('themes/takaeh/header',$data);
+			$this->load->view('themes/takaeh/topbar',$data);
+			$this->load->view('themes/takaeh/menu_header',$data);
+			$this->load->view('themes/takaeh/pages/page404', $data);
+			$this->load->view('themes/takaeh/footer',$data);
                 // Not found controller for frontend
         }
 
