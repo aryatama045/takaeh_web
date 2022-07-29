@@ -250,12 +250,26 @@
         <div class="col-xl-6 col-lg-12">
             <div class="card mb-4">
                 <div class="card-body">
-                    <h5 class="mb-4 border-bottom"> <i class="simple-icon-grid"></i> Application</h5>
+                    <h5 class="mb-4 border-bottom"><i class="simple-icon-grid"></i> Application</h5>
 
                         <div class="simple-line-icons">
                             <div class="glyph">
-                                <div class="glyph-icon simple-icon-user"></div>
-                                <div class="class-name">simple-icon-user</div>
+                                <div class="glyph-icon iconsminds-pie-chart-3"></div>
+                                <div class="class-name">Budgeting</div>
+                            </div>
+                        </div>
+                        <div class="simple-line-icons">
+                            <a href="">
+                            <div class="glyph">
+                                <div class="glyph-icon iconsminds-envelope"></div>
+                                <div class="class-name">E-Mail</div>
+                            </div>
+                            </a>
+                        </div>
+                        <div class="simple-line-icons">
+                            <div class="glyph">
+                                <div class="glyph-icon iconsminds-checkout"></div>
+                                <div class="class-name">Puchashing</div>
                             </div>
                         </div>
 

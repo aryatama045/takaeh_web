@@ -16,7 +16,7 @@ class Setting extends Admin_Controller
     public function index()
     {
         $data['title']  = 'Setting';
-        $this->template_admin('admin/index', $data);
+        $this->template_admin('admin/setting/webinfo', $data);
 
     }
 
