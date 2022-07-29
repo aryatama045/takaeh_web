@@ -217,7 +217,15 @@ class Auth extends CI_Controller
         $req_uri = $_SERVER['REQUEST_URI'];
         // $req_uri = /myproject/backend
         $req_uri = explode('/', $req_uri);
-        $req_uri = $req_uri[3];
+
+        $base_url = base_url();
+        // tesx($base_url, $req_uri);
+        if($base_url == 'http://takaeh.development/'){
+           $req_uri = $req_uri[1]; 
+        } else {
+           $req_uri = $req_uri[3];  
+        }
+        
 
         // tesx($req_uri);
 
