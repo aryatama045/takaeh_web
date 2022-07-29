@@ -7,14 +7,15 @@ class Properti extends Takaeh_Controller {
     {
         parent::__construct();
         // is_logged_in();
-        $this->load->model('takaeh/properti_model','mProperties');
+        $this->load->model('takaeh/properti_model','mProperti');
+		$this->load->model('takaeh/propertis_model','mPropertis');
 
     }
 
 	/**
 	 * Index Page for this controller.
 	 */
-	public function index()
+	public function index222()
 	{
 		$this->data = array(
 					'title'		=> 'Takaeh',
@@ -73,12 +74,13 @@ class Properti extends Takaeh_Controller {
 	}
 
 
-	function index2()
+	function index()
 	{
-		// $data['brand_data'] 		= $this->mProperties->fetch_filter_type('product_brand');
+		$data = array('title_page' => 'Properti');
+		// $data['brand_data'] 			= $this->mProperties->fetch_filter_type('product_brand');
 		// $data['ram_data'] 			= $this->mProperties->fetch_filter_type('product_ram');
 		// $data['product_storage'] 	= $this->mProperties->fetch_filter_type('product_storage');
-		$this->templates_public('takaeh/properti/grid');
+		$this->templates_public('takaeh/properti/grid', $data);
 	}
 
 	public function fetch_data()
@@ -86,59 +88,42 @@ class Properti extends Takaeh_Controller {
 		sleep(1);
 		// $minimum_price 	= $this->input->post('minimum_price');
 		// $maximum_price 	= $this->input->post('maximum_price');
-		// $title 		= $this->input->post('title');
-		$title 		= 'tes';
+
+		$title 		= $this->input->post('title');
 		$lokasi 	= $this->input->post('lokasi');
 		$tipe 		= $this->input->post('tipe');
 
-		tesx($title);
-
-		$total		= $this->mProperties->count_all($title, $tipe, $lokasi);
+		$total		= $this->mPropertis->count_all($title, $tipe, $lokasi);
 
 		$this->load->library('pagination');
 		$config = array();
 		$config['base_url'] = '#';
 		$config['total_rows'] 	= $total;
-		$config['per_page'] 	= 16;
+		$config['per_page'] 	= 15;
 		$config['uri_segment'] 	= 3;
 		$config['use_page_numbers'] = TRUE;
 
-		//Tambahan untuk styling
-        $config['full_tag_open']    = '<nav aria-label="Page navigation example"><ul class="pagination">';
-        $config['full_tag_close']   = '</ul></nav>';
-        $config['num_tag_open']     = '<li class="page-item"><span class="page-link">';
-        $config['num_tag_close']    = '</span></li>';
-        $config['cur_tag_open']     = '<li class="page-item active"><span class="page-link current">';
-        $config['cur_tag_close']    = '<span class="sr-only">(current)</span></span></li>';
-        $config['next_tag_open']    = '<li class="page-item"><span class="page-link">';
-        $config['next_tagl_close']  = '<span aria-hidden="true">&raquo;</span></span></li>';
-        $config['prev_tag_open']    = '<li class="page-item"><span class="page-link">';
-        $config['prev_tagl_close']  = '</span>Next</li>';
-        $config['first_tag_open']   = '<li class="page-item"><span class="page-link">';
-        $config['first_tagl_close'] = '</span></li>';
-        $config['last_tag_open']    = '<li class="page-item"><span class="page-link">';
-        $config['last_tagl_close']  = '</span></li>';
-		$config['first_link'] 		= 'First';
-		$config['last_link'] 		= 'Last';
-		$config['next_link'] 		= 'Next';
-		$config['prev_link'] 		= 'Prev';
+		# Tambahan untuk styling
+			$config['full_tag_open']    = '<nav aria-label="Page navigation example"><ul class="pagination">';
+			$config['full_tag_close']   = '</ul></nav>';
+			$config['num_tag_open']     = '<li class="page-item"><span class="page-link">';
+			$config['num_tag_close']    = '</span></li>';
+			$config['cur_tag_open']     = '<li class="page-item active"><span class="page-link current">';
+			$config['cur_tag_close']    = '<span class="sr-only">(current)</span></span></li>';
+			$config['next_tag_open']    = '<li class="page-item"><span class="page-link">';
+			$config['next_tagl_close']  = '<span aria-hidden="true">&raquo;</span></span></li>';
+			$config['prev_tag_open']    = '<li class="page-item"><span class="page-link">';
+			$config['prev_tagl_close']  = '</span>Next</li>';
+			$config['first_tag_open']   = '<li class="page-item"><span class="page-link">';
+			$config['first_tagl_close'] = '</span></li>';
+			$config['last_tag_open']    = '<li class="page-item"><span class="page-link">';
+			$config['last_tagl_close']  = '</span></li>';
+			$config['first_link'] 		= 'First';
+			$config['last_link'] 		= 'Last';
+			$config['next_link'] 		= 'Next';
+			$config['prev_link'] 		= 'Prev';
+		# Tambahan untuk styling
 
-		// $config['full_tag_open'] = '<ul class="pagination">';
-			// 	$config['full_tag_close'] = '</ul>';
-			// 	$config['first_tag_open'] = '<li>';
-			// 	$config['first_tag_close'] = '</li>';
-			// 	$config['last_tag_open'] = '<li>';
-			// 	$config['last_tag_close'] = '</li>';
-			// 	$config['next_link'] = '&gt;';
-			// 	$config['next_tag_open'] = '<li>';
-			// 	$config['next_tag_close'] = '</li>';
-			// 	$config['prev_link'] = '&lt;';
-			// 	$config['prev_tag_open'] = '<li>';
-			// 	$config['prev_tag_close'] = '</li>';
-			// 	$config['cur_tag_open'] = "<li class='active'><a href='#'>";
-			// 	$config['cur_tag_close'] = '</a></li>';
-			// 	$config['num_tag_open'] = '<li>';
-		// $config['num_tag_close'] = '</li>';
 
 		$config['num_links'] 	= 3;
 		$this->pagination->initialize($config);
@@ -146,12 +131,10 @@ class Properti extends Takaeh_Controller {
 		$start	 	= ($page - 1) * $config['per_page'];
 		$output 	= array(
 			'pagination_link'  	=> $this->pagination->create_links(),
-			'properti_list'  	=> $this->mProperties->fetch_data($config["per_page"], $start, $title, $tipe, $lokasi)
+			'properti_list'  	=> $this->mPropertis->fetch_data($config["per_page"], $start, $title, $tipe, $lokasi)
 		);
 		echo json_encode($output);
 	}
-
-
 
 
 

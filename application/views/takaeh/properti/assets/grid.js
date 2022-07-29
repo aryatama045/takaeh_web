@@ -1,7 +1,9 @@
 $(document).ready(function() {
+
     alert('tes');
 
     filter_data(1);
+
 
     function filter_data(page) {
         $('.filter_data').html('<div id="loading" style="" ></div>');

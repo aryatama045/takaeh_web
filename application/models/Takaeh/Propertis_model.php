@@ -31,10 +31,16 @@ class Propertis_model extends CI_Model {
             $query .= " AND properties_title LIKE '%".$title."%' ";
         }
 
-        if(isset($tipe))
-        {
-            $query .= " AND properties_tipe LIKE '%".$tipe."%' ";
-        }
+        // if(isset($tipe))
+        // {
+        //     $tipe_filter = implode("','", $tipe);
+        //     $query .= " AND properties_tipe IN('".$tipe_filter."') ";
+        // }
+
+        // if(isset($tipe))
+        // {
+        //     $query .= " AND properties_tipe LIKE '%".$tipe."%' ";
+        // }
 
         // if(isset($minimum_price, $maximum_price) && !empty($minimum_price) &&  !empty($maximum_price))
         // {
@@ -46,12 +52,6 @@ class Propertis_model extends CI_Model {
 		// 	$where_search_nama = "AND nama_lengkap LIKE '%".$search_nama."%'";
 		// }
 
-        // if(isset($ram))
-        // {
-        //     $ram_filter = implode("','", $ram);
-        //     $query .= " AND product_ram IN('".$ram_filter."') ";
-        // }
-
 
         return $query;
     }
@@ -59,7 +59,7 @@ class Propertis_model extends CI_Model {
     function count_all($title, $tipe, $lokasi)
     {
         $query = $this->make_query($title, $tipe, $lokasi);
-        $data = $this->hrd->query($query);
+        $data = $this->master->query($query);
         return $data->num_rows();
     }
 
@@ -69,27 +69,80 @@ class Propertis_model extends CI_Model {
 
         $query .= ' LIMIT '.$start.', ' . $limit;
 
-        $data = $this->db->query($query);
+        $data = $this->master->query($query);
 
         $output = '';
         if($data->num_rows() > 0)
         {
             foreach($data->result_array() as $row)
             {
+
                 $output .= '
-                <div class="col-sm-4 col-lg-3 col-md-3">
-                <div style="border:1px solid #ccc; border-radius:5px; padding:16px; margin-bottom:16px; height:450px;">
-                <img src="'.base_url().'images/'. $row['product_image'] .'" alt="" class="img-responsive" >
-                <p align="center"><strong><a href="#">'. $row['product_name'] .'</a></strong></p>
-                <h4 style="text-align:center;" class="text-danger" >'. $row['product_price'] .'</h4>
-                <p>Camera : '. $row['product_camera'].' MP<br />
-                Brand : '. $row['product_brand'] .' <br />
-                RAM : '. $row['product_ram'] .' GB<br />
-                Storage : '. $row['product_storage'] .' GB </p>
-                </div>
-                </div>
-                ';
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="property-box">
+                            <div class="property-thumbnail">
+                                <a href="properties-details.html" class="property-img">
+                                    <div class="listing-badges">
+                                        <span class="featured">Featured</span>
+                                    </div>
+                                    <div class="tag-for">For Sale</div>
+                                    <div class="plan-price"><sup>$</sup>820<span>/month</span> </div>
+                                    <img data-original="https://place-hold.it/350x250" src="https://place-hold.it/350x250" alt="property-box" class="img-fluid">
+                                </a>
+                                <div class="property-overlay">
+                                    <a href="properties-details.html" class="overlay-link">
+                                        <i class="fa fa-link"></i>
+                                    </a>
+                                    <a class="overlay-link property-video" title="Test Title">
+                                        <i class="fa fa-video-camera"></i>
+                                    </a>
+                                    <div class="property-magnify-gallery">
+                                        <a href="https://place-hold.it/750x540" class="overlay-link">
+                                            <i class="fa fa-expand"></i>
+                                        </a>
+                                        <a href="https://place-hold.it/750x540"></a>
+                                        <a href="https://place-hold.it/750x540"></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="detail">
+                                <h1 class="title" >
+                                    <a href="properties-details.html" title="'. $row['properties_title'] .'">'. character_limiter($row['properties_title'], '20') .'</a>
+                                </h1>
+                                <div class="location">
+                                    <a href="properties-details.html">
+                                        <i class="flaticon-facebook-placeholder-for-locate-places-on-maps"></i>
+                                        '. character_limiter($row['properties_title'], '20') .'
+                                    </a>
+                                </div>
+                                <ul class="facilities-list clearfix">
+                                    <li>
+                                        <i class="flaticon-bed"></i> 3 Bedrooms
+                                    </li>
+                                    <li>
+                                        <i class="flaticon-bath"></i> 2 Bathrooms
+                                    </li>
+                                    <li>
+                                        <i class="flaticon-square-layouting-with-black-square-in-east-area"></i> Sq Ft:3400
+                                    </li>
+                                    <li>
+                                        <i class="flaticon-car-repair"></i> 1 Garage
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="footer">
+                                <a href="#">
+                                    <i class="fa fa-user"></i> Jhon Doe
+                                </a>
+                                <span>
+                                    <i class="fa fa-calendar-o"></i> 2 day ago
+                                </span>
+                            </div>
+                        </div>
+                    </div>';
             }
+            // <img src="'.base_url().'images/'. $row['properties_title'] .'" alt="" class="img-responsive" >
+
         } else {
             $output = '<h3>No Data Found</h3>';
         }

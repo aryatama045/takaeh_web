@@ -66,7 +66,7 @@ class MY_Loader extends MX_Loader {
     public function assetspublic($_sub_module="",$_filename="*",$extention=null){
         $filecache = array('css'=>'','js'=>'');
         // $path= FCPATH.'application/modules/'.$this->_module.'/views/'.$_sub_module.'/assets/';
-		$path   = 'application/views/'.$_sub_module.'/'.$_sub_module.'/'.$_sub_module.'/'.$_sub_module.'/assets/';
+		$path   = FCPATH.'application/views/'.$this->_module.'/'.$_sub_module.'/assets/';
         $pathcache='cacheassets';
         /*detect path assets in modules*/
         if (file_exists($path)) {
