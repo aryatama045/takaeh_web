@@ -222,10 +222,10 @@ class Auth extends Takaeh_Controller
 
         $base_url = base_url();
         // tesx($base_url, $req_uri);
-        if($base_url == 'http://takaeh.development/'){
-           $req_uri = $req_uri[1]; 
+        if($base_url != 'http://takaeh.development/'){
+            $req_uri = $req_uri[3]; 
         } else {
-           $req_uri = $req_uri[3];  
+            $req_uri = $req_uri[1]; 
         }
         
 
