@@ -51,14 +51,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 
 
-$route['default_controller']    = 'Takaeh/Home';
+$route['default_controller']    = 'home';
+$route['home']                  = 'takaeh/home';
 $route['404_override']          = 'auth/page404';
 $route['translate_uri_dashes']  = FALSE;
 
 $route['admin-login']   = 'admin/auth';
 $route['dashboard']     = 'admin/dashboard';
 
-$route['home']          = 'Takaeh/Home';
+
 // $route['properti']      = 'properti/index';
 // $route['properti/(:any)']   = 'takaeh/properti/index/$1';
 // $route['properti/page/(:any)']	='takaeh/properti/index/$1';
