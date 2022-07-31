@@ -9,28 +9,6 @@
                 <?php $link=$this->uri->segment(2); if(isset($link)) { ?>
                 <li class="active"><?= ucfirst($this->uri->segment(2)) ?></li><?php } ?>
 
-                 | <?= $_SERVER['HTTP_HOST'] ?> <br>
-                 | <?php 
-
-                    switch ($_SERVER['HTTP_HOST']) {
-                        case 'localhost':
-                            $env = 'developments';
-                            break;
-                        case 'takaeh.development':
-                            $env = 'testing';
-                            break;
-                        case 'www.testing.takaeh.com':
-                            $env = 'production';
-                            break;
-                        case 'www.takaeh.com':
-                            $env = 'production';
-                            break;
-                        default:
-                            $env = 'developments';
-                            break;
-                    } ?>
-                 
-                 <?= isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : $env ?>
             </ul>
         </div>
     </div>
