@@ -5,8 +5,8 @@
             <h1>Featured Properties</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
-        <div class="row slick-fullwidth wow fadeInUp delay-04s">
-            
+        <div class="row slick-fullwidth wow fadeInUp delay-04s mb-4">
+
             <div class="slick-slide-item">
                 <div class="property-box">
                     <div class="property-thumbnail">
@@ -379,6 +379,10 @@
             <div class="slick-next slick-arrow-buton">
                 <i class="fa fa-angle-right"></i>
             </div>
+        </div>
+        <div class="col-lg-12 text-center pt-5">
+                <a data-animation="animated fadeInUp delay-10s" 
+                href="<?= base_url('properti')?>" class="btn btn-lg btn-theme">More Properties</a>
         </div>
     </div>
 </div>

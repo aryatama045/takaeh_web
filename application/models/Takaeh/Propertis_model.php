@@ -22,7 +22,16 @@ class Propertis_model extends CI_Model {
         return $this->db->get();
     }
 
-    function make_query($title, $tipe, $lokasi)
+    function properti_tipe()
+    {
+        $this->master->select('*,');
+        $this->master->from('properties_tipe');
+        $this->master->order_by('nama', 'ASC');
+        $query = $this->master->get();
+        return $query->result_array();
+    }
+
+    function make_query($title, $tipe, $lokasi, $status)
     {
         $query = "SELECT * FROM properties WHERE properties_active = '1'";
 
@@ -37,10 +46,15 @@ class Propertis_model extends CI_Model {
         //     $query .= " AND properties_tipe IN('".$tipe_filter."') ";
         // }
 
-        // if(isset($tipe))
-        // {
-        //     $query .= " AND properties_tipe LIKE '%".$tipe."%' ";
-        // }
+        if(isset($tipe))
+        {
+            $query .= " AND properties_tipe LIKE '%".$tipe."%' ";
+        }
+
+        if(isset($status))
+        {
+            $query .= " AND properties_tipe_jual LIKE '%".$status."%' ";
+        }
 
         // if(isset($minimum_price, $maximum_price) && !empty($minimum_price) &&  !empty($maximum_price))
         // {
@@ -56,16 +70,16 @@ class Propertis_model extends CI_Model {
         return $query;
     }
 
-    function count_all($title, $tipe, $lokasi)
+    function count_all($title, $tipe, $lokasi, $status)
     {
-        $query = $this->make_query($title, $tipe, $lokasi);
+        $query = $this->make_query($title, $tipe, $lokasi, $status);
         $data = $this->master->query($query);
         return $data->num_rows();
     }
 
-    function fetch_data($limit, $start, $title, $tipe, $lokasi)
+    function fetch_data($limit, $start, $title, $tipe, $lokasi, $status)
     {
-        $query = $this->make_query($title, $tipe, $lokasi);
+        $query = $this->make_query($title, $tipe, $lokasi, $status);
 
         $query .= ' LIMIT '.$start.', ' . $limit;
 
@@ -81,31 +95,33 @@ class Propertis_model extends CI_Model {
                 // tesx(file_exists($url));
 
                 if(file_exists($url)){
-
-                    $img = '<img data-original="'.base_url('www/properties/'.$row['properties_cover']).'" src="'.base_url('www/properties/'.$row['properties_cover']).'" alt="property-box" class="img-fluid">';
-                
+                    $img = '<img style="width:350px; height:250px;" data-original="'.base_url('www/properties/'.$row['properties_cover']).'" src="'.base_url('www/properties/'.$row['properties_cover']).'" alt="property-box" class="img-fluid">';
                 } else {
-
                     $img = '<img data-original="https://via.placeholder.com/350x250" src="https://via.placeholder.com/350x250" alt="property-box" class="img-fluid">';
-
                 }
+
+                if($row['properties_tipe_jual'] == 'Dijual'){
+                    $status = '<div class="tag-for">For Sale</div>';
+                } else {
+                    $status = '<div class="tag-for">For Rent</div>';
+                }
+
+                    $harga= '<div class="plan-price"><sup>$</sup>820<span>/month</span> </div>';
 
                 $output .= '
                     <div class="col-lg-4 col-md-6 col-sm-12">
                         <div class="property-box">
                             <div class="property-thumbnail">
-                                <a href="properties-details.html" class="property-img">
+                                <a href="'.base_url('properti/detail/'.$row['properties_url']).'" class="property-img">
                                     <div class="listing-badges">
                                         <span class="featured">Featured</span>
                                     </div>
-                                    <div class="tag-for">For Sale</div>
-                                    <div class="plan-price"><sup>$</sup>820<span>/month</span> </div>'
+                                    '.$status.'
                                     
-                                    .$img.
-
-                                '</a>
+                                    '.$img.'
+                                </a>
                                 <div class="property-overlay">
-                                    <a href="properties-details.html" class="overlay-link">
+                                    <a href="'.base_url('properti/detail/'.$row['properties_url']).'" class="overlay-link">
                                         <i class="fa fa-link"></i>
                                     </a>
                                     <a class="overlay-link property-video" title="Test Title">
@@ -125,7 +141,7 @@ class Propertis_model extends CI_Model {
                                     <a href="'.base_url('properti/detail/'.$row['properties_url']).'" title="'. $row['properties_title'] .'">'. character_limiter($row['properties_title'], '20') .'</a>
                                 </h1>
                                 <div class="location">
-                                    <a href="properties-details.html">
+                                    <a href="'.base_url('properti/detail/'.$row['properties_url']).'">
                                         <i class="flaticon-facebook-placeholder-for-locate-places-on-maps"></i>
                                         '. character_limiter($row['properties_title'], '20') .'
                                     </a>
@@ -146,7 +162,7 @@ class Propertis_model extends CI_Model {
                                 </ul>
                             </div>
                             <div class="footer">
-                                <a href="#">
+                                <a href="'.base_url('properti/detail/'.$row['properties_url']).'">
                                     <i class="fa fa-arrow-right"></i> Detail
                                 </a>
                                 <span>

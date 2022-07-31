@@ -75,8 +75,8 @@ class Properti extends Takaeh_Controller {
 
 	function index()
 	{
-		$data = array('title_page' => 'Properti');
-		// $data['brand_data'] 			= $this->mProperties->fetch_filter_type('product_brand');
+		$data['title_page']		= 'Properti';
+		$data['tipe'] 			= $this->mPropertis->properti_tipe();
 		// $data['ram_data'] 			= $this->mProperties->fetch_filter_type('product_ram');
 		// $data['product_storage'] 	= $this->mProperties->fetch_filter_type('product_storage');
 		$this->templates_public('takaeh/properti/grid', $data);
@@ -91,11 +91,12 @@ class Properti extends Takaeh_Controller {
 		$title 		= $this->input->post('title');
 		$lokasi 	= $this->input->post('lokasi');
 		$tipe 		= $this->input->post('tipe');
+		$status 	= $this->input->post('status');
 		$pages 		= $this->input->post('pages');
 
 		// tesx($pages);
 
-		$total		= $this->mPropertis->count_all($title, $tipe, $lokasi);
+		$total		= $this->mPropertis->count_all($title, $tipe, $lokasi, $status);
 
 		$this->load->library('pagination');
 		$config = array();
@@ -134,7 +135,7 @@ class Properti extends Takaeh_Controller {
 		$output 	= array(
 			'total_data'		=> $total,
 			'pagination_link'  	=> $this->pagination->create_links(),
-			'properti_list'  	=> $this->mPropertis->fetch_data($config["per_page"], $start, $title, $tipe, $lokasi)
+			'properti_list'  	=> $this->mPropertis->fetch_data($config["per_page"], $start, $title, $tipe, $lokasi, $status)
 		);
 		echo json_encode($output);
 	}

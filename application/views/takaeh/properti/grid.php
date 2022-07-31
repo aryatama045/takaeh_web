@@ -34,10 +34,10 @@
                                     <div class="col-lg-2 col-md-12 col-sm-12 col-xs-6 col-pad2">
                                         <div class="form-group">
                                             <select class="selectpicker search-fields" id="tipe" name="tipe">
-                                                <option>Property Types</option>
-                                                <option>Residential</option>
-                                                <option>Commercial</option>
-                                                <option>Land</option>
+                                                <option value="">Select Types</option>
+                                                <?php foreach($tipe as $v) { ?>
+                                                    <option value="<?= $v['nama'] ?>"><?= $v['nama'] ?></option>
+                                                <?php } ?>
                                             </select>
                                         </div>
                                     </div>
@@ -55,12 +55,10 @@
                                     </div>
                                     <div class="col-lg-2 col-md-12 col-sm-12 col-xs-6 col-pad2">
                                         <div class="form-group">
-                                            <select class="selectpicker search-fields" name="make">
-                                                <option>Room</option>
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
+                                            <select class="selectpicker search-fields" id="status" name="status">
+                                                <option value="">Status</option>
+                                                <option value="Dijual">Di Jual</option>
+                                                <option value="Disewa">Sewa</option>
                                             </select>
                                         </div>
                                     </div>
@@ -159,6 +157,7 @@
             var title   = $('#title').val();
             var tipe    = $('#tipe').val();
             var lokasi  = $('#lokasi').val();
+            var status  = $('#status').val();
             var pages    = $('#pages').val();
 
             // var ram = get_filter('ram');
@@ -167,7 +166,7 @@
                 url: base_url + "properti/fetch_data/" + page,
                 method: "POST",
                 dataType: "JSON",
-                data: { action: action, title: title, lokasi: lokasi, tipe: tipe, pages:pages },
+                data: { action: action, title: title, lokasi: lokasi, tipe: tipe, status:status, pages:pages },
                 success: function(data) {
                     $('.filter_data').html(data.properti_list);
                     $('#total_data').html(data.total_data);
@@ -191,6 +190,14 @@
         $('#title').keyup(throttle(function(){
             filter_data(1);
         }));
+
+        $('#tipe').on('change', function(event) { // for text boxes
+            filter_data(1);
+        });
+
+        $('#status').on('change', function(event) { // for text boxes
+            filter_data(1);
+        });
 
         $('#pages').on('change', function(event) { // for text boxes
             filter_data(1);

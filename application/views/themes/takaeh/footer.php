@@ -56,69 +56,14 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                <div class="footer-item recent-posts">
-                    <h4>Recent Properties</h4>
-                    <div class="media mb-4">
-                        <a href="properties-details.html">
-                            <img src="https://via.placeholder.com/60x60" alt="sub-property">
-                        </a>
-                        <div class="media-body align-self-center">
-                            <h5>
-                                <a href="properties-details.html">Beautiful Single Home</a>
-                            </h5>
-                            <p>Feb 27, 2020 | $1045,000</p>
-                        </div>
-                    </div>
-                    <div class="media mb-4">
-                        <a href="properties-details.html">
-                            <img src="https://via.placeholder.com/60x60" alt="sub-property-2">
-                        </a>
-                        <div class="media-body align-self-center">
-                            <h5>
-                                <a href="properties-details.html">Sweet Family Home</a>
-                            </h5>
-                            <p>Mar 14, 2020 | $944,000</p>
-                        </div>
-                    </div>
-                    <div class="media">
-                        <a href="properties-details.html">
-                            <img src="https://via.placeholder.com/60x60" alt="sub-property-3">
-                        </a>
-                        <div class="media-body align-self-center">
-                            <h5>
-                                <a href="properties-details.html">Real Luxury Villa</a>
-                            </h5>
-                            <p>Apr 14, 2020 | $1420,000</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-                <div class="footer-item clearfix">
-                    <h4>Subscribe</h4>
-                    <div class="Subscribe-box">
-                        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.</p>
-                        <form action="#" method="GET">
-                            <p>
-                                <input type="text" class="form-contact" name="email" placeholder="Enter Address">
-                            </p>
-                            <p>
-                                <button type="submit" name="submitNewsletter" class="btn btn-block btn-color">
-                                    Subscribe
-                                </button>
-                            </p>
-                        </form>
-                    </div>
-                </div>
-            </div>
+            
         </div>
     </div>
     <div class="sub-footer">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-md-12">
-                    <p class="copy">© <?= date('Y') ?> <a href="#">Theme Vessel.</a> Trademarks and brands are the property of their respective owners.</p>
+                    <p class="copy">© <?= date('Y') ?> <a href="#"> Takaeh.</a> </p>
                 </div>
                 <div class="col-lg-4 col-md-12">
                     <ul class="social-list clearfix">
