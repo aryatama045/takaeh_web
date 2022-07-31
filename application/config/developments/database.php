@@ -74,12 +74,12 @@ $active_group = 'default';
 $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> '',
-	// 'hostname' => 'localhost',
+	'hostname' => 'localhost',
 	// 'username' => 'root',
 	// 'password' => '',
 	// 'database' => 'db_takaeh_setting',
 
-	'hostname' => '151.106.118.86',
+	// 'hostname' => '151.106.118.86',
 	'username' => 'u1272680',
 	// 'password' => 'u4G04v6j5-',
 	'password' => 'Kayogadang045!',
