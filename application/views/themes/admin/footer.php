@@ -9,6 +9,7 @@
                 <div class="row">
                     <div class="col-12 col-sm-6">
                         <p class="mb-0 text-muted">Copyright &copy; <?= date('Y') ?> All rights reserved.
+                        | <?= $_SERVER['HTTP_HOST'] ?> 
                         | <?= (ENVIRONMENT!='production')?ENVIRONMENT:""?>
                         | <b>CI </b> <?php echo CI_VERSION; ?></p></p>
                     </div>
