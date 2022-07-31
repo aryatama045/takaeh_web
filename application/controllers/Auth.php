@@ -220,7 +220,7 @@ class Auth extends Takaeh_Controller
         $req_uri = explode('/', $req_uri); // $req_uri = /myproject/backend
 
         $base_url = base_url();
-        tesx($base_url, $req_uri);
+        // tesx($base_url, $req_uri);
         if($base_url != 'http://localhost/'){
             $req_uri = $req_uri[1]; 
         } else {
