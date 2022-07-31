@@ -61,7 +61,7 @@
 		case 'takaeh.development':
 				$env = 'developments';
 				break;
-		case 'www.testing.takaeh.com':
+		case 'testing.takaeh.com':
 			$env = 'testing';
 			break;
 		case 'www.takaeh.com':
