@@ -58,7 +58,7 @@
 		case 'localhost':
 			$env = 'developments';
 			break;
-		case 'www.takaeh.development':
+		case 'www.takaehnew.rizkiaryatama.com':
 			$env = 'testing';
 			break;
 		case 'www.takaeh.com':

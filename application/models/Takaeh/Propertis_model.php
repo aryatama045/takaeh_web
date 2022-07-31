@@ -76,6 +76,19 @@ class Propertis_model extends CI_Model {
         {
             foreach($data->result_array() as $row)
             {
+                $url = FCPATH.'www/properties/'.$row['properties_cover'];
+
+                // tesx(file_exists($url));
+
+                if(file_exists($url)){
+
+                    $img = '<img data-original="'.base_url('www/properties/'.$row['properties_cover']).'" src="'.base_url('www/properties/'.$row['properties_cover']).'" alt="property-box" class="img-fluid">';
+                
+                } else {
+
+                    $img = '<img data-original="https://via.placeholder.com/350x250" src="https://via.placeholder.com/350x250" alt="property-box" class="img-fluid">';
+
+                }
 
                 $output .= '
                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -86,9 +99,11 @@ class Propertis_model extends CI_Model {
                                         <span class="featured">Featured</span>
                                     </div>
                                     <div class="tag-for">For Sale</div>
-                                    <div class="plan-price"><sup>$</sup>820<span>/month</span> </div>
-                                    <img data-original="https://place-hold.it/350x250" src="https://place-hold.it/350x250" alt="property-box" class="img-fluid">
-                                </a>
+                                    <div class="plan-price"><sup>$</sup>820<span>/month</span> </div>'
+                                    
+                                    .$img.
+
+                                '</a>
                                 <div class="property-overlay">
                                     <a href="properties-details.html" class="overlay-link">
                                         <i class="fa fa-link"></i>
@@ -97,17 +112,17 @@ class Propertis_model extends CI_Model {
                                         <i class="fa fa-video-camera"></i>
                                     </a>
                                     <div class="property-magnify-gallery">
-                                        <a href="https://place-hold.it/750x540" class="overlay-link">
+                                        <a href="https://via.placeholder.com/750x540" class="overlay-link">
                                             <i class="fa fa-expand"></i>
                                         </a>
-                                        <a href="https://place-hold.it/750x540"></a>
-                                        <a href="https://place-hold.it/750x540"></a>
+                                        <a href="https://via.placeholder.com/750x540"></a>
+                                        <a href="https://via.placeholder.com/750x540"></a>
                                     </div>
                                 </div>
                             </div>
                             <div class="detail">
                                 <h1 class="title" >
-                                    <a href="properties-details.html" title="'. $row['properties_title'] .'">'. character_limiter($row['properties_title'], '20') .'</a>
+                                    <a href="'.base_url('properti/detail/'.$row['properties_url']).'" title="'. $row['properties_title'] .'">'. character_limiter($row['properties_title'], '20') .'</a>
                                 </h1>
                                 <div class="location">
                                     <a href="properties-details.html">

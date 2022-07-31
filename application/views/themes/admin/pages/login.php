@@ -4,6 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
+    <!-- Favicon icon -->
+    <link rel="shortcut icon" href="<?= base_url()?>themes/takaeh/img/favicon.ico" type="image/x-icon" >
+
+    <!-- Google fonts -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800%7CPlayfair+Display:400,700%7CRoboto:100,300,400,400i,500,700">
+
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <link rel="stylesheet" href="<?= base_url('themes/admin/') ?>font/iconsmind-s/css/iconsminds.css" />

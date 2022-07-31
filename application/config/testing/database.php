@@ -72,21 +72,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $active_group = 'default';
 $query_builder = TRUE;
-
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => '192.168.10.84',
-	// 'hostname' => '192.168.11.218',
-	'username' => 'sa',
-	'password' => 'dualcore',
-	// 'hostname' => 'localhost',
-	// 'username' => 'root',
-	// 'password' => '',
-	'database' => 'inv_webot',
+	'hostname' => 'localhost',
+	'username' => 'root',
+	'password' => '',
+	'database' => 'db_takaeh_setting',
+
+	// 'hostname' => '151.106.118.86',
+	// 'username' => 'u1272680',
+	// 'password' => 'Kayogadang045!',
+	// 'database' => 'u1272680_takaeh_setting',
+
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
-	// 'option'   => array(PDO::ATTR_TIMEOUT => 5),
 	// 'db_debug' => (ENVIRONMENT !== 'production'),
 	'db_debug' => FALSE,
 	'cache_on' => FALSE,
@@ -101,31 +101,11 @@ $db['default'] = array(
 	'save_queries' => TRUE
 );
 
-# IP 221 Local Development
+$db['master'] 				= $db['default'];
+// $db['master']['database'] 	= 'u1272680_takaeh_master';
+$db['master']['database'] 	= 'db_takaeh_master';
 
-$db['hrd'] = $db['default'];
-$db['hrd']['hostname'] = '192.168.11.221';
-// $db['hrd']['hostname'] = '192.168.10.22';
-$db['hrd']['database'] = 'hrd_all';
-
-$db['hrd_save'] = $db['default'];
-// $db['hrd_save']['hostname'] = '192.168.10.22';
-$db['hrd_save']['hostname'] = '192.168.11.221';
-$db['hrd_save']['database'] = 'hrd_all';
-
-$db['db_akses'] = $db['default'];
-// $db['db_akses']['hostname'] = '192.168.10.22';
-$db['db_akses']['hostname'] = '192.168.11.221';
-$db['db_akses']['database'] = 'db_akses';
-
-$db['hrd_web_master'] = $db['default'];
-// $db['hrd_web_master']['hostname'] = '192.168.10.22';
-$db['hrd_web_master']['hostname'] = '192.168.11.221';
-$db['hrd_web_master']['database'] = 'hrd_web_master';
-
-
-$db['gl_mim'] = $db['default'];
-$db['gl_mim']['hostname'] = '192.168.11.221';
-// $db['gl_mim']['hostname'] = '192.168.10.22';
-$db['gl_mim']['database'] = 'gl_mim';
+$db['db_area'] 				= $db['default'];
+$db['db_area']['database'] 	= 'db_indonesia_area';
+// $db['db_area']['database'] 	= 'u1272680_indonesia_area';
 

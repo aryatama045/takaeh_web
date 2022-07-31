@@ -23,8 +23,8 @@ date_default_timezone_set('Asia/Jakarta');
 | a PHP script and you can easily do that on your own.
 |
 */
-// $config['base_url'] = 'http://'.$_SERVER['HTTP_HOST'].'/hrd_cuti/';
-$config['base_url'] = 'https://cuti.ots.web.id/';
+
+$config['base_url'] = 'https://takaeh.com/';
 /*
 |--------------------------------------------------------------------------
 | Index File

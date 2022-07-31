@@ -5,7 +5,7 @@
             <h1>Property Detail</h1>
             <ul class="breadcrumbs">
                 <li><a href="index.html">Home</a></li>
-                <li class="active">Property Detail</li>
+                <li class="active"><?= $url ?></li>
             </ul>
         </div>
     </div>

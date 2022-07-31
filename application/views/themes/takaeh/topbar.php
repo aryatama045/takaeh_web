@@ -12,13 +12,31 @@
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-5">
-                <ul class="top-social-media pull-right">
+                <ul class="top-social-media pull-right ">
+                    <?php if(isset($_SESSION['user']['email'])){ ?>
+                        <li>
+                            <a class="open-offcanvas" href="#">
+                                <i class="fa fa-user"></i> <?php echo $_SESSION['user']['email']  ?>
+                            </a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                                <a class="open-offcanvas nav-link" href="#">
+                                    <span></span>
+                                    <span class="fa fa-bars"></span>
+                                </a>
+                        </li>
+
+
+                    <?php } else { ?>
                     <li>
-                        <a href="login.html" class="sign-in"><i class="fa fa-sign-in"></i> Login </a>
+                        <a href="<?= base_url('login') ?>" class="sign-in"><i class="fa fa-sign-in"></i> Login </a>
                     </li>
                     <li>
-                        <a href="login.html" class="sign-in"><i class="fa fa-user"></i> Register</a>
+                        <a href="<?= base_url('register') ?>" class="sign-in"><i class="fa fa-user"></i> Register</a>
                     </li>
+                    
+                    <?php } ?>
                 </ul>
             </div>
         </div>

@@ -384,10 +384,10 @@
                     </div>
 
                     <div class="col-4">
-                        <h5 class="card-title">Status Release</h5>
+                        <h5 class="with-border m-t-lg">Status Release</h5>
                         <div class="checkbox-detailed">
-                            <input value="1" type="radio" name="properties_active" id="check-det-1" checked/>
-                            <label for="check-det-1">
+                            <input value="1" type="radio" name="properties_active" id="check-det-sr" checked/>
+                            <label for="check-det-sr">
                             <span class="checkbox-detailed-tbl">
                                 <span class="checkbox-detailed-cell">
                                     <span class="checkbox-detailed-title">Publish</span>
@@ -396,8 +396,8 @@
                             </label>
                         </div>
                         <div class="checkbox-detailed">
-                            <input value="0" type="radio" name="properties_active" id="check-det-2"/>
-                            <label for="check-det-2">
+                            <input value="0" type="radio" name="properties_active" id="check-det-sr2"/>
+                            <label for="check-det-sr2">
                             <span class="checkbox-detailed-tbl">
                                 <span class="checkbox-detailed-cell">
                                     <span class="checkbox-detailed-title">Draft</span>

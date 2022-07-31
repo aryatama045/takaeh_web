@@ -85,11 +85,11 @@
                                             <div class="search-area search-area-6">
                                                 <div class="search-area-inner">
                                                     <div class="search-contents">
-                                                        <form method="GET">
+                                                        <form action="<?= base_url('properti') ?>" method="post">
                                                             <div class="row">
                                                                 <div class="col-lg-4 col-md-12 col-sm-12 col-xs-6 col-pad2">
                                                                     <div class="form-group">
-                                                                        <input type="text" name="name" class="search-fields sf2 fc2" placeholder="Enter Keyword">
+                                                                        <input type="text" name="title" class="search-fields sf2 fc2" placeholder="Enter Keyword">
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-lg-2 col-md-12 col-sm-12 col-xs-6 col-pad2">
@@ -127,7 +127,7 @@
                                                                 </div>
                                                                 <div class="col-lg-2 col-md-12 col-sm-12 col-xs-6 col-pad2 cp3">
                                                                     <div class="form-group fg2">
-                                                                        <button class="search-button btn-md btn-color">Search</button>
+                                                                        <button type="submit" class="search-button btn-md btn-color">Search</button>
                                                                     </div>
                                                                 </div>
                                                             </div>

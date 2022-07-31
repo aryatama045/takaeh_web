@@ -52,6 +52,17 @@
                                             </select>
                                         </div>
                                     </div>
+                                    <div class="col-lg-2 col-md-12 col-sm-12 col-xs-6 col-pad2">
+                                        <div class="form-group">
+                                            <select class="selectpicker search-fields" name="make">
+                                                <option>Room</option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                     <div class="col-lg-2 col-md-12 col-sm-12 col-xs-6 col-pad2 cp3">
                                         <div class="form-group fg2">
                                             <button class="search-button btn-md btn-color">Search</button>
@@ -81,16 +92,16 @@
                                 <a href="properties-grid-rightside.html" class="change-view-btn active-view-btn"><i class="fa fa-th-large"></i></a>
                             </div>
                             <div class="search-area">
-                                <select class="selectpicker search-fields" name="location">
-                                    <option>High to Low</option>
-                                    <option>Low to High</option>
+                                <select class="selectpicker search-fields" id="pages" name="pages">
+                                    <option value="20" selected>20</option>
+                                    <option value="50">50</option>
                                 </select>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="subtitle">
+                <div class="subtitle" id="total_data">
                     20 Result Found
                 </div>
 
@@ -147,6 +158,7 @@
             var title   = $('#title').val();
             var tipe    = $('#tipe').val();
             var lokasi  = $('#lokasi').val();
+            var pages    = $('#pages').val();
 
             // var ram = get_filter('ram');
             // var storage = get_filter('storage');
@@ -154,9 +166,10 @@
                 url: base_url + "properti/fetch_data/" + page,
                 method: "POST",
                 dataType: "JSON",
-                data: { action: action, title: title, lokasi: lokasi, tipe: tipe, },
+                data: { action: action, title: title, lokasi: lokasi, tipe: tipe, pages:pages },
                 success: function(data) {
                     $('.filter_data').html(data.properti_list);
+                    $('#total_data').html(data.total_data);
                     $('#pagination_link').html(data.pagination_link);
                 }
             })
@@ -178,9 +191,9 @@
             filter_data(1);
         }));
 
-        // $('#title').on('keyup', function(event) { // for text boxes
-        //     filter_data(1);
-        // });
+        $('#pages').on('change', function(event) { // for text boxes
+            filter_data(1);
+        });
 
 
         function get_filter(class_name) {

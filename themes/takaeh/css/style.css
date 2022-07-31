@@ -1685,7 +1685,7 @@ a {
 /** SUB BANNER **/
 
 .sub-banner {
-    background: rgba(0, 0, 0, 0.04) url(https://via.placeholder.com/1920x400) top left repeat;
+    background: rgba(0, 0, 0, 0.04) url(../../../assets/banner/sub-banner.png) top left repeat;
     background-size: cover;
     height: 400px;
     background-position: center center;

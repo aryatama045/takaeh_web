@@ -11,7 +11,7 @@
                     $menu = get_main_menu($group_id); ?>
                 <nav class="navbar navbar-expand-lg navbar-light rounded">
                     <a class="navbar-brand logo" href="<?= base_url() ?>">
-                        <img src="<?= base_url()?>assets/logo/black-logo.png" alt="logo">
+                        <img src="<?= base_url()?>assets/logo/logo-white.png" alt="logo">
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="fa fa-bars"></span>
@@ -68,13 +68,19 @@
                             <?php endif; ?>
                         <?php } ?>
 
+                        <li class="nav-item dropdown">
+                            <a href="#full-page-search" class="nav-link">
+                                <i class="fa fa-search"></i>
+                            </a>
+                        </li>
 
 
-                            <li class="nav-item sb2">
+
+                            <!-- <li class="nav-item sb2">
                                 <a  href="submit-property.html" class="submit-btn">
                                     Submit Property
                                 </a>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                 </nav>

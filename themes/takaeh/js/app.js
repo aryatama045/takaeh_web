@@ -44,13 +44,13 @@ $(function() {
             } else {
                 $('.sticky-header').removeClass('header-shrink');
                 if ($('.do-sticky').length < 1 && $('.fixed-header').length == 0 && $('.fixed-header2').length == 0) {
-                    $('.logo img').attr('src', base_url + 'assets/logo/black-logo.png');
+                    $('.logo img').attr('src', base_url + 'assets/logo/logo-white.png');
                 } else {
                     $('.logo img').attr('src', base_url + 'assets/logo/black-logo.png');
                 }
             }
         } else {
-            $('.logo img').attr('src', base_url + 'assets/logo/black-logo.png');
+            $('.logo img').attr('src', base_url + 'assets/logo/logo-white.png');
         }
     }
 
@@ -165,24 +165,24 @@ $(function() {
     });
 
     // Full  Page Search Activation
-    $(function() {
-        $('a[href="#full-page-search"]').on('click', function(event) {
-            event.preventDefault();
-            $('#full-page-search').addClass('open');
-            $('#full-page-search > form > input[type="search"]').focus();
-        });
+    // $(function() {
+    //     $('a[href="#full-page-search"]').on('click', function(event) {
+    //         event.preventDefault();
+    //         $('#full-page-search').addClass('open');
+    //         $('#full-page-search > form > input[name="title"]').focus();
+    //     });
 
-        $('#full-page-search, #full-page-search button.close').on('click keyup', function(event) {
-            if (event.target === this || event.target.className === 'close' || event.keyCode === 27) {
-                $(this).removeClass('open');
-            }
-        });
+    //     $('#full-page-search, #full-page-search button.close').on('click keyup', function(event) {
+    //         if (event.target === this || event.target.className === 'close' || event.keyCode === 27) {
+    //             $(this).removeClass('open');
+    //         }
+    //     });
 
-        $('form').submit(function(event) {
-            event.preventDefault();
-            return false;
-        })
-    });
+    //     $('form').submit(function(event) {
+    //         event.preventDefault();
+    //         return false;
+    //     })
+    // });
 
 
 

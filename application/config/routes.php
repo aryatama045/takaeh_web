@@ -62,3 +62,7 @@ $route['home']          = 'takaeh/home';
 // $route['properti']      = 'properti/index';
 // $route['properti/(:any)']   = 'takaeh/properti/index/$1';
 // $route['properti/page/(:any)']	='takaeh/properti/index/$1';
+
+$route['login']         = 'auth';
+$route['register']      = 'auth/register';
+$route['forgot']        = 'auth/forgotPassword';

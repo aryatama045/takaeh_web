@@ -1,39 +1,43 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Auth extends CI_Controller
+class Auth extends Takaeh_Controller
 {
-    public function __construct()
-    {
-        parent::__construct();
-        $this->load->model('Website_model');
-    }
+    // public function __construct()
+    // {
+    //     parent::__construct();
+    //     $this->load->model('Website_model');
+    // }
 
     public function index()
     {
-        if ($this->session->userdata('email')) {
-            redirect('dashboard');
-        }
+        // if ($this->session->userdata('email')) {
+        //     redirect('home');
+        // }
 
-        $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
+        $this->form_validation->set_rules('email', 'Email', 'trim|required');
         $this->form_validation->set_rules('password', 'Password', 'trim|required');
+
+
 
         if ($this->form_validation->run() == false) {
             $data['title'] = 'Login Page';
-            $this->load->view('themes/admin/pages/login', $data);
-            // $this->load->view('auth/login');
-            // $this->load->view('themes/admin/auth_footer');
+            $this->templates_public('themes/takaeh/pages/login', $data);
+            
         } else {
             // validasinya success
             $this->_login();
+            
         }
     }
 
 
-    private function _login()
+    public function _login()
     {
         $email = $this->input->post('email');
         $password = $this->input->post('password');
+
+        // tesx($email,$password);
 
         $user = $this->db->get_where('user', ['email' => $email])->row_array();
 
@@ -47,28 +51,28 @@ class Auth extends CI_Controller
                         'email' => $user['email'],
                         'role_id' => $user['role_id']
                     ];
-                    $this->session->set_userdata($data);
-                    redirect('dashboard');
+                    $this->session->set_userdata('user',$data);
+                    redirect('home');
                 } else {
                     $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Wrong password!</div>');
-                    redirect('admin-login');
+                    redirect('login');
                 }
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">This email has not been activated!</div>');
-                redirect('admin-login');
+                redirect('login');
             }
         } else {
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Email is not registered!</div>');
-            redirect('admin-login');
+            redirect('login');
         }
     }
 
 
-    public function registration()
+    public function register()
     {
-        if ($this->session->userdata('email')) {
-            redirect('user');
-        }
+        // if ($this->session->userdata('email')) {
+        //     redirect('user');
+        // }
 
         $this->form_validation->set_rules('name', 'Name', 'required|trim');
         $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[user.email]', [
@@ -81,10 +85,8 @@ class Auth extends CI_Controller
         $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password1]');
 
         if ($this->form_validation->run() == false) {
-            $data['title'] = 'WPU User Registration';
-            $this->load->view('themes/admin/auth_header', $data);
-            $this->load->view('auth/registration');
-            $this->load->view('themes/admin/auth_footer');
+            $data['title'] = 'User Registration';
+            $this->templates_public('themes/takaeh/pages/register', $data);
         } else {
             $email = $this->input->post('email', true);
             $data = [
@@ -259,9 +261,7 @@ class Auth extends CI_Controller
 
         if ($this->form_validation->run() == false) {
             $data['title'] = 'Forgot Password';
-            $this->load->view('themes/admin/auth_header', $data);
-            $this->load->view('auth/forgot-password');
-            $this->load->view('themes/admin/auth_footer');
+            $this->templates_public('themes/takaeh/pages/forgot_password', $data);
         } else {
             $email = $this->input->post('email');
             $user = $this->db->get_where('user', ['email' => $email, 'is_active' => 1])->row_array();
@@ -278,10 +278,10 @@ class Auth extends CI_Controller
                 $this->_sendEmail($token, 'forgot');
 
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Please check your email to reset your password!</div>');
-                redirect('auth/forgotpassword');
+                redirect('forgot');
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Email is not registered or activated!</div>');
-                redirect('auth/forgotpassword');
+                redirect('forgot');
             }
         }
     }

@@ -92,6 +92,9 @@ class Properti extends Takaeh_Controller {
 		$title 		= $this->input->post('title');
 		$lokasi 	= $this->input->post('lokasi');
 		$tipe 		= $this->input->post('tipe');
+		$pages 		= $this->input->post('pages');
+
+		// tesx($pages);
 
 		$total		= $this->mPropertis->count_all($title, $tipe, $lokasi);
 
@@ -99,7 +102,7 @@ class Properti extends Takaeh_Controller {
 		$config = array();
 		$config['base_url'] = '#';
 		$config['total_rows'] 	= $total;
-		$config['per_page'] 	= 15;
+		$config['per_page'] 	= $pages;
 		$config['uri_segment'] 	= 3;
 		$config['use_page_numbers'] = TRUE;
 
@@ -130,6 +133,7 @@ class Properti extends Takaeh_Controller {
 		$page 		= $this->uri->segment(3);
 		$start	 	= ($page - 1) * $config['per_page'];
 		$output 	= array(
+			'total_data'		=> $total,
 			'pagination_link'  	=> $this->pagination->create_links(),
 			'properti_list'  	=> $this->mPropertis->fetch_data($config["per_page"], $start, $title, $tipe, $lokasi)
 		);
@@ -145,10 +149,10 @@ class Properti extends Takaeh_Controller {
 	}
 
 
-    public function detail()
+    public function detail($url)
 	{
-
-        $this->templates_public('takaeh/properti/detail');
+		$data['url'] = $url;
+        $this->templates_public('takaeh/properti/detail',$data);
 	}
 
 

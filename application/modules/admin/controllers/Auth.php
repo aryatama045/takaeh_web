@@ -1,4 +1,5 @@
-<?php defined('BASEPATH') or exit('No direct script access allowed');
+<?php
+defined('BASEPATH') or exit('No direct script access allowed');
 
 class Auth extends CI_Controller
 {
@@ -20,6 +21,8 @@ class Auth extends CI_Controller
         if ($this->form_validation->run() == false) {
             $data['title'] = 'Login Page';
             $this->load->view('themes/admin/pages/login', $data);
+            // $this->load->view('auth/login');
+            // $this->load->view('themes/admin/auth_footer');
         } else {
             // validasinya success
             $this->_login();
@@ -29,23 +32,20 @@ class Auth extends CI_Controller
 
     private function _login()
     {
-        $email      = $this->input->post('email');
-        $password   = $this->input->post('password');
+        $email = $this->input->post('email');
+        $password = $this->input->post('password');
 
-        // $user   = $this->Website_model->getSessionUser();
-        $user = $this->db->get_where('user',['email' =>$email])->row_array();
+        $user = $this->db->get_where('user', ['email' => $email])->row_array();
 
-        // tesx($user);
         // jika usernya ada
         if ($user) {
             // jika usernya aktif
             if ($user['is_active'] == 1) {
-
                 // cek password
                 if (password_verify($password, $user['password'])) {
                     $data = [
-                        'email'     => $user['email'],
-                        'role_id'   => $user['role_id']
+                        'email' => $user['email'],
+                        'role_id' => $user['role_id']
                     ];
                     $this->session->set_userdata($data);
                     redirect('dashboard');
@@ -67,7 +67,7 @@ class Auth extends CI_Controller
     public function registration()
     {
         if ($this->session->userdata('email')) {
-            redirect('dashboard');
+            redirect('user');
         }
 
         $this->form_validation->set_rules('name', 'Name', 'required|trim');
@@ -81,12 +81,10 @@ class Auth extends CI_Controller
         $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password1]');
 
         if ($this->form_validation->run() == false) {
-            $data['title'] = 'Registration';
-            $this->load->view('themes/admin/header');
-            $this->load->view('themes/admin/pages/registration', $data);
-            $this->load->view('themes/admin/footer');
-
-            // themes/admin/pages/login
+            $data['title'] = 'WPU User Registration';
+            $this->load->view('themes/admin/auth_header', $data);
+            $this->load->view('auth/registration');
+            $this->load->view('themes/admin/auth_footer');
         } else {
             $email = $this->input->post('email', true);
             $data = [
@@ -110,15 +108,15 @@ class Auth extends CI_Controller
             $this->db->insert('user', $data);
             $this->db->insert('user_token', $user_token);
 
-            $this->_sendEmail($token, $email, 'verify');
+            $this->_sendEmail($token, 'verify');
 
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Congratulation! your account has been created. Please activate your account</div>');
-            redirect('admin-registrasi');
+            redirect('auth');
         }
     }
 
 
-    private function _sendEmail($token, $email, $type)
+    private function _sendEmail($token, $type)
     {
         $config = [
             'protocol'  => 'smtp',
@@ -203,12 +201,11 @@ class Auth extends CI_Controller
 
     public function blocked()
     {
-        $data['title'] = 'My Profile';
-        $data['linkM']  = 'User';
-        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['title']  = 'My Profile';
+        $data['user']   = $this->Website_model->getSessionUser();
 
         $this->load->view('themes/admin/header', $data);
-        $this->load->view('themes/admin/sidebar', $data);
+        // $this->load->view('themes/admin/sidebar', $data);
         $this->load->view('themes/admin/topbar', $data);
         $this->load->view('themes/admin/pages/blocked', $data);
         $this->load->view('themes/admin/footer', $data);
@@ -217,33 +214,40 @@ class Auth extends CI_Controller
     public function page404()
     {
 
-        $req_uri = $_SERVER['REQUEST_URI'];     // $req_uri = /myproject/backend
+        $req_uri = $_SERVER['REQUEST_URI'];
+        // $req_uri = /myproject/backend
         $req_uri = explode('/', $req_uri);
-        $req_uri = $req_uri[2];                 // $req_uri[2] = backend
+
+        $base_url = base_url();
+        // tesx($base_url, $req_uri);
+        if($base_url == 'http://takaeh.development/'){
+           $req_uri = $req_uri[1]; 
+        } else {
+           $req_uri = $req_uri[3];  
+        }
+        
 
         // tesx($req_uri);
 
-        if($req_uri == 'admin' || $req_uri == 'propertis' || $req_uri == 'user' || $req_uri == 'feature' ){
+        if($req_uri == 'admin' || $req_uri == 'properties' || $req_uri == 'user' || $req_uri == 'feature' ){
             $data['title'] = 'Page 404';
             $data['linkM']  = 'Not Found';
-            $data['user']     = $this->db->get_where('user',
-			['email' => $this->session->userdata('email')])->row_array();
+            $data['user']   = $this->Website_model->getSessionUser();
 
             $this->load->view('themes/admin/header', $data);
-            $this->load->view('themes/admin/sidebar', $data);
+            // $this->load->view('themes/admin/sidebar', $data);
             $this->load->view('themes/admin/topbar', $data);
             $this->load->view('themes/admin/pages/page404', $data);
-            $this->load->view('themes/admin/footer', $data);
-            // Not found controller for backend
+            $this->load->view('themes/admin/footer', $data);      // Not found controller for backend
         }else {
             $data['title'] = 'Page 404';
-            $data['linkM']  = 'Not Found';
-            $this->load->view('themes/public/header',$data);
-			$this->load->view('themes/public/sidebar',$data);
-			$this->load->view('themes/public/topbar',$data);
-			$this->load->view('themes/admin/pages/public_404', $data);
-			$this->load->view('themes/public/footer',$data);
-            // Not found controller for frontend
+
+            $this->load->view('themes/takaeh/header',$data);
+			$this->load->view('themes/takaeh/topbar',$data);
+			$this->load->view('themes/takaeh/menu_header',$data);
+			$this->load->view('themes/takaeh/pages/page404', $data);
+			$this->load->view('themes/takaeh/footer',$data);
+                // Not found controller for frontend
         }
 
     }
@@ -255,9 +259,9 @@ class Auth extends CI_Controller
 
         if ($this->form_validation->run() == false) {
             $data['title'] = 'Forgot Password';
-            $this->load->view('themes/admin-login_header', $data);
+            $this->load->view('themes/admin/auth_header', $data);
             $this->load->view('auth/forgot-password');
-            $this->load->view('themes/admin-login_footer');
+            $this->load->view('themes/admin/auth_footer');
         } else {
             $email = $this->input->post('email');
             $user = $this->db->get_where('user', ['email' => $email, 'is_active' => 1])->row_array();
@@ -318,9 +322,9 @@ class Auth extends CI_Controller
 
         if ($this->form_validation->run() == false) {
             $data['title'] = 'Change Password';
-            $this->load->view('themes/admin-login_header', $data);
+            $this->load->view('themes/admin/auth_header', $data);
             $this->load->view('auth/change-password');
-            $this->load->view('themes/admin-login_footer');
+            $this->load->view('themes/admin/auth_footer');
         } else {
             $password = password_hash($this->input->post('password1'), PASSWORD_DEFAULT);
             $email = $this->session->userdata('reset_email');
