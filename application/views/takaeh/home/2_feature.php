@@ -6,6 +6,7 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
         <div class="row slick-fullwidth wow fadeInUp delay-04s">
+            
             <div class="slick-slide-item">
                 <div class="property-box">
                     <div class="property-thumbnail">
