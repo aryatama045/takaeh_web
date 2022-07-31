@@ -8,7 +8,7 @@ class Properti extends Takaeh_Controller {
         parent::__construct();
         // is_logged_in();
         $this->load->model('takaeh/properti_model','mProperti');
-		$this->load->model('takaeh/propertis_model','mPropertis');
+		$this->load->model('Takaeh/Propertis_model','mPropertis');
 
     }
 
