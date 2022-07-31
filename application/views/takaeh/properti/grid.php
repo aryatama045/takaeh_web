@@ -9,8 +9,6 @@
                 <?php $link=$this->uri->segment(2); if(isset($link)) { ?>
                 <li class="active"><?= ucfirst($this->uri->segment(2)) ?></li><?php } ?>
 
-                <?= $_SERVER['HTTP_HOST'] ?>
-                <?= isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'developments' ?>
             </ul>
         </div>
     </div>
