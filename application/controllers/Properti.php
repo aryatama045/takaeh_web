@@ -9,7 +9,6 @@ class Properti extends Takaeh_Controller {
         // is_logged_in();
         $this->load->model('Takaeh/Properti_model','mProperti');
 		$this->load->model('Takaeh/Propertis_model','mPropertis');
-
     }
 
 	/**
