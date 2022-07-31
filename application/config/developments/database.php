@@ -74,15 +74,15 @@ $active_group = 'default';
 $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'db_takaeh_setting',
+	// 'hostname' => 'localhost',
+	// 'username' => 'root',
+	// 'password' => '',
+	// 'database' => 'db_takaeh_setting',
 
-	// 'hostname' => '151.106.118.86',
-	// 'username' => 'u1272680',
-	// 'password' => 'Kayogadang045!',
-	// 'database' => 'u1272680_takaeh_setting',
+	'hostname' => '151.106.118.86',
+	'username' => 'u1272680',
+	'password' => 'Kayogadang045!',
+	'database' => 'u1272680_takaeh_setting',
 
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
@@ -102,9 +102,9 @@ $db['default'] = array(
 );
 
 $db['master'] 				= $db['default'];
-// $db['master']['database'] 	= 'u1272680_takaeh_master';
-$db['master']['database'] 	= 'db_takaeh_master';
+$db['master']['database'] 	= 'u1272680_takaeh_master';
+// $db['master']['database'] 	= 'db_takaeh_master';
 
 $db['db_area'] 				= $db['default'];
-$db['db_area']['database'] 	= 'db_indonesia_area';
-// $db['db_area']['database'] 	= 'u1272680_indonesia_area';
+$db['db_area']['database'] 	= 'u1272680_indonesia_area';
+// $db['db_area']['database'] 	= 'db_indonesia_area';
