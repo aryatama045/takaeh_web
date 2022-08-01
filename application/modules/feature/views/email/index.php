@@ -359,4 +359,4 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 
 
-<?php echo $this->load->assets('email', 'index', 'js');  ?>
+<?php echo $this->load->assetsadmin('email', 'index', 'js');  ?>
