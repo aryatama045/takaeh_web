@@ -1,5 +1,19 @@
 <?php defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 
+	require APPPATH . '/libraries/PhpImap/Mailbox.php';
+	require APPPATH . '/libraries/PhpImap/DataPartInfo.php';
+	require APPPATH . '/libraries/PhpImap/IncomingMailHeader.php';
+	require APPPATH . '/libraries/PhpImap/IncomingMail.php';
+	require APPPATH . '/libraries/PhpImap/IncomingMailAttachment.php';
+	require APPPATH . '/libraries/PhpImap/Exceptions/ConnectionException.php';
+
+	require APPPATH . '/libraries/PhpMailer/Exception.php';
+	require APPPATH . '/libraries/PhpMailer/PHPMailer.php';
+	require APPPATH . '/libraries/PhpMailer/SMTP.php';
+
+	require APPPATH . '/libraries/Html2Text/Html2Text.php';
+	require APPPATH . '/libraries/Html2Text/Html2TextException.php';
+
 
 	class MY_Controller extends CI_Controller
 	{
