@@ -193,12 +193,12 @@
                 </div>
             </div>
         </div>
-  
+
     </div>
 </div>
 
     <div id="preview" style="display: none;background-color: white" class="card shadow mb-4">
-    <div  class="card-body" > 
+    <div  class="card-body" >
         <div class="box box-primary"  >
             <div id="loader" style="display: none"></div>
             <div class = "row">
@@ -217,7 +217,7 @@
                     <div style="--aspect-ratio: 1/1; margin-top: -13px;" id="view_container">
                         <iframe
                                 id = "mail_view"
-                                src="<?php echo base_url();?>feature/email/getContent?mail_id=0&mailbox=INBOX"
+                                src="<?php echo base_url();?>email/getContent?mail_id=0&mailbox=INBOX"
                                 width="1600"
                                 height="900"
                                 frameborder="0"

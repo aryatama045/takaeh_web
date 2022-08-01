@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 use PhpImap\Exceptions\ConnectionException;
 
@@ -89,7 +89,7 @@ class Email extends Admin_Controller
 
         $data['title']    = 'Feature';
         $data['linkM']    = 'Message Email';
-        $this->template_admin('feature/email/index', $data);
+        $this->template_admin('email/index', $data);
     }
 
 
