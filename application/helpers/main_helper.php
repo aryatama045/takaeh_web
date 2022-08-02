@@ -124,11 +124,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         $difference = round($difference);
 
-        if($difference != 1) {
-            $periods[$j].= "s";
-        }
+        // if($difference != 1) {
+        //     $periods[$j].= "s";
+        // }
 
-        return "$difference $periods[$j] ago ";
+        return "$difference $periods[$j] ";
     }
 
     function selisih_jam($time, $now){

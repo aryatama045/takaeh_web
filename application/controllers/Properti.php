@@ -14,73 +14,14 @@ class Properti extends Takaeh_Controller {
 	/**
 	 * Index Page for this controller.
 	 */
-	public function index222()
-	{
-		$this->data = array(
-					'title'		=> 'Takaeh',
-					'page'		=> '-Properties');
-		// $agent = $this->session->userdata('name');
-		$jum	= $this->mProperties->get_properties();
-		$page	= $this->uri->segment(3);
-		if(!$page):
-			$off = 0;
-		else:
-			$off = $page;
-		endif;
-		$limit=18;
-		$offset = $off > 0 ? (($off - 1) * $limit) : $off;
-		$config['base_url'] = base_url() . 'properti/page/';
-		$config['total_rows'] = $jum->num_rows();
-		$config['per_page'] = $limit;
-		$config['uri_segment'] = 3;
-		$config['use_page_numbers']=TRUE;
-
-	    //Tambahan untuk styling
-        $config['full_tag_open']    = '<nav aria-label="Page navigation example"><ul class="pagination">';
-        $config['full_tag_close']   = '</ul></nav>';
-        $config['num_tag_open']     = '<li class="page-item"><span class="page-link">';
-        $config['num_tag_close']    = '</span></li>';
-        $config['cur_tag_open']     = '<li class="page-item active"><span class="page-link current">';
-        $config['cur_tag_close']    = '<span class="sr-only">(current)</span></span></li>';
-        $config['next_tag_open']    = '<li class="page-item"><span class="page-link">';
-        $config['next_tagl_close']  = '<span aria-hidden="true">&raquo;</span></span></li>';
-        $config['prev_tag_open']    = '<li class="page-item"><span class="page-link">';
-        $config['prev_tagl_close']  = '</span>Next</li>';
-        $config['first_tag_open']   = '<li class="page-item"><span class="page-link">';
-        $config['first_tagl_close'] = '</span></li>';
-        $config['last_tag_open']    = '<li class="page-item"><span class="page-link">';
-        $config['last_tagl_close']  = '</span></li>';
-
-		$config['first_link'] = 'First';
-		$config['last_link'] = 'Last';
-		$config['next_link'] = 'Next';
-		$config['prev_link'] = 'Prev';
-
-		$this->pagination->initialize($config);
-
-		$x = array(
-			'title'				=> 'Takaeh',
-			'properties'        => $this->mProperties->get_properties_perpage($offset,$limit),
-			'paginations'		=> $this->pagination->create_links(),
-			'page'				=> ' - Properties List'
-		);
-
-		// tesx($x);
-
-		// $this->template_takaeh('takaeh/properties/index', $x);
-		$this->templates_public('takaeh/properti/grid', $x);
-
-	}
-
 
 	function index()
 	{
 		$data['title_page']		= 'Properti';
 		$data['tipe'] 			= $this->mPropertis->properti_tipe();
-		// $data['ram_data'] 			= $this->mProperties->fetch_filter_type('product_ram');
-		// $data['product_storage'] 	= $this->mProperties->fetch_filter_type('product_storage');
 		$this->templates_public('takaeh/properti/grid', $data);
 	}
+
 
 	public function fetch_data()
 	{
@@ -141,7 +82,6 @@ class Properti extends Takaeh_Controller {
 	}
 
 
-
 	public function list()
 	{
 
@@ -151,8 +91,12 @@ class Properti extends Takaeh_Controller {
 
     public function detail($url)
 	{
-		$data['url'] = $url;
-        $this->templates_public('takaeh/properti/detail',$data);
+		$data['title_page']		= 'Detail Properti';
+		// $url= substr($url, 0, -5);
+
+		$data['detail'] 		= $this->mPropertis->detail_properti($url);
+		tesx($data, $url);
+		$this->templates_public('takaeh/properti/detail', $data);
 	}
 
 

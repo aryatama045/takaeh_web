@@ -22,6 +22,15 @@ class Propertis_model extends CI_Model {
         return $this->db->get();
     }
 
+    function detail_properti($url)
+    {
+        $this->master->select('*,');
+        $this->master->from('properties');
+        $this->master->where('properties_url', $url);
+        $query = $this->master->get();
+        return $query->row_array();
+    }
+
     function properti_tipe()
     {
         $this->master->select('*,');
@@ -65,8 +74,6 @@ class Propertis_model extends CI_Model {
 		// if($search_nama !== ""){
 		// 	$where_search_nama = "AND nama_lengkap LIKE '%".$search_nama."%'";
 		// }
-
-
         return $query;
     }
 
@@ -81,11 +88,14 @@ class Propertis_model extends CI_Model {
     {
         $query = $this->make_query($title, $tipe, $lokasi, $status);
 
-        $query .= ' LIMIT '.$start.', ' . $limit;
+        $query .= ' ORDER BY created_date DESC ';
+
+        $query .= ' LIMIT '.$start.', ' . $limit ;
 
         $data = $this->master->query($query);
 
         $output = '';
+
         if($data->num_rows() > 0)
         {
             foreach($data->result_array() as $row)
@@ -108,6 +118,8 @@ class Propertis_model extends CI_Model {
 
                     $harga= '<div class="plan-price"><sup>$</sup>820<span>/month</span> </div>';
 
+                    $date= $row['created_date'];
+
                 $output .= '
                     <div class="col-lg-4 col-md-6 col-sm-12">
                         <div class="property-box">
@@ -117,7 +129,7 @@ class Propertis_model extends CI_Model {
                                         <span class="featured">Featured</span>
                                     </div>
                                     '.$status.'
-                                    
+
                                     '.$img.'
                                 </a>
                                 <div class="property-overlay">
@@ -166,8 +178,9 @@ class Propertis_model extends CI_Model {
                                     <i class="fa fa-arrow-right"></i> Detail
                                 </a>
                                 <span>
-                                    <i class="fa fa-calendar-o"></i> 2 day ago
-                                </span>
+                                    <i class="fa fa-calendar-o"></i>'
+                                    .date('d-m-Y' ,$date).
+                                '</span>
                             </div>
                         </div>
                     </div>';
