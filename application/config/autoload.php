@@ -58,7 +58,7 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-$autoload['libraries'] = array('email', 'session', 'database','user_agent','form_validation','pagination', 'upload','uuid');
+$autoload['libraries'] = array('email', 'date', 'session', 'database','user_agent','form_validation','pagination', 'upload','uuid');
 
 
 /*
