@@ -36,7 +36,7 @@
                         <div class="active item carousel-item" data-slide-number="0">
                             <?php $cek = FCPATH.'www/properties/'.$detail['properties_cover'];
                                 if(file_exists($cek)) { ?>
-                                <img src="<?= $cek ?>" class="img-fluid" alt="property-0">
+                                <img src="<?= base_url('www/properties/'.$detail['properties_cover']) ?>" class="img-fluid" alt="property-0">
                             <?php } else { ?>
                                 <img src="https://via.placeholder.com/1350x650" class="img-fluid" alt="property-0">
                             <?php } ?>
@@ -44,9 +44,9 @@
 
                         <?php $no=0; foreach($slider as $s) { $no++;
                             $cekimg1 = FCPATH.'www/properties/sliders/'.$s['photo_slider'];
-                            if(file_exists($cekimg)) { ?>
+                            if(file_exists($cekimg1)) { ?>
                                 <div class="item carousel-item" data-slide-number="<?= $no ?>">
-                                    <img src="<?= $cekimg1 ?>" class="img-fluid" alt="property-<?= $no?>">
+                                    <img src="<?= base_url('www/properties/sliders/'.$s['photo_slider']) ?>" class="img-fluid" alt="property-<?= $no?>">
                                 </div>
                             <?php } else { ?>
                                 <div class="item carousel-item" data-slide-number="<?= $no ?>">
@@ -62,9 +62,9 @@
                     <ul class="carousel-indicators smail-properties list-inline nav nav-justified">
                         <li class="list-inline-item active">
                             <a id="carousel-selector-0" class="selected" data-slide-to="0" data-target="#propertiesDetailsSlider">
-                            <?php $cekimg = FCPATH.'www/properties/'.$detail['properties_cover'];
-                                if(file_exists($cekimg)) { ?>
-                                <img src="<?= $cekimg ?>" class="img-fluid" alt="property-0">
+                            <?php $cek2 = FCPATH.'www/properties/'.$detail['properties_cover'];
+                                if(file_exists($cek2)) { ?>
+                                <img src="<?= base_url('www/properties/'.$detail['properties_cover']) ?>" class="img-fluid" alt="property-0">
                             <?php } else { ?>
                                 <img src="https://via.placeholder.com/350x250" class="img-fluid" alt="property-0">
                             <?php } ?>
@@ -76,7 +76,7 @@
                             if(file_exists($cekimg2)) { ?>
                                 <li class="list-inline-item">
                                     <a id="carousel-selector-<?= $no ?>" data-slide-to="<?= $no ?>" data-target="#propertiesDetailsSlider">
-                                        <img src="<?= $cekimg2 ?>" class="img-fluid" alt="property-<?= $no ?>">
+                                        <img src="<?= base_url('www/properties/sliders/'.$s['photo_slider']) ?>" class="img-fluid" alt="property-<?= $no ?>">
                                     </a>
                                 </li>
                             <?php } else { ?>
