@@ -3,11 +3,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Auth extends Takaeh_Controller
 {
-    // public function __construct()
-    // {
-    //     parent::__construct();
-    //     $this->load->model('Website_model');
-    // }
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('Website_model');
+    }
 
     public function index()
     {
@@ -222,11 +222,11 @@ class Auth extends Takaeh_Controller
         $base_url = base_url();
         // tesx($base_url, $req_uri);
         if($base_url != 'http://localhost/'){
-            $req_uri = $req_uri[1]; 
+            $req_uri = $req_uri[1];
         } else {
-            $req_uri = $req_uri[3]; 
+            $req_uri = $req_uri[3];
         }
-        
+
 
         // tesx($req_uri);
 

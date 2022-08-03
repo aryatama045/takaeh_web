@@ -156,7 +156,7 @@
                                                     <tbody>
                                                         <tr>
                                                             <th><p class="text-muted text-small">Nama Lengkap</p></th>
-                                                            <td><p class="font-weight-bold text-small"><?= $biodata['nama_lengkap'] ?></p></td>
+                                                            <td><p class="font-weight-bold text-small"> Test</p></td>
                                                         </tr>
                                                         <tr>
                                                             <th><p class="text-muted text-small">Tempat Tanggal Lahir</p></th>
