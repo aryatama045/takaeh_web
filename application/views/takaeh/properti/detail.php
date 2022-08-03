@@ -43,7 +43,7 @@
                         </div>
 
                         <?php $no=0; foreach($slider as $s) { $no++;
-                            $cekimg = FCPATH.'www/properties/slider/'.$s['photo_slider'];
+                            $cekimg = FCPATH.'www/properties/sliders/'.$s['photo_slider'];
                             if(file_exists($cekimg)) { ?>
                                 <div class="item carousel-item" data-slide-number="<?= $no ?>">
                                     <img src="<?= $s['photo_slider'] ?>" class="img-fluid" alt="property-<?= $no?>">
@@ -72,7 +72,7 @@
                         </li>
 
                         <?php $no=0; foreach($slider as $s) { $no++;
-                            $cekimg = FCPATH.'www/properties/slider/'.$s['photo_slider'];
+                            $cekimg = FCPATH.'www/properties/sliders/'.$s['photo_slider'];
                             if(file_exists($cekimg)) { ?>
                                 <li class="list-inline-item">
                                     <a id="carousel-selector-<?= $no ?>" data-slide-to="<?= $no ?>" data-target="#propertiesDetailsSlider">
