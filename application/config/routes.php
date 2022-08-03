@@ -52,7 +52,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 $route['default_controller']    = 'home';
-$route['home']                  = 'takaeh/home';
 $route['404_override']          = 'auth/page404';
 $route['translate_uri_dashes']  = FALSE;
 
