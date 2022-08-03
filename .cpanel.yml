@@ -1,9 +1,9 @@
 
- 
-# deployment:
- 
-#  tasks:
- 
-- export DEPLOYPATH=/home/u1272680/public_html/takaehnew2
+
+deployment:
+
+tasks:
+
+- export DEPLOYPATH=/home/u1272680/public_html/takaeh_testing
  
 #  - /usr/bin/rsync -Paz * $DEPLOYPATH --delete
