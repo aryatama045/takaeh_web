@@ -9,7 +9,7 @@
                     <div class="carousel-caption banner-slider-inner d-flex h-100 text-center">
                         <div class="carousel-content container b1-inner">
                             <div class="tab-search-section">
-                                <h1>Find Your Dream Properties</h1>
+                                <h1>Finds Your Dream Properties</h1>
                                 <div id="typed-strings">
                                     <p>Find new & featured property located in your local city.</p>
                                 </div>
