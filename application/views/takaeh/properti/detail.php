@@ -246,7 +246,7 @@
                                                 <strong>Property Id:</strong> <b></b>  215
                                             </li>
                                             <li>
-                                                <strong>Harga:</strong>  <b><?= $detail['properties_harga'] ?></b>
+                                                <strong>Harga:</strong>  <b><?= nominal($detail['properties_harga']) ?></b>
                                             </li>
                                             <li>
                                                 <strong>Property Type:</strong> <b><?= $detail['properties_tipe'] ?></b>
