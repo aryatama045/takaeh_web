@@ -243,7 +243,7 @@
                                     <div class="col-md-4 col-sm-6">
                                         <ul>
                                             <li>
-                                                <strong>Property Id:</strong> <b></b>  215
+                                                <strong>Property Id:</strong> <b><?= $detail['id_properties'] ?></b>
                                             </li>
                                             <li>
                                                 <strong>Harga:</strong>  <b><?= nominal($detail['properties_harga']) ?></b>
