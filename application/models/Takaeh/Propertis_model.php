@@ -13,22 +13,24 @@ class Propertis_model extends CI_Model {
         $this->area 	= $this->load->database('db_area',TRUE);
     }
 
-    function fetch_filter_type($type)
-    {
-        $this->db->distinct();
-        $this->db->select($type);
-        $this->db->from('product');
-        $this->db->where('product_status', '1');
-        return $this->db->get();
-    }
-
     function detail_properti($url)
     {
-        $this->master->select('*,');
-        $this->master->from('properties');
-        $this->master->where('properties_url', $url);
+        $this->master->select('a.*, ');
+        $this->master->from('properties a');
+        $this->master->where('a.properties_url', $url);
         $query = $this->master->get();
         return $query->row_array();
+    }
+
+    function slider_properti($url)
+    {
+        $this->master->select('a.*,');
+        $this->master->from('properties_slider a');
+        $this->master->join('properties b','a.id_properties = b.id_properties','LEFT');
+        $this->master->where('b.properties_url', $url);
+        $this->master->order_by('a.id_properties_slider', 'ASC');
+        $query = $this->master->get();
+        return $query->result_array();
     }
 
     function properti_tipe()

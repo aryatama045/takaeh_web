@@ -4,8 +4,7 @@
         <div class="breadcrumb-area">
             <h1>Property Detail</h1>
             <ul class="breadcrumbs">
-                <li><a href="index.html">Home</a></li>
-                <li class="active"><?= $url ?></li>
+                <li class="active"><?= $detail['properties_title'] ?></li>
             </ul>
         </div>
     </div>
@@ -22,33 +21,41 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="pull-left">
-                                    <h3>Beautiful Single Home</h3>
-                                    <p><i class="fa fa-map-marker"></i> 20/F Green Road, Dhanmondi, Dhaka</p>
+                                    <h3><?= $detail['properties_title'] ?></h3>
+                                    <p><i class="fa fa-map-marker"></i> <?= $detail['properties_alamat'] ?></p>
                                 </div>
-                                <div class="p-r">
+                                <!-- <div class="p-r">
                                     <h3>$420,00</h3>
                                     <p><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></p>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
                     <!-- main slider carousel items -->
                     <div class="carousel-inner">
                         <div class="active item carousel-item" data-slide-number="0">
-                            <img src="https://via.placeholder.com/730x486" class="img-fluid" alt="property-4">
+                            <?php $cekimg = FCPATH.'www/properties/'.$detail['properties_cover'];
+                                if(file_exists($cekimg)) { ?>
+                                <img src="<?= $detail['properties_cover'] ?>" class="img-fluid" alt="property-0">
+                            <?php } else { ?>
+                                <img src="https://via.placeholder.com/1350x650" class="img-fluid" alt="property-0">
+                            <?php } ?>
                         </div>
-                        <div class="item carousel-item" data-slide-number="1">
-                            <img src="https://via.placeholder.com/730x486" class="img-fluid" alt="property-6">
-                        </div>
-                        <div class="item carousel-item" data-slide-number="2">
-                            <img src="https://via.placeholder.com/730x486" class="img-fluid" alt="property-1">
-                        </div>
-                        <div class="item carousel-item" data-slide-number="4">
-                            <img src="https://via.placeholder.com/730x486" class="img-fluid" alt="property-5">
-                        </div>
-                        <div class="item carousel-item" data-slide-number="5">
-                            <img src="https://via.placeholder.com/730x486" class="img-fluid" alt="property-8">
-                        </div>
+
+                        <?php $no=0; foreach($slider as $s) { $no++;
+                            $cekimg = FCPATH.'www/properties/slider/'.$s['photo_slider'];
+                            if(file_exists($cekimg)) { ?>
+                                <div class="item carousel-item" data-slide-number="<?= $no ?>">
+                                    <img src="<?= $s['photo_slider'] ?>" class="img-fluid" alt="property-<?= $no?>">
+                                </div>
+                            <?php } else { ?>
+                                <div class="item carousel-item" data-slide-number="<?= $no ?>">
+                                    <img src="https://via.placeholder.com/1350x650" class="img-fluid" alt="property-<?= $no?>">
+                                </div>
+                            <?php }
+                        } ?>
+
+
 
                         <a class="carousel-control left" href="#propertiesDetailsSlider" data-slide="prev"><i class="fa fa-angle-left"></i></a>
                         <a class="carousel-control right" href="#propertiesDetailsSlider" data-slide="next"><i class="fa fa-angle-right"></i></a>
@@ -57,29 +64,31 @@
                     <ul class="carousel-indicators smail-properties list-inline nav nav-justified">
                         <li class="list-inline-item active">
                             <a id="carousel-selector-0" class="selected" data-slide-to="0" data-target="#propertiesDetailsSlider">
-                                <img src="https://via.placeholder.com/146x97" class="img-fluid" alt="property-4">
+                            <?php $cekimg = FCPATH.'www/properties/'.$detail['properties_cover'];
+                                if(file_exists($cekimg)) { ?>
+                                <img src="<?= $detail['properties_cover'] ?>" class="img-fluid" alt="property-0">
+                            <?php } else { ?>
+                                <img src="https://via.placeholder.com/350x250" class="img-fluid" alt="property-0">
+                            <?php } ?>
                             </a>
                         </li>
-                        <li class="list-inline-item">
-                            <a id="carousel-selector-1" data-slide-to="1" data-target="#propertiesDetailsSlider">
-                                <img src="https://via.placeholder.com/146x97" class="img-fluid" alt="property-6">
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a id="carousel-selector-2" data-slide-to="2" data-target="#propertiesDetailsSlider">
-                                <img src="https://via.placeholder.com/146x97" class="img-fluid" alt="property-1">
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a id="carousel-selector-3" data-slide-to="3" data-target="#propertiesDetailsSlider">
-                                <img src="https://via.placeholder.com/146x97" class="img-fluid" alt="property-5">
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a id="carousel-selector-4" data-slide-to="4" data-target="#propertiesDetailsSlider">
-                                <img src="https://via.placeholder.com/146x97" class="img-fluid" alt="property-8">
-                            </a>
-                        </li>
+
+                        <?php $no=0; foreach($slider as $s) { $no++;
+                            $cekimg = FCPATH.'www/properties/slider/'.$s['photo_slider'];
+                            if(file_exists($cekimg)) { ?>
+                                <li class="list-inline-item">
+                                    <a id="carousel-selector-<?= $no ?>" data-slide-to="<?= $no ?>" data-target="#propertiesDetailsSlider">
+                                        <img src="<?= $s['photo_slider'] ?>" class="img-fluid" alt="property-<?= $no ?>">
+                                    </a>
+                                </li>
+                            <?php } else { ?>
+                                <li class="list-inline-item">
+                                    <a id="carousel-selector-<?= $no ?>" data-slide-to="<?= $no ?>" data-target="#propertiesDetailsSlider">
+                                        <img src="https://via.placeholder.com/350x250" class="img-fluid" alt="property-<?= $no ?>">
+                                    </a>
+                                </li>
+                            <?php }
+                        } ?>
                     </ul>
                 </div>
                 <!-- Search area start -->
@@ -191,27 +200,38 @@
                     <div class="tab-content" id="carTabContent">
                         <div class="tab-pane fade active show" id="one" role="tabpanel" aria-labelledby="one-tab">
                             <h3 class="heading-3">Property Description</h3>
-                           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus tincidunt aliquam. Aliquam gravida massa at sem vulputate interdum et vel eros. Maecenas eros enim, tincidunt vel turpis vel,dapibus tempus nulla. Donec vel nulla dui. Pellentesque sed ante sed ligula hendrerit condimentum.
-                            Suspendisse rhoncus fringilla ipsum quis porta. Morbi tincidunt viverra pharetra.</p>
-                            <p>Vestibulum vel mauris et odio lobortis laoreet eget eu magna. Proin mauris erat, luctus at nulla ut, lobortis mattis magna. Morbi a arcu lacus. Maecenas tristique velit vitae nisi consectetur, in mattis diam sodales. Mauris sagittis sem mattis justo bibendum, a eleifend dolor facilisis. Mauris
-                                nec pharetra tortor, ac aliquam felis. Nunc pretium erat sed quam consectetur fringilla.</p>
-                            <p>Aliquam ultricies nunc porta metus interdum mollis. Donec porttitor libero augue, vehicula tincidunt lectus placerat a. Sed tincidunt dolor non sem dictum dignissim. Nulla vulputate orci felis, ac ornare purus ultricies a. Fusce euismod magna orci, sit amet aliquam turpis dignissim ac. In at
-                                tortor at ligula pharetra sollicitudin. Sed tincidunt, purus eget laoreet elementum, felis est pharetra ante, tincidunt feugiat libero enim sed risus.</p>
-                            <p>Sed at leo sit amet mi bibendum aliquam. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent cursus varius odio, non faucibus dui. Nunc vehicula lectus sed velit suscipit aliquam vitae eu ipsum. adipiscing elit.</p>
+                            <p> <?= $detail['properties_deskripsi'] ?></p>
                         </div>
                         <div class="tab-pane fade" id="two" role="tabpanel" aria-labelledby="two-tab">
                             <div class="floor-plans mb-60">
                                 <h3 class="heading-3">Floor Plans</h3>
                                 <table>
-                                    <tbody><tr>
-                                        <td><strong>Size</strong></td>
-                                        <td><strong>Rooms</strong></td>
-                                        <td><strong>2 Bathrooms</strong></td>
+                                    <tbody>
+                                    <tr>
+                                        <td><strong>Luas Bangunan</strong></td>
+
+                                        <td><strong>Lantai</strong></td>
+
+                                        <td><strong>Kamar</strong></td>
+
+                                        <td><strong>Toilet</strong></td>
+
+                                        <td><strong>Garasi</strong></td>
+
+                                        <td><strong>Dapur</strong></td>
                                     </tr>
                                     <tr>
-                                        <td>1600</td>
-                                        <td>3</td>
-                                        <td>2</td>
+                                        <td><?= $detail['properties_luas_bangunan']?></td>
+
+                                        <td><?= $detail['properties_jumlah_lantai']?></td>
+
+                                        <td><?= $detail['properties_kamar_tidur']?></td>
+
+                                        <td><?= $detail['properties_kamar_mandi']?></td>
+
+                                        <td><?= $detail['properties_garasi']?></td>
+
+                                        <td><?= $detail['properties_dapur']?></td>
                                     </tr>
                                     </tbody>
                                 </table>
@@ -225,57 +245,58 @@
                                     <div class="col-md-4 col-sm-6">
                                         <ul>
                                             <li>
-                                                <strong>Property Id:</strong>215
+                                                <strong>Property Id:</strong> <b></b>  215
                                             </li>
                                             <li>
-                                                <strong>Price:</strong>$1240/ Month
+                                                <strong>Harga:</strong>  <b><?= $detail['properties_harga'] ?></b>
                                             </li>
                                             <li>
-                                                <strong>Property Type:</strong>House
+                                                <strong>Property Type:</strong> <b><?= $detail['properties_tipe'] ?></b>
                                             </li>
                                             <li>
-                                                <strong>Bathrooms:</strong>3
+                                                <strong>Luas Tanah:</strong> <b><?= $detail['properties_luas_tanah']?></b>
                                             </li>
                                             <li>
-                                                <strong>Bathrooms:</strong>2
+                                                <strong>Luas Bangunan:</strong> <b><?= $detail['properties_luas_bangunan']?></b>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6">
+                                        <ul>
+                                            <li>
+                                                <strong>Kamar :</strong> <b><?= $detail['properties_kamar_tidur']?></b>
+                                            </li>
+                                            <li>
+                                                <strong>Toilet :</strong> <b><?= $detail['properties_kamar_mandi']?></b>
+                                            </li>
+                                            <li>
+                                                <strong>Dapur :</strong> <b><?= $detail['properties_dapur']?></b>
+                                            </li>
+                                            <li>
+                                                <strong>Garasi :</strong> <b><?= $detail['properties_garasi']?></b>
                                             </li>
                                         </ul>
                                     </div>
                                     <div class="col-md-4 col-sm-6">
                                         <ul>
                                             <li>
-                                                <strong>Property Lot Size:</strong>800 ft2
+                                                <strong>Listrik :</strong> <b><?= $detail['properties_listrik']?></b>
                                             </li>
                                             <li>
-                                                <strong>Land area:</strong>230 ft2
+                                                <strong>Air :</strong> <b><?= $detail['properties_sumber_air']?></b>
                                             </li>
                                             <li>
-                                                <strong>Year Built:</strong>2018
+                                                <strong>Internet :</strong> <b><?= $detail['properties_internet']?></b>
                                             </li>
                                             <li>
-                                                <strong>Available From:</strong>2018
+                                                <strong>AC :</strong> <b><?= $detail['properties_ac']?></b>
                                             </li>
                                             <li>
-                                                <strong>Garages:</strong>2
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-md-4 col-sm-6">
-                                        <ul>
-                                            <li>
-                                                <strong>Sold:</strong>Yes
+                                                <b><?= $detail['properties_masuk_mobil']?></b>
                                             </li>
                                             <li>
-                                                <strong>City:</strong>Usa
-                                            </li>
-                                            <li>
-                                                <strong>Parking:</strong>Yes
-                                            </li>
-                                            <li>
-                                                <strong>Property Owner:</strong>Sohel Rana
-                                            </li>
-                                            <li>
-                                                <strong>Zip Code: </strong>2451
+                                                <b><?= $detail['properties_bebas_banjir']?></b>
                                             </li>
                                         </ul>
                                     </div>
@@ -417,8 +438,8 @@
                                                     <i class="fa fa-user"></i> Jhon Doe
                                                 </a>
                                                 <span>
-                            <i class="fa fa-calendar-o"></i> 2 years ago
-                        </span>
+                                                    <i class="fa fa-calendar-o"></i> 2 years ago
+                                                </span>
                                             </div>
                                         </div>
                                     </div>
@@ -433,20 +454,17 @@
                     <div class="row">
                         <div class="col-md-4 col-sm-6">
                             <ul>
-                                <li><span><i class="flaticon-bed"></i> 3 Beds</span></li>
-                                <li><span><i class="flaticon-bath"></i> 2 Bathroom</span></li>
+                                <li><span><i class="flaticon-bed"></i> <?= $detail['properties_kamar_tidur']?> Beds</span></li>
+                                <li><span><i class="flaticon-bath"></i> <?= $detail['properties_kamar_mandi']?> Bathroom</span></li>
                             </ul>
                         </div>
                         <div class="col-md-4 col-sm-6">
                             <ul>
-                                <li><span><i class="flaticon-car-repair"></i> 1 Garage</span></li>
-                                <li><span><i class="flaticon-balcony-and-door"></i>1 Balcony</span></li>
+                                <li><span><i class="flaticon-car-repair"></i> <?= $detail['properties_garasi']?> Garage</span></li>
                             </ul>
                         </div>
                         <div class="col-md-4 col-sm-6">
                             <ul>
-                                <li><span><i class="flaticon-square-layouting-with-black-square-in-east-area"></i> 4800 sq ft</span></li>
-                                <li><span><i class="flaticon-monitor"></i> TV</span></li>
                             </ul>
                         </div>
                     </div>
@@ -531,7 +549,7 @@
                     </div>
                 </div>
                 <!-- Comments section start -->
-                <div class="comments-section mb-60">
+                <!-- <div class="comments-section mb-60">
                     <h3 class="heading-3">Comments Section</h3>
                     <ul class="comments">
                         <li>
@@ -617,9 +635,9 @@
                             </div>
                         </li>
                     </ul>
-                </div>
+                </div> -->
                 <!-- Contact 3 start -->
-                <div class="contact-3">
+                <!-- <div class="contact-3">
                     <h3 class="heading-3">Leave a Comment</h3>
                     <div class="container">
                         <div class="row">
@@ -659,8 +677,13 @@
                             </form>
                         </div>
                     </div>
-                </div>
+                </div> -->
+
+
             </div>
+
+
+
             <div class="col-lg-4 col-md-12">
                 <div class="sidebar mbl">
                     <!-- Search area start -->

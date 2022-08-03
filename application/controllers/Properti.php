@@ -95,7 +95,9 @@ class Properti extends Takaeh_Controller {
 		// $url= substr($url, 0, -5);
 
 		$data['detail'] 		= $this->mPropertis->detail_properti($url);
-		tesx($data, $url);
+		$data['slider'] 		= $this->mPropertis->slider_properti($url);
+		$data['count_slider']	= count($data['slider']);
+		// tesx($data, $url);
 		$this->templates_public('takaeh/properti/detail', $data);
 	}
 
