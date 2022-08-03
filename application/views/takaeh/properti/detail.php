@@ -34,19 +34,19 @@
                     <!-- main slider carousel items -->
                     <div class="carousel-inner">
                         <div class="active item carousel-item" data-slide-number="0">
-                            <?php $cekimg = FCPATH.'www/properties/'.$detail['properties_cover'];
-                                if(file_exists($cekimg)) { ?>
-                                <img src="<?= $detail['properties_cover'] ?>" class="img-fluid" alt="property-0">
+                            <?php $cek = FCPATH.'www/properties/'.$detail['properties_cover'];
+                                if(file_exists($cek)) { ?>
+                                <img src="<?= $cek ?>" class="img-fluid" alt="property-0">
                             <?php } else { ?>
                                 <img src="https://via.placeholder.com/1350x650" class="img-fluid" alt="property-0">
                             <?php } ?>
                         </div>
 
                         <?php $no=0; foreach($slider as $s) { $no++;
-                            $cekimg = FCPATH.'www/properties/sliders/'.$s['photo_slider'];
+                            $cekimg1 = FCPATH.'www/properties/sliders/'.$s['photo_slider'];
                             if(file_exists($cekimg)) { ?>
                                 <div class="item carousel-item" data-slide-number="<?= $no ?>">
-                                    <img src="<?= $s['photo_slider'] ?>" class="img-fluid" alt="property-<?= $no?>">
+                                    <img src="<?= $cekimg1 ?>" class="img-fluid" alt="property-<?= $no?>">
                                 </div>
                             <?php } else { ?>
                                 <div class="item carousel-item" data-slide-number="<?= $no ?>">
@@ -64,7 +64,7 @@
                             <a id="carousel-selector-0" class="selected" data-slide-to="0" data-target="#propertiesDetailsSlider">
                             <?php $cekimg = FCPATH.'www/properties/'.$detail['properties_cover'];
                                 if(file_exists($cekimg)) { ?>
-                                <img src="<?= $detail['properties_cover'] ?>" class="img-fluid" alt="property-0">
+                                <img src="<?= $cekimg ?>" class="img-fluid" alt="property-0">
                             <?php } else { ?>
                                 <img src="https://via.placeholder.com/350x250" class="img-fluid" alt="property-0">
                             <?php } ?>
@@ -72,11 +72,11 @@
                         </li>
 
                         <?php $no=0; foreach($slider as $s) { $no++;
-                            $cekimg = FCPATH.'www/properties/sliders/'.$s['photo_slider'];
-                            if(file_exists($cekimg)) { ?>
+                            $cekimg2 = FCPATH.'www/properties/sliders/'.$s['photo_slider'];
+                            if(file_exists($cekimg2)) { ?>
                                 <li class="list-inline-item">
                                     <a id="carousel-selector-<?= $no ?>" data-slide-to="<?= $no ?>" data-target="#propertiesDetailsSlider">
-                                        <img src="<?= $s['photo_slider'] ?>" class="img-fluid" alt="property-<?= $no ?>">
+                                        <img src="<?= $cekimg2 ?>" class="img-fluid" alt="property-<?= $no ?>">
                                     </a>
                                 </li>
                             <?php } else { ?>
