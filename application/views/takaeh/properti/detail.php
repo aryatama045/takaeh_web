@@ -89,90 +89,7 @@
                         } ?>
                     </ul>
                 </div>
-                <!-- Search area start -->
-                <div class="widget-2 search-area advanced-search as-2">
-                    <h5 class="sidebar-title">Advanced Search</h5>
-                    <div class="search-area-inner">
-                        <div class="search-contents ">
-                            <form method="GET">
-                                <div class="form-group">
-                                    <select class="selectpicker search-fields" name="area">
-                                        <option>Area From</option>
-                                        <option>1500</option>
-                                        <option>1200</option>
-                                        <option>900</option>
-                                        <option>600</option>
-                                        <option>300</option>
-                                        <option>100</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <select class="selectpicker search-fields" name="Status">
-                                        <option>Property Status</option>
-                                        <option>For Sale</option>
-                                        <option>For Rent</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <select class="selectpicker search-fields" name="Location">
-                                        <option>Location</option>
-                                        <option>United Kingdom</option>
-                                        <option>American Samoa</option>
-                                        <option>Belgium</option>
-                                        <option>Canada</option>
-                                        <option>Delaware</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <select class="selectpicker search-fields" name="types">
-                                        <option>Property Types</option>
-                                        <option>Residential</option>
-                                        <option>Commercial</option>
-                                        <option>Land</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <select class="selectpicker search-fields" name="bedrooms">
-                                        <option>Bedrooms</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                        <option>6</option>
-                                        <option>7</option>
-                                        <option>8</option>
-                                        <option>9</option>
-                                    </select>
-                                </div>
-                                <div class="form-group mb-30">
-                                    <select class="selectpicker search-fields" name="bedrooms">
-                                        <option>Bathrooms</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                    </select>
-                                </div>
-                                <div class="form-group clearfix">
-                                    <label>Area</label>
-                                    <div class="range-slider">
-                                        <div data-min="0" data-max="150000" data-unit="Sq ft" data-min-name="min_price" data-max-name="max_price" class="range-slider-ui ui-slider" aria-disabled="false"></div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </div>
-                                <div class="form-group clearfix">
-                                    <label>Price</label>
-                                    <div class="range-slider">
-                                        <div data-min="0" data-max="150000" data-unit="USD" data-min-name="min_price" data-max-name="max_price" class="range-slider-ui ui-slider" aria-disabled="false"></div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </div>
-                                <button class="search-button btn-md btn-color">Search</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+                
                 <!-- Tabbing box start -->
                 <div class="tabbing tabbing-box mb-60">
                     <ul class="nav nav-tabs" id="carTab" role="tablist">
@@ -181,9 +98,6 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="two-tab" data-toggle="tab" href="#two" role="tab" aria-controls="two" aria-selected="false">Floor Plans</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="three-tab" data-toggle="tab" href="#three" role="tab" aria-controls="three" aria-selected="true">Details</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="4-tab" data-toggle="tab" href="#4" role="tab" aria-controls="4" aria-selected="true">Video</a>
@@ -197,46 +111,7 @@
                     </ul>
                     <div class="tab-content" id="carTabContent">
                         <div class="tab-pane fade active show" id="one" role="tabpanel" aria-labelledby="one-tab">
-                            <h3 class="heading-3">Property Description</h3>
-                            <p> <?= $detail['properties_deskripsi'] ?></p>
-                        </div>
-                        <div class="tab-pane fade" id="two" role="tabpanel" aria-labelledby="two-tab">
-                            <div class="floor-plans mb-60">
-                                <h3 class="heading-3">Floor Plans</h3>
-                                <table>
-                                    <tbody>
-                                    <tr>
-                                        <td><strong>Luas Bangunan</strong></td>
-
-                                        <td><strong>Lantai</strong></td>
-
-                                        <td><strong>Kamar</strong></td>
-
-                                        <td><strong>Toilet</strong></td>
-
-                                        <td><strong>Garasi</strong></td>
-
-                                        <td><strong>Dapur</strong></td>
-                                    </tr>
-                                    <tr>
-                                        <td><?= $detail['properties_luas_bangunan']?></td>
-
-                                        <td><?= $detail['properties_jumlah_lantai']?></td>
-
-                                        <td><?= $detail['properties_kamar_tidur']?></td>
-
-                                        <td><?= $detail['properties_kamar_mandi']?></td>
-
-                                        <td><?= $detail['properties_garasi']?></td>
-
-                                        <td><?= $detail['properties_dapur']?></td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                                <img src="https://via.placeholder.com/730x370" alt="floor-plans" class="img-fluid">
-                            </div>
-                        </div>
-                        <div class="tab-pane fade " id="three" role="tabpanel" aria-labelledby="three-tab">
+                            
                             <div class="property-details">
                                 <h3 class="heading-3">Property Details</h3>
                                 <div class="row">
@@ -299,6 +174,46 @@
                                         </ul>
                                     </div>
                                 </div>
+
+                                <hr>  
+                                <p> <?= $detail['properties_deskripsi'] ?></p>
+                            </div>
+                            
+                        </div>
+                        <div class="tab-pane fade" id="two" role="tabpanel" aria-labelledby="two-tab">
+                            <div class="floor-plans mb-60">
+                                <h3 class="heading-3">Floor Plans</h3>
+                                <table>
+                                    <tbody>
+                                    <tr>
+                                        <td><strong>Luas Bangunan</strong></td>
+
+                                        <td><strong>Lantai</strong></td>
+
+                                        <td><strong>Kamar</strong></td>
+
+                                        <td><strong>Toilet</strong></td>
+
+                                        <td><strong>Garasi</strong></td>
+
+                                        <td><strong>Dapur</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td><?= $detail['properties_luas_bangunan']?></td>
+
+                                        <td><?= $detail['properties_jumlah_lantai']?></td>
+
+                                        <td><?= $detail['properties_kamar_tidur']?></td>
+
+                                        <td><?= $detail['properties_kamar_mandi']?></td>
+
+                                        <td><?= $detail['properties_garasi']?></td>
+
+                                        <td><?= $detail['properties_dapur']?></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <img src="https://via.placeholder.com/730x370" alt="floor-plans" class="img-fluid">
                             </div>
                         </div>
                         <div class="tab-pane fade " id="4" role="tabpanel" aria-labelledby="4-tab">
@@ -676,6 +591,90 @@
                         </div>
                     </div>
                 </div> -->
+                <!-- Search area start -->
+                <div class="widget-2 search-area advanced-search as-2">
+                    <h5 class="sidebar-title">Advanced Search</h5>
+                    <div class="search-area-inner">
+                        <div class="search-contents ">
+                            <form method="GET">
+                                <div class="form-group">
+                                    <select class="selectpicker search-fields" name="area">
+                                        <option>Area From</option>
+                                        <option>1500</option>
+                                        <option>1200</option>
+                                        <option>900</option>
+                                        <option>600</option>
+                                        <option>300</option>
+                                        <option>100</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <select class="selectpicker search-fields" name="Status">
+                                        <option>Property Status</option>
+                                        <option>For Sale</option>
+                                        <option>For Rent</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <select class="selectpicker search-fields" name="Location">
+                                        <option>Location</option>
+                                        <option>United Kingdom</option>
+                                        <option>American Samoa</option>
+                                        <option>Belgium</option>
+                                        <option>Canada</option>
+                                        <option>Delaware</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <select class="selectpicker search-fields" name="types">
+                                        <option>Property Types</option>
+                                        <option>Residential</option>
+                                        <option>Commercial</option>
+                                        <option>Land</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <select class="selectpicker search-fields" name="bedrooms">
+                                        <option>Bedrooms</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                        <option>7</option>
+                                        <option>8</option>
+                                        <option>9</option>
+                                    </select>
+                                </div>
+                                <div class="form-group mb-30">
+                                    <select class="selectpicker search-fields" name="bedrooms">
+                                        <option>Bathrooms</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                    </select>
+                                </div>
+                                <div class="form-group clearfix">
+                                    <label>Area</label>
+                                    <div class="range-slider">
+                                        <div data-min="0" data-max="150000" data-unit="Sq ft" data-min-name="min_price" data-max-name="max_price" class="range-slider-ui ui-slider" aria-disabled="false"></div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group clearfix">
+                                    <label>Price</label>
+                                    <div class="range-slider">
+                                        <div data-min="0" data-max="150000" data-unit="USD" data-min-name="min_price" data-max-name="max_price" class="range-slider-ui ui-slider" aria-disabled="false"></div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                                <button class="search-button btn-md btn-color">Search</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
 
 
             </div>
