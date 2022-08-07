@@ -141,8 +141,8 @@ class Properti extends Admin_Controller
 			foreach ($data as $key => $value) {
 					$buttons    = '';
 					$buttons   .= '
-								<a href="'.base_url("propertis/properti/view/".$value['id_properties']).'"
-								class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm">
+								<a href="'.base_url("properti/detail/".$value['properties_url']).'"
+								class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm" target="_blank">
 								<i class="fa fa-eye fa-sm text-white-20"></i> View</a>
 
                                 <a href="'.base_url("propertis/properti/edit/".$value['id_properties']).'"
