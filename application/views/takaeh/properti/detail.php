@@ -593,26 +593,26 @@
                 </div> -->
                 <!-- Search area start -->
                 <div class="widget-2 search-area advanced-search as-2">
-                    <h5 class="sidebar-title">Advanced Search</h5>
+                    <h5 class="sidebar-title">Advanceds Search</h5>
                     <div class="search-area-inner">
                         <div class="search-contents ">
-                            <form method="GET">
+                            <form action="<?php base_url('properti/search') ?>" method="post">
                                 <div class="form-group">
-                                    <select class="selectpicker search-fields" name="area">
-                                        <option>Area From</option>
-                                        <option>1500</option>
-                                        <option>1200</option>
-                                        <option>900</option>
-                                        <option>600</option>
-                                        <option>300</option>
-                                        <option>100</option>
+                                    <input type="text" name="title" class="form-control" placeholder="Enter Keyword" >
+                                </div>
+                                <div class="form-group">
+                                    <select class="selectpicker search-fields" name="tipe">
+                                        <option value="">Select Types</option>
+                                        <?php foreach($tipe as $v) { ?>
+                                            <option value="<?= $v['nama'] ?>"><?= $v['nama'] ?></option>
+                                        <?php } ?>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <select class="selectpicker search-fields" name="Status">
-                                        <option>Property Status</option>
-                                        <option>For Sale</option>
-                                        <option>For Rent</option>
+                                    <select class="selectpicker search-fields" id="status" name="status">
+                                        <option value="">Status</option>
+                                        <option value="Dijual">Di Jual</option>
+                                        <option value="Disewa">Sewa</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -623,14 +623,6 @@
                                         <option>Belgium</option>
                                         <option>Canada</option>
                                         <option>Delaware</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <select class="selectpicker search-fields" name="types">
-                                        <option>Property Types</option>
-                                        <option>Residential</option>
-                                        <option>Commercial</option>
-                                        <option>Land</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -657,20 +649,13 @@
                                     </select>
                                 </div>
                                 <div class="form-group clearfix">
-                                    <label>Area</label>
-                                    <div class="range-slider">
-                                        <div data-min="0" data-max="150000" data-unit="Sq ft" data-min-name="min_price" data-max-name="max_price" class="range-slider-ui ui-slider" aria-disabled="false"></div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </div>
-                                <div class="form-group clearfix">
                                     <label>Price</label>
                                     <div class="range-slider">
                                         <div data-min="0" data-max="150000" data-unit="USD" data-min-name="min_price" data-max-name="max_price" class="range-slider-ui ui-slider" aria-disabled="false"></div>
                                         <div class="clearfix"></div>
                                     </div>
                                 </div>
-                                <button class="search-button btn-md btn-color">Search</button>
+                                <button type="submit" class="search-button btn-md btn-color">Search</button>
                             </form>
                         </div>
                     </div>
@@ -688,23 +673,23 @@
                         <h5 class="sidebar-title">Advanced Search</h5>
                         <div class="search-area-inner">
                             <div class="search-contents ">
-                                <form method="GET">
+                                <form action="<?= base_url('properti/search') ?>" method="post">
                                     <div class="form-group">
-                                        <select class="selectpicker search-fields" name="area">
-                                            <option>Area From</option>
-                                            <option>1500</option>
-                                            <option>1200</option>
-                                            <option>900</option>
-                                            <option>600</option>
-                                            <option>300</option>
-                                            <option>100</option>
+                                        <input type="text" name="title" class="form-control" placeholder="Enter Keyword" >
+                                    </div>
+                                    <div class="form-group">
+                                        <select class="selectpicker search-fields" name="tipe">
+                                            <option value="">Select Types</option>
+                                            <?php foreach($tipe as $v) { ?>
+                                                <option value="<?= $v['nama'] ?>"><?= $v['nama'] ?></option>
+                                            <?php } ?>
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <select class="selectpicker search-fields" name="Status">
-                                            <option>Property Status</option>
-                                            <option>For Sale</option>
-                                            <option>For Rent</option>
+                                        <select class="selectpicker search-fields" id="status" name="status">
+                                            <option value="">Status</option>
+                                            <option value="Dijual">Di Jual</option>
+                                            <option value="Disewa">Sewa</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -715,14 +700,6 @@
                                             <option>Belgium</option>
                                             <option>Canada</option>
                                             <option>Delaware</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <select class="selectpicker search-fields" name="types">
-                                            <option>Property Types</option>
-                                            <option>Residential</option>
-                                            <option>Commercial</option>
-                                            <option>Land</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -749,20 +726,13 @@
                                         </select>
                                     </div>
                                     <div class="form-group clearfix">
-                                        <label>Area</label>
-                                        <div class="range-slider">
-                                            <div data-min="0" data-max="150000" data-unit="Sq ft" data-min-name="min_price" data-max-name="max_price" class="range-slider-ui ui-slider" aria-disabled="false"></div>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group clearfix">
                                         <label>Price</label>
                                         <div class="range-slider">
                                             <div data-min="0" data-max="150000" data-unit="USD" data-min-name="min_price" data-max-name="max_price" class="range-slider-ui ui-slider" aria-disabled="false"></div>
                                             <div class="clearfix"></div>
                                         </div>
                                     </div>
-                                    <button class="search-button btn-md btn-color">Search</button>
+                                    <button type="submit" class="search-button btn-md btn-color">Search</button>
                                 </form>
                             </div>
                         </div>

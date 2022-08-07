@@ -11,14 +11,17 @@ class Home extends Takaeh_Controller {
     {
         parent::__construct();
         // is_logged_in();
-        $this->load->model('propertis/properti_model');
+        $this->load->model('takaeh/propertis_model', 'mPropertis');
 
     }
 
 	public function index()
 	{
 
-        $this->templates_public('takaeh/home/index');
+		$data['title_page']		= 'Properti';
+		$limit					= '10';
+		$data['feature'] 		= $this->mPropertis->home_properti($limit);
+        $this->templates_public('takaeh/home/index', $data);
 	}
 
 

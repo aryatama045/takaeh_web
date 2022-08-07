@@ -13,6 +13,19 @@ class Propertis_model extends CI_Model {
         $this->area 	= $this->load->database('db_area',TRUE);
     }
 
+    
+    function home_properti($limit)
+    {
+        $this->master->select('a.*, ');
+        $this->master->from('properties a');
+
+        $this->master->limit($limit);
+        $this->master->order_by('created_date', 'DESC');
+        $query = $this->master->get();
+        return $query->result_array();
+    }
+
+
     function detail_properti($url)
     {
         $this->master->select('a.*, ');
@@ -96,6 +109,8 @@ class Propertis_model extends CI_Model {
 
         $data = $this->master->query($query);
 
+        // die(nl2br($this->master->last_query()));
+
         $output = '';
 
         if($data->num_rows() > 0)
@@ -109,7 +124,7 @@ class Propertis_model extends CI_Model {
                 if(file_exists($url)){
                     $img = '<img style="width:350px; height:250px;" data-original="'.base_url('www/properties/'.$row['properties_cover']).'" src="'.base_url('www/properties/'.$row['properties_cover']).'" alt="property-box" class="img-fluid">';
                 } else {
-                    $img = '<img data-original="https://via.placeholder.com/350x250" src="https://via.placeholder.com/350x250" alt="property-box" class="img-fluid">';
+                    $img = '<img data-original="https://place-hold.it/350x250" src="https://place-hold.it/350x250" alt="property-box" class="img-fluid">';
                 }
 
                 if($row['properties_tipe_jual'] == 'Dijual'){
@@ -138,15 +153,13 @@ class Propertis_model extends CI_Model {
                                     <a href="'.base_url('properti/detail/'.$row['properties_url']).'" class="overlay-link">
                                         <i class="fa fa-link"></i>
                                     </a>
-                                    <a class="overlay-link property-video" title="Test Title">
-                                        <i class="fa fa-video-camera"></i>
-                                    </a>
+                                    
                                     <div class="property-magnify-gallery">
-                                        <a href="https://via.placeholder.com/750x540" class="overlay-link">
+                                        <a href="https://place-hold.it/750x540" class="overlay-link">
                                             <i class="fa fa-expand"></i>
                                         </a>
-                                        <a href="https://via.placeholder.com/750x540"></a>
-                                        <a href="https://via.placeholder.com/750x540"></a>
+                                        <a href="https://place-hold.it/750x540"></a>
+                                        <a href="https://place-hold.it/750x540"></a>
                                     </div>
                                 </div>
                             </div>
@@ -162,16 +175,17 @@ class Propertis_model extends CI_Model {
                                 </div>
                                 <ul class="facilities-list clearfix">
                                     <li>
-                                        <i class="flaticon-bed"></i> 3 Bedrooms
+                                        <i class="flaticon-bed"></i> '.$row['properties_kamar_tidur'].' Bedrooms
                                     </li>
                                     <li>
-                                        <i class="flaticon-bath"></i> 2 Bathrooms
+                                        <i class="flaticon-bath"></i> '.$row['properties_kamar_mandi'].' Bathrooms
                                     </li>
                                     <li>
-                                        <i class="flaticon-square-layouting-with-black-square-in-east-area"></i> Sq Ft:3400
+                                        <i class="flaticon-square-layouting-with-black-square-in-east-area"></i> 
+                                        Sq Ft: '.$row['properties_luas_tanah'].'
                                     </li>
                                     <li>
-                                        <i class="flaticon-car-repair"></i> 1 Garage
+                                        <i class="flaticon-car-repair"></i> '.$row['properties_garasi'].' Garage
                                     </li>
                                 </ul>
                             </div>

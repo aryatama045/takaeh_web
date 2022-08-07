@@ -101,7 +101,6 @@
                 </div>
 
                 <div class="subtitle" id="total_data">
-                    20 Result Found
                 </div>
 
                 <div class="row filter_data">
@@ -110,16 +109,6 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="pagination-box hidden-mb-45 text-center" id="pagination_link">
-                        <?php //error_reporting(0); echo $paginations;?>
-                            <!-- <nav aria-label="Page navigation example">
-                                <ul class="pagination">
-                                    <li class="page-item"><a class="page-link" href="#"><span aria-hidden="true">«</span></a></li>
-                                    <li class="page-item"><a class="page-link active" href="properties-grid-rightside.html">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="properties-grid-leftside.html">2</a></li>
-                                    <li class="page-item"><a class="page-link " href="properties-grid-fullwidth.html">3</a></li>
-                                    <li class="page-item"><a class="page-link" href="properties-grid-leftside.html"><span aria-hidden="true">»</span></a></li>
-                                </ul>
-                            </nav> -->
                         </div>
                     </div>
                 </div>
@@ -241,4 +230,4 @@
 
 </script>
 
-<?php echo $this->load->assetspublic('properti', 'grid', 'js');  ?>
+<?php //echo $this->load->assetspublic('properti', 'grid', 'js');  ?>
