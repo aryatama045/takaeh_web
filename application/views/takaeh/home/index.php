@@ -2,7 +2,7 @@
 <?php 
 
     include_once('1_banner.php');
-    include_once('2_feature.php');
+    // include_once('2_feature.php');
     include_once('3_service.php');
     // include_once('4_recent.php');
     include_once('5_most_popular.php');
