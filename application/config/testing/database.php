@@ -83,7 +83,6 @@ $db['default'] = array(
 
 	'hostname' => '151.106.118.86',
 	'username' => 'u1272680',
-	// 'password' => 'u4G04v6j5-',
 	'password' => 'Kayogadang045!',
 	'database' => 'u1272680_takaeh_setting',
 
