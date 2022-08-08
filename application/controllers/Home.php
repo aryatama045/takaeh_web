@@ -11,7 +11,7 @@ class Home extends Takaeh_Controller {
     {
         parent::__construct();
         // is_logged_in();
-        // $this->load->model('Takaeh/propertis_model', 'mPropertis');
+        $this->load->model('Takaeh/Propertis_model', 'mPropertis');
 
     }
 
@@ -20,7 +20,7 @@ class Home extends Takaeh_Controller {
 
 		$data['title_page']		= 'Properti';
 		$limit					= '10';
-		// $data['feature'] 		= $this->mPropertis->home_properti($limit);
+		$data['feature'] 		= $this->mPropertis->home_properti($limit);
         $this->templates_public('takaeh/home/index', $data);
 	}
 
