@@ -11,7 +11,7 @@
             <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 wow fadeInLeft delay-04s">
                 <div class="agent-2">
                     <div class="agent-photo">
-                        <img src="https://via.placeholder.com/255x285" alt="agent-grid-2" class="img-fluid">
+                        <img src="https://placehold.co/255x285" alt="agent-grid-2" class="img-fluid">
                         <ul class="social-list clearfix">
                             <li><a href="#" class="facebook-bg"><i class="fa fa-facebook"></i></a></li>
                             <li><a href="#" class="twitter-bg"><i class="fa fa-twitter"></i></a></li>
@@ -27,7 +27,7 @@
             <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 wow fadeInLeft delay-04s">
                 <div class="agent-2">
                     <div class="agent-photo">
-                        <img src="https://via.placeholder.com/255x285" alt="agent-grid-2" class="img-fluid">
+                        <img src="https://placehold.co/255x285" alt="agent-grid-2" class="img-fluid">
                         <ul class="social-list clearfix">
                             <li><a href="#" class="facebook-bg"><i class="fa fa-facebook"></i></a></li>
                             <li><a href="#" class="twitter-bg"><i class="fa fa-twitter"></i></a></li>
@@ -43,7 +43,7 @@
             <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 wow fadeInRight delay-04s">
                 <div class="agent-2">
                     <div class="agent-photo">
-                        <img src="https://via.placeholder.com/255x285" alt="agent-grid-2" class="img-fluid">
+                        <img src="https://placehold.co/255x285" alt="agent-grid-2" class="img-fluid">
                         <ul class="social-list clearfix">
                             <li><a href="#" class="facebook-bg"><i class="fa fa-facebook"></i></a></li>
                             <li><a href="#" class="twitter-bg"><i class="fa fa-twitter"></i></a></li>
@@ -59,7 +59,7 @@
             <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 wow fadeInRight delay-04s">
                 <div class="agent-2">
                     <div class="agent-photo">
-                        <img src="https://via.placeholder.com/255x285" alt="agent-grid-2" class="img-fluid">
+                        <img src="https://placehold.co/255x285" alt="agent-grid-2" class="img-fluid">
                         <ul class="social-list clearfix">
                             <li><a href="#" class="facebook-bg"><i class="fa fa-facebook"></i></a></li>
                             <li><a href="#" class="twitter-bg"><i class="fa fa-twitter"></i></a></li>

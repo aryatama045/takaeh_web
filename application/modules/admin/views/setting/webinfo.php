@@ -37,7 +37,7 @@
                             <div class="card-body">
                                 <div class="d-flex flex-row mb-3">
                                     <a class="d-block position-relative" href="#">
-                                        <img src="https://place-hold.it/100x100/666/fff.png?text=Not%20Found" class="img-thumbnail border-0  mb-4 list-thumbnail mx-auto">
+                                        <img src="https://placehold.co/100x100/666/fff.png?text=Not%20Found" class="img-thumbnail border-0  mb-4 list-thumbnail mx-auto">
                                     </a>
                                     <div class="pl-3 pt-2 pr-2 pb-2">
                                         <p class="list-item-heading font-weight-bold">

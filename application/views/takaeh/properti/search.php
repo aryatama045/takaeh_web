@@ -9,7 +9,7 @@
                 </div>
                 <!-- <div class="tag-for">For Sale</div> -->
                 <!-- <div class="plan-price"><sup>$</sup>820<span>/month</span> </div> -->
-                <img src="https://place-hold.it/350x250" alt="property-box" class="img-fluid">
+                <img src="https://placehold.co/350x250" alt="property-box" class="img-fluid">
             </a>
             <div class="property-overlay">
                 <a href="properties-details.html" class="overlay-link">
@@ -19,11 +19,11 @@
                     <i class="fa fa-video-camera"></i>
                 </a>
                 <div class="property-magnify-gallery">
-                    <a href="https://place-hold.it/750x540" class="overlay-link">
+                    <a href="https://placehold.co/750x540" class="overlay-link">
                         <i class="fa fa-expand"></i>
                     </a>
-                    <a href="https://place-hold.it/750x540"></a>
-                    <a href="https://place-hold.it/750x540"></a>
+                    <a href="https://placehold.co/750x540"></a>
+                    <a href="https://placehold.co/750x540"></a>
                 </div>
             </div>
         </div>

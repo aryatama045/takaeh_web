@@ -10,10 +10,10 @@
                 <div class="row blog-3">
                     <div class="col-lg-5 col-md-12 col-pad ">
                         <div class="photo">
-                            <img src="https://via.placeholder.com/224x288" alt="blog-3" class="img-fluid blog-img">
+                            <img src="https://placehold.co/224x288" alt="blog-3" class="img-fluid blog-img">
                             <div class="user">
                                 <div class="avatar">
-                                    <img src="https://via.placeholder.com/30x30" alt="avatar" class="img-fluid rounded-circle">
+                                    <img src="https://placehold.co/30x30" alt="avatar" class="img-fluid rounded-circle">
                                 </div>
                                 <div class="name">
                                     <h5>Rx Vodro</h5>
@@ -43,10 +43,10 @@
                 <div class="row blog-3">
                     <div class="col-lg-5 col-md-12 col-pad ">
                         <div class="photo">
-                            <img src="https://via.placeholder.com/224x288" alt="blog-3" class="img-fluid blog-img">
+                            <img src="https://placehold.co/224x288" alt="blog-3" class="img-fluid blog-img">
                             <div class="user">
                                 <div class="avatar">
-                                    <img src="https://via.placeholder.com/30x30" alt="avatar" class="img-fluid rounded-circle">
+                                    <img src="https://placehold.co/30x30" alt="avatar" class="img-fluid rounded-circle">
                                 </div>
                                 <div class="name">
                                     <h5>Teseira</h5>

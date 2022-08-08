@@ -49,7 +49,7 @@
                                             <img src="<?= base_url('upload/poto_karyawan/'.$biodata['nip'].'.png') ?>" class="img-thumbnail border-0  mb-4 list-thumbnail mx-auto">
 
                                         <?php } else { ?>
-                                            <img src="https://place-hold.it/100x100/666/fff.png?text=Not%20Found" class="img-thumbnail border-0  mb-4 list-thumbnail mx-auto">
+                                            <img src="https://placehold.co/100x100/666/fff.png?text=Not%20Found" class="img-thumbnail border-0  mb-4 list-thumbnail mx-auto">
 
 
                                         <?php } ?>

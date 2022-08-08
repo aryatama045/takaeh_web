@@ -18,7 +18,7 @@
                         <div class="arrow-down"></div>
                         <div class="media user">
                             <a href="#">
-                                <img src="https://via.placeholder.com/60x60 " alt="testimonial-4" class="img-fluid">
+                                <img src="https://placehold.co/60x60 " alt="testimonial-4" class="img-fluid">
                             </a>
                             <div class="media-body align-self-center">
                                 <h5>Maria Blank</h5>
@@ -35,7 +35,7 @@
                         <div class="arrow-down"></div>
                         <div class="media user">
                             <a href="#">
-                                <img src="https://via.placeholder.com/60x60 " alt="testimonial-4" class="img-fluid">
+                                <img src="https://placehold.co/60x60 " alt="testimonial-4" class="img-fluid">
                             </a>
                             <div class="media-body align-self-center">
                                 <h5>Karen Paran</h5>
@@ -52,7 +52,7 @@
                         <div class="arrow-down"></div>
                         <div class="media user">
                             <a href="#">
-                                <img src="https://via.placeholder.com/60x60 " alt="testimonial-4" class="img-fluid">
+                                <img src="https://placehold.co/60x60 " alt="testimonial-4" class="img-fluid">
                             </a>
                             <div class="media-body align-self-center">
                                 <h5>
@@ -71,7 +71,7 @@
                         <div class="arrow-down"></div>
                         <div class="media user">
                             <a href="#">
-                                <img src="https://via.placeholder.com/60x60 " alt="testimonial-4" class="img-fluid">
+                                <img src="https://placehold.co/60x60 " alt="testimonial-4" class="img-fluid">
                             </a>
                             <div class="media-body align-self-center">
                                 <h5>

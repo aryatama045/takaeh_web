@@ -101,7 +101,7 @@
 
                             <div class="d-flex flex-row mb-3 pb-3 border-bottom">
                                 <a href="#">
-                                    <img src="https://place-hold.it/300" alt="Notification Image"
+                                    <img src="https://placehold.co/300" alt="Notification Image"
                                         class="img-thumbnail list-thumbnail xsmall border-0 rounded-circle" />
                                 </a>
                                 <div class="pl-3">
@@ -137,7 +137,7 @@
                     <span>
 						<i class="simple-icon-user"></i>
                         <!-- <img alt="Profile Picture"
-                        src="https://place-hold.it/100x100/666/fff.png?text=Not%20Found" /> -->
+                        src="https://placehold.co/100x100/666/fff.png?text=Not%20Found" /> -->
                     </span>
                 </button>
 

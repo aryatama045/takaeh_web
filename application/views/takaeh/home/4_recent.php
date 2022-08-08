@@ -11,7 +11,7 @@
             <div class="col-lg-3 col-md-6 col-sm-12 wow fadeInLeft delay-04s">
                 <div class="property-box-8">
                     <div class="property-photo">
-                        <img src="https://via.placeholder.com/255x170" alt="property-8" class="img-fluid">
+                        <img src="https://placehold.co/255x170" alt="property-8" class="img-fluid">
                         <div class="tag-for">For Rent</div>
                         <div class="price-ratings-box">
                             <p class="price">
@@ -48,7 +48,7 @@
             <div class="col-lg-3 col-md-6 col-sm-12 wow fadeInUp delay-04s">
                 <div class="property-box-8">
                     <div class="property-photo">
-                        <img src="https://via.placeholder.com/255x170" alt="property-8" class="img-fluid">
+                        <img src="https://placehold.co/255x170" alt="property-8" class="img-fluid">
                         <div class="tag-for">For Rent</div>
                         <div class="price-ratings-box">
                             <p class="price">
@@ -85,7 +85,7 @@
             <div class="col-lg-3 col-md-6 col-sm-12 wow fadeInUp delay-04s">
                 <div class="property-box-8">
                     <div class="property-photo">
-                        <img src="https://via.placeholder.com/255x170" alt="property-8" class="img-fluid">
+                        <img src="https://placehold.co/255x170" alt="property-8" class="img-fluid">
                         <div class="tag-for">For Sale</div>
                         <div class="price-ratings-box">
                             <p class="price">
@@ -122,7 +122,7 @@
             <div class="col-lg-3 col-md-6 col-sm-12 wow fadeInRight delay-04s">
                 <div class="property-box-8">
                     <div class="property-photo">
-                        <img src="https://via.placeholder.com/255x170" alt="property-8" class="img-fluid">
+                        <img src="https://placehold.co/255x170" alt="property-8" class="img-fluid">
                         <div class="tag-for">For Rent</div>
                         <div class="price-ratings-box">
                             <p class="price">

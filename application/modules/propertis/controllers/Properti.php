@@ -160,7 +160,7 @@ class Properti extends Admin_Controller
 									"<span class='badge badge-success'>Publish</span>":
 									"<span class='badge badge-warning text-white'>Draft</span>";
 					$img	= 	'<a class="d-flex" href="Pages.Product.Detail.html">
-									<img src="https://place-hold.it/100x100/666/fff.png?text=Not%20Found"
+									<img src="https://placehold.co/100x100/666/fff.png?text=Not%20Found"
 									class="border-0" />
 								</a>';
 

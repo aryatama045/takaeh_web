@@ -23,11 +23,9 @@ class Auth extends Takaeh_Controller
         if ($this->form_validation->run() == false) {
             $data['title'] = 'Login Page';
             $this->templates_public('themes/takaeh/pages/login', $data);
-            
         } else {
             // validasinya success
             $this->_login();
-            
         }
     }
 

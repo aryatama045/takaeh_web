@@ -17,7 +17,7 @@
                 $imgCover = '<img data-original="'.base_url('www/properties/'.$row['properties_cover']).'" 
                         src="'.base_url('www/properties/'.$row['properties_cover']).'" alt="property-box" class="img-fluid">';
             } else {
-                $imgCover = '<img data-original="https://place-hold.it/415x276" src="https://place-hold.it/415x276" alt="property-box" class="img-fluid">';
+                $imgCover = '<img data-original="https://placehold.co/415x276" src="https://placehold.co/415x276" alt="property-box" class="img-fluid">';
             }
 
             if($row['properties_tipe_jual'] == 'Dijual'){
@@ -50,11 +50,11 @@
                                 <i class="fa fa-video-camera"></i>
                             </a> -->
                             <div class="property-magnify-gallery">
-                                <a href="https://place-hold.it/750x540" class="overlay-link">
+                                <a href="https://placehold.co/750x540" class="overlay-link">
                                     <i class="fa fa-expand"></i>
                                 </a>
-                                <a href="https://place-hold.it/750x540" class="hidden"></a>
-                                <a href="https://place-hold.it/750x540" class="hidden"></a>
+                                <a href="https://placehold.co/750x540" class="hidden"></a>
+                                <a href="https://placehold.co/750x540" class="hidden"></a>
                             </div>
                         </div>
                     </div>

@@ -38,7 +38,7 @@
                                 if(file_exists($cek)) { ?>
                                 <img src="<?= base_url('www/properties/'.$detail['properties_cover']) ?>" class="img-fluid" alt="property-0">
                             <?php } else { ?>
-                                <img src="https://via.placeholder.com/1350x650" class="img-fluid" alt="property-0">
+                                <img src="https://placehold.co/1350x650" class="img-fluid" alt="property-0">
                             <?php } ?>
                         </div>
 
@@ -50,7 +50,7 @@
                                 </div>
                             <?php } else { ?>
                                 <div class="item carousel-item" data-slide-number="<?= $no ?>">
-                                    <img src="https://via.placeholder.com/1350x650" class="img-fluid" alt="property-<?= $no?>">
+                                    <img src="https://placehold.co/1350x650" class="img-fluid" alt="property-<?= $no?>">
                                 </div>
                             <?php }
                         } ?>
@@ -66,7 +66,7 @@
                                 if(file_exists($cek2)) { ?>
                                 <img src="<?= base_url('www/properties/'.$detail['properties_cover']) ?>" class="img-fluid" alt="property-0">
                             <?php } else { ?>
-                                <img src="https://via.placeholder.com/350x250" class="img-fluid" alt="property-0">
+                                <img src="https://placehold.co/350x250" class="img-fluid" alt="property-0">
                             <?php } ?>
                             </a>
                         </li>
@@ -82,7 +82,7 @@
                             <?php } else { ?>
                                 <li class="list-inline-item">
                                     <a id="carousel-selector-<?= $no ?>" data-slide-to="<?= $no ?>" data-target="#propertiesDetailsSlider">
-                                        <img src="https://via.placeholder.com/350x250" class="img-fluid" alt="property-<?= $no ?>">
+                                        <img src="https://placehold.co/350x250" class="img-fluid" alt="property-<?= $no ?>">
                                     </a>
                                 </li>
                             <?php }
@@ -213,7 +213,7 @@
                                     </tr>
                                     </tbody>
                                 </table>
-                                <img src="https://via.placeholder.com/730x370" alt="floor-plans" class="img-fluid">
+                                <img src="https://placehold.co/730x370" alt="floor-plans" class="img-fluid">
                             </div>
                         </div>
                         <div class="tab-pane fade " id="4" role="tabpanel" aria-labelledby="4-tab">
@@ -243,7 +243,7 @@
                                                     </div>
                                                     <div class="tag-for">For Sale</div>
                                                     <div class="plan-price"><sup>$</sup>820<span>/month</span> </div>
-                                                    <img src="https://via.placeholder.com/350x233" alt="property-1" class="img-fluid">
+                                                    <img src="https://placehold.co/350x233" alt="property-1" class="img-fluid">
                                                 </a>
                                                 <div class="property-overlay">
                                                     <a href="properties-details.html" class="overlay-link">
@@ -253,11 +253,11 @@
                                                         <i class="fa fa-video-camera"></i>
                                                     </a>
                                                     <div class="property-magnify-gallery">
-                                                        <a href="https://via.placeholder.com/750x540" class="overlay-link">
+                                                        <a href="https://placehold.co/750x540" class="overlay-link">
                                                             <i class="fa fa-expand"></i>
                                                         </a>
-                                                        <a href="https://via.placeholder.com/750x540" class="hidden"></a>
-                                                        <a href="https://via.placeholder.com/750x540" class="hidden"></a>
+                                                        <a href="https://placehold.co/750x540" class="hidden"></a>
+                                                        <a href="https://placehold.co/750x540" class="hidden"></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -304,7 +304,7 @@
                                                     </div>
                                                     <div class="tag-for">For Rent</div>
                                                     <div class="plan-price"><sup>$</sup>480<span>/month</span> </div>
-                                                    <img src="https://via.placeholder.com/350x233" alt="property-1" class="img-fluid">
+                                                    <img src="https://placehold.co/350x233" alt="property-1" class="img-fluid">
                                                 </a>
                                                 <div class="property-overlay">
                                                     <a href="properties-details.html" class="overlay-link">
@@ -314,11 +314,11 @@
                                                         <i class="fa fa-video-camera"></i>
                                                     </a>
                                                     <div class="property-magnify-gallery">
-                                                        <a href="https://via.placeholder.com/750x540" class="overlay-link">
+                                                        <a href="https://placehold.co/750x540" class="overlay-link">
                                                             <i class="fa fa-expand"></i>
                                                         </a>
-                                                        <a href="https://via.placeholder.com/750x540" class="hidden"></a>
-                                                        <a href="https://via.placeholder.com/750x540" class="hidden"></a>
+                                                        <a href="https://placehold.co/750x540" class="hidden"></a>
+                                                        <a href="https://placehold.co/750x540" class="hidden"></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -469,7 +469,7 @@
                             <div class="comment">
                                 <div class="comment-author">
                                     <a href="#">
-                                        <img src="https://via.placeholder.com/70x70" alt="avatar-13">
+                                        <img src="https://placehold.co/70x70" alt="avatar-13">
                                     </a>
                                 </div>
                                 <div class="comment-content">
@@ -495,7 +495,7 @@
                                     <div class="comment">
                                         <div class="comment-author">
                                             <a href="#">
-                                                <img src="https://via.placeholder.com/70x70" alt="avatar-13">
+                                                <img src="https://placehold.co/70x70" alt="avatar-13">
                                             </a>
                                         </div>
                                         <div class="comment-content">
@@ -525,7 +525,7 @@
                             <div class="comment">
                                 <div class="comment-author">
                                     <a href="#">
-                                        <img src="https://via.placeholder.com/70x70" alt="avatar-13">
+                                        <img src="https://placehold.co/70x70" alt="avatar-13">
                                     </a>
                                 </div>
                                 <div class="comment-content">
@@ -754,7 +754,7 @@
                         <h5 class="sidebar-title">Recent Properties</h5>
                         <div class="media mb-4">
                             <a href="properties-details.html">
-                                <img src="https://via.placeholder.com/60x60" alt="sub-property">
+                                <img src="https://placehold.co/60x60" alt="sub-property">
                             </a>
                             <div class="media-body align-self-center">
                                 <h5>
@@ -765,7 +765,7 @@
                         </div>
                         <div class="media mb-4">
                             <a href="properties-details.html">
-                                <img src="https://via.placeholder.com/60x60" alt="sub-property-2">
+                                <img src="https://placehold.co/60x60" alt="sub-property-2">
                             </a>
                             <div class="media-body align-self-center">
                                 <h5>
@@ -776,7 +776,7 @@
                         </div>
                         <div class="media">
                             <a href="properties-details.html">
-                                <img src="https://via.placeholder.com/60x60" alt="sub-property-3">
+                                <img src="https://placehold.co/60x60" alt="sub-property-3">
                             </a>
                             <div class="media-body align-self-center">
                                 <h5>

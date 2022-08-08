@@ -124,7 +124,7 @@ class Propertis_model extends CI_Model {
                 if(file_exists($url)){
                     $img = '<img style="width:350px; height:250px;" data-original="'.base_url('www/properties/'.$row['properties_cover']).'" src="'.base_url('www/properties/'.$row['properties_cover']).'" alt="property-box" class="img-fluid">';
                 } else {
-                    $img = '<img data-original="https://place-hold.it/350x250" src="https://place-hold.it/350x250" alt="property-box" class="img-fluid">';
+                    $img = '<img data-original="https://placehold.co/350x250" src="https://placehold.co/350x250" alt="property-box" class="img-fluid">';
                 }
 
                 if($row['properties_tipe_jual'] == 'Dijual'){
@@ -155,11 +155,11 @@ class Propertis_model extends CI_Model {
                                     </a>
                                     
                                     <div class="property-magnify-gallery">
-                                        <a href="https://place-hold.it/750x540" class="overlay-link">
+                                        <a href="https://placehold.co/750x540" class="overlay-link">
                                             <i class="fa fa-expand"></i>
                                         </a>
-                                        <a href="https://place-hold.it/750x540"></a>
-                                        <a href="https://place-hold.it/750x540"></a>
+                                        <a href="https://placehold.co/750x540"></a>
+                                        <a href="https://placehold.co/750x540"></a>
                                     </div>
                                 </div>
                             </div>

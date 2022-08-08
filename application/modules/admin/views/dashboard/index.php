@@ -283,7 +283,7 @@
                     <div class="scroll dashboard-list-with-user">
                         <div class="d-flex flex-row mb-3 pb-3 border-bottom">
                             <a href="#">
-                                <img src="https://place-hold.it/300" alt="Mayra Sibley"
+                                <img src="https://placehold.co/300" alt="Mayra Sibley"
                                     class="img-thumbnail border-0 rounded-circle list-thumbnail align-self-center xsmall" />
                             </a>
                             <div class="pl-3">
@@ -296,7 +296,7 @@
 
                         <div class="d-flex flex-row mb-3 pb-3 border-bottom">
                             <a href="#">
-                                <img src="https://place-hold.it/300" alt="Mimi Carreira"
+                                <img src="https://placehold.co/300" alt="Mimi Carreira"
                                     class="img-thumbnail border-0 rounded-circle list-thumbnail align-self-center xsmall" />
                             </a>
                             <div class="pl-3">
@@ -309,7 +309,7 @@
 
                         <div class="d-flex flex-row mb-3 pb-3 border-bottom">
                             <a href="#">
-                                <img src="https://place-hold.it/300" alt="Philip Nelms"
+                                <img src="https://placehold.co/300" alt="Philip Nelms"
                                     class="img-thumbnail border-0 rounded-circle list-thumbnail align-self-center xsmall" />
                             </a>
                             <div class="pl-3">
@@ -322,7 +322,7 @@
 
                         <div class="d-flex flex-row mb-3 pb-3 border-bottom">
                             <a href="#">
-                                <img src="https://place-hold.it/300" alt="Terese Threadgill"
+                                <img src="https://placehold.co/300" alt="Terese Threadgill"
                                     class="img-thumbnail border-0 rounded-circle list-thumbnail align-self-center xsmall" />
                             </a>
                             <div class="pl-3">
@@ -335,7 +335,7 @@
 
                         <div class="d-flex flex-row mb-3 pb-3 border-bottom">
                             <a href="#">
-                                <img src="https://place-hold.it/300" alt="Kathryn Mengel"
+                                <img src="https://placehold.co/300" alt="Kathryn Mengel"
                                     class="img-thumbnail border-0 rounded-circle list-thumbnail align-self-center xsmall" />
                             </a>
                             <div class="pl-3">
@@ -348,7 +348,7 @@
 
                         <div class="d-flex flex-row mb-3 pb-3 border-bottom">
                             <a href="#">
-                                <img src="https://place-hold.it/300" alt="Esperanza Lodge"
+                                <img src="https://placehold.co/300" alt="Esperanza Lodge"
                                     class="img-thumbnail border-0 rounded-circle list-thumbnail align-self-center xsmall" />
                             </a>
                             <div class="pl-3">
