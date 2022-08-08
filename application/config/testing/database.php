@@ -76,12 +76,12 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
+	// 'hostname' => 'localhost',
 	// 'username' => 'root',
 	// 'password' => '',
 	// 'database' => 'db_takaeh_setting',
 
-	// 'hostname' => '151.106.118.86',
+	'hostname' => '151.106.118.86',
 	'username' => 'u1272680',
 	'password' => 'Kayogadang045!',
 	'database' => 'u1272680_takaeh_setting',
