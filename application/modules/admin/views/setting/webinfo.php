@@ -1,14 +1,6 @@
 
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.1/jquery-editable/css/jquery-editable.css" />
-<link href="https://cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.1/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.bundle.min.js" integrity="sha512-9GacT4119eY3AcosfWtHMsT5JyZudrexyEVzTBWV3viP/YfB9e2pEy3N7WXL3SV6ASXpTU0vzzSxsbfsuUH4sQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.1/jqueryui-editable/js/jqueryui-editable.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.1/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
-
-
-
+<link rel="stylesheet" href="<?=base_url()?>themes/admin/vendor/xeditable/bootstrap-editable.css">
 
 
 <div class="row">
@@ -132,10 +124,7 @@
                                                     <tr>
                                                         <td class="table-title"><?=cclang("title")?> Web/App</td>
                                                         <td>
-                                                            <a href="javascript:void(0);" id="web_name"
-                                                            data-url="<?= base_url("setting/update_action")?>"
-                                                            data-type="text" data-pk="1" class="editable editable-click"
-                                                            title="Edit"><?=setting('web_name')?></a>
+                                                            <a href="javascript:void(0);" id="web_name" data-url="<?= base_url("setting/update_action")?>" data-type="text" data-pk="1" class="editable editable-click" title="Edit"><?=setting('web_name')?></a>
                                                         </td>
                                                     </tr>
 
@@ -314,7 +303,16 @@
 
 
 <script type="text/javascript">
+    window.base_url = '<?php echo base_url() ?>';
+</script>
+<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="<?=base_url()?>themes/admin/vendor/xeditable/bootstrap-editable.min.js"></script>
+
+
+<script type="text/javascript">
     $(document).ready(function(){
+
         $.fn.editable.defaults.mode = 'inline';
         $.fn.editable.defaults.ajaxOptions = {type: "POST",dataType : 'JSON'};
         $.fn.editableform.buttons ='<button type="submit" class="btn btn-primary btn-sm editable-submit">' +
@@ -322,15 +320,15 @@
                                     '</button>' +
                                     '<button type="button" class="btn btn-default btn-sm editable-cancel">' +
                                     '<i class="fa fa-fw fa-times"></i>' +
-        '</button>';
+                                    '</button>';
 
         $('#web_name').editable({
-            inputclass: 'form-control-sm',
-            success: function(data) {
-                if (data.success != true) {
-                return data.msg;
-                }
+        inputclass: 'form-control-sm',
+        success: function(data) {
+            if (data.success != true) {
+            return data.msg;
             }
+        }
         });
 
         $('#web_domain').editable({
