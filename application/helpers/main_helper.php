@@ -12,7 +12,42 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @param string $label text inside <li></li>
  */
 
+    if (!function_exists('cclang'))
+    {
+        function cclang($langkey = null, $params = [])
+        {
+            if (!is_array($params)) {
+                $params = [$params];
+            }
 
+            $lang = lang($langkey);
+
+            $idx = 1;
+            foreach ($params as $value) {
+                $lang = str_replace('$'.$idx++, $value, $lang);
+            }
+
+            $lang = preg_replace('/\$([0-9])/', '', $lang);
+
+            if (!$lang) {
+                return ucwords($langkey);
+            }
+
+            return $lang;
+        }
+    }
+
+    function setting($kd = null , $field = "value")
+    {
+        $ci =  &get_instance();
+        $kd = strtolower($kd);
+        $qry = $ci->db->get_where("setting", ["options" => $kd]);
+        if ($qry->num_rows() > 0) {
+            return $qry->row()->$field;
+        }else {
+            return "System not available";
+        }
+    }
 
     function is_logged_in()
     {

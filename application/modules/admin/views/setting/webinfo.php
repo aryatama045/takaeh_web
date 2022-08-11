@@ -1,8 +1,19 @@
 
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.1/jquery-editable/css/jquery-editable.css" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.1/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.bundle.min.js" integrity="sha512-9GacT4119eY3AcosfWtHMsT5JyZudrexyEVzTBWV3viP/YfB9e2pEy3N7WXL3SV6ASXpTU0vzzSxsbfsuUH4sQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.1/jqueryui-editable/js/jqueryui-editable.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.1/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
+
+
+
+
+
 <div class="row">
     <div class="col-12">
-        <h1> Detail Karyawan</h1>
+        <h1> <?= $title ?></h1>
         <div class="top-right-button-container">
 				<div class="btn-group">
 					<a class="btn btn-outline-primary btn-md" href="<?= base_url('user/karyawan') ?>" >
@@ -41,7 +52,6 @@
                                     </a>
                                     <div class="pl-3 pt-2 pr-2 pb-2">
                                         <p class="list-item-heading font-weight-bold">
-                                            
                                         </p>
                                     </div>
                                 </div>
@@ -84,10 +94,10 @@
                             <div class="card-header">
                                 <ul class="nav nav-tabs card-header-tabs " role="tablist">
 
-                                    <!-- Detail -->
+                                    <!-- Default -->
                                     <li class="nav-item font-weight-bold">
                                         <a class="nav-link active" id="firsts-tab" data-toggle="tab" href="#firsts" role="tab"
-                                            aria-controls="firsts" aria-selected="true">Details</a>
+                                            aria-controls="firsts" aria-selected="true">Defaults</a>
                                     </li>
 
                                     <!-- pengalaman -->
@@ -118,52 +128,53 @@
                                         <!-- Biodata -->
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <h4 class="font-weight-bold">Biodata</h4>
                                                 <table class="table table-borderless">
-                                                    <tbody>
-                                                        <tr>
-                                                            <th><p class="text-muted text-small">Nama Lengkap</p></th>
-                                                            <td></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th><p class="text-muted text-small">Tempat Tanggal Lahir</p></th>
-                                                            <td></td>
-                                                        </tr>
-                                                    </tbody>
+                                                    <tr>
+                                                        <td class="table-title"><?=cclang("title")?> Web/App</td>
+                                                        <td>
+                                                            <a href="javascript:void(0);" id="web_name"
+                                                            data-url="<?= base_url("setting/update_action")?>"
+                                                            data-type="text" data-pk="1" class="editable editable-click"
+                                                            title="Edit"><?=setting('web_name')?></a>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td class="table-title">Url/Domain</td>
+                                                        <td>
+                                                            <a href="javascript:void(0);" id="web_domain" data-url="<?= base_url("setting/update_action")?>" data-type="text" data-pk="2" class="editable editable-click" title="Edit"><?=setting('web_domain')?></a>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td class="table-title"><?=cclang("owner")?></td>
+                                                        <td>
+                                                            <a href="javascript:void(0);" id="web_owner" data-url="<?= base_url("setting/update_action")?>" data-type="text" data-pk="3" class="editable editable-click" title="Edit"><?=setting('web_owner')?></a>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td class="table-title">Email</td>
+                                                        <td>
+                                                            <a href="javascript:void(0);" id="email" data-url="<?= base_url("setting/update_action")?>" data-type="text" data-pk="4" class="editable editable-click" title="Edit"><?=setting('email')?></a>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td class="table-title"><?=cclang("phone")?></td>
+                                                        <td>
+                                                            <a href="javascript:void(0)" id="telepon" data-url="<?= base_url("setting/update_action")?>" data-type="text" data-pk="5" class="editable editable-click" title="Edit"><?=setting('telepon')?></a>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td class="table-title"><?=cclang("address")?></td>
+                                                        <td>
+                                                            <a href="javascript:void(0)" id="address" data-url="<?= base_url("setting/update_action")?>" data-type="textarea" data-rows="4"  data-pk="6" class="editable editable-click" title="Edit"><?=setting('address')?></a>
+                                                        </td>
+                                                    </tr>
                                                 </table>
 
-                                            </div>
-                                        </div> <hr>
-
-                                        <!-- Data Pendidikan -->
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <h4 class="font-weight-bold">Data Pendidikan</h4>
-                                                <table class="table table-borderless">
-                                                    <thead>
-                                                        <tr>
-                                                            <th scope="col">#</th>
-                                                            <th scope="col">Lembaga</th>
-                                                            <th scope="col">Jurusan</th>
-                                                            <th scope="col">Tahun Lulus</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <!-- <?php $no=1;?>
-                                                            <?php if(empty($pendidikan) || $pendidikan == NULL || $pendidikan == ""){?>
-                                                                <tr><td colspan="4" class="text-center">Tidak ada data</td></tr>
-                                                            <?php } else {   foreach($pendidikan as $dk) {?>
-                                                                <tr>
-                                                                    <th scope="row"><?= $no++; ?></th>
-                                                                    <td><?= $dk['lembaga'] ?></td>
-                                                                    <td><?= $dk['jurusan'] ?></td>
-                                                                    <td><?= $dk['tahun_lulus'] ?></td>
-                                                                </tr>
-                                                            <?php } ?>
-                                                        <?php } ?> -->
-
-                                                    </tbody>
-                                                </table>
                                             </div>
                                         </div> <hr>
 
@@ -300,4 +311,74 @@
         </div>
     </div>
 </div>
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $.fn.editable.defaults.mode = 'inline';
+        $.fn.editable.defaults.ajaxOptions = {type: "POST",dataType : 'JSON'};
+        $.fn.editableform.buttons ='<button type="submit" class="btn btn-primary btn-sm editable-submit">' +
+                                    '<i class="fa fa-fw fa-check"></i>' +
+                                    '</button>' +
+                                    '<button type="button" class="btn btn-default btn-sm editable-cancel">' +
+                                    '<i class="fa fa-fw fa-times"></i>' +
+        '</button>';
+
+        $('#web_name').editable({
+            inputclass: 'form-control-sm',
+            success: function(data) {
+                if (data.success != true) {
+                return data.msg;
+                }
+            }
+        });
+
+        $('#web_domain').editable({
+        inputclass: 'form-control-sm',
+        success: function(data) {
+        if (data.success != true) {
+            return data.msg;
+        }
+        }
+        });
+
+
+        $('#web_owner').editable({
+        inputclass: 'form-control-sm',
+        success: function(data) {
+        if (data.success != true) {
+            return data.msg;
+        }
+        }
+        });
+
+        $('#telepon').editable({
+        inputclass: 'form-control-sm',
+        success: function(data) {
+        if (data.success != true) {
+            return data.msg;
+        }
+        }
+        });
+
+        $('#email').editable({
+        inputclass: 'form-control-sm',
+        success: function(data) {
+        if (data.success != true) {
+            return data.msg;
+        }
+        }
+        });
+
+        $('#address').editable({
+        inputclass: 'form-control-sm',
+        success: function(data) {
+        if (data.success != true) {
+            return data.msg;
+        }
+        }
+        });
+
+    });
+</script>
 
