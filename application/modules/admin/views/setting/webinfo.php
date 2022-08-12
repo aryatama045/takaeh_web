@@ -1,7 +1,5 @@
 
 
-<link rel="stylesheet" href="<?=base_url()?>themes/admin/vendor/xeditable/bootstrap-editable.css">
-
 
 <div class="row">
     <div class="col-12">
@@ -124,42 +122,46 @@
                                                     <tr>
                                                         <td class="table-title"><?=cclang("title")?> Web/App</td>
                                                         <td>
-                                                            <a href="javascript:void(0);" id="web_name" data-url="<?= base_url("setting/update_action")?>" data-type="text" data-pk="1" class="editable editable-click" title="Edit"><?=setting('web_name')?></a>
+                                                            <a href="javascript:void(0);" id="web_name"
+                                                            data-url="<?= base_url("admin/setting/update_action")?>"
+                                                            data-type="text" data-pk="1" class="editable editable-click"
+                                                            title="Edit"><?=setting('web_name')?></a>
+                                                            <input type="text" class="form-control" name="web_name" value="<?=setting('web_name')?>">
                                                         </td>
                                                     </tr>
 
                                                     <tr>
                                                         <td class="table-title">Url/Domain</td>
                                                         <td>
-                                                            <a href="javascript:void(0);" id="web_domain" data-url="<?= base_url("setting/update_action")?>" data-type="text" data-pk="2" class="editable editable-click" title="Edit"><?=setting('web_domain')?></a>
+                                                            <a href="javascript:void(0);" id="web_domain" data-url="<?= base_url("admin/setting/update_action")?>" data-type="text" data-pk="2" class="editable editable-click" title="Edit"><?=setting('web_domain')?></a>
                                                         </td>
                                                     </tr>
 
                                                     <tr>
                                                         <td class="table-title"><?=cclang("owner")?></td>
                                                         <td>
-                                                            <a href="javascript:void(0);" id="web_owner" data-url="<?= base_url("setting/update_action")?>" data-type="text" data-pk="3" class="editable editable-click" title="Edit"><?=setting('web_owner')?></a>
+                                                            <a href="javascript:void(0);" id="web_owner" data-url="<?= base_url("admin/setting/update_action")?>" data-type="text" data-pk="3" class="editable editable-click" title="Edit"><?=setting('web_owner')?></a>
                                                         </td>
                                                     </tr>
 
                                                     <tr>
                                                         <td class="table-title">Email</td>
                                                         <td>
-                                                            <a href="javascript:void(0);" id="email" data-url="<?= base_url("setting/update_action")?>" data-type="text" data-pk="4" class="editable editable-click" title="Edit"><?=setting('email')?></a>
+                                                            <a href="javascript:void(0);" id="email" data-url="<?= base_url("admin/setting/update_action")?>" data-type="text" data-pk="4" class="editable editable-click" title="Edit"><?=setting('email')?></a>
                                                         </td>
                                                     </tr>
 
                                                     <tr>
                                                         <td class="table-title"><?=cclang("phone")?></td>
                                                         <td>
-                                                            <a href="javascript:void(0)" id="telepon" data-url="<?= base_url("setting/update_action")?>" data-type="text" data-pk="5" class="editable editable-click" title="Edit"><?=setting('telepon')?></a>
+                                                            <a href="javascript:void(0)" id="telepon" data-url="<?= base_url("admin/setting/update_action")?>" data-type="text" data-pk="5" class="editable editable-click" title="Edit"><?=setting('telepon')?></a>
                                                         </td>
                                                     </tr>
 
                                                     <tr>
                                                         <td class="table-title"><?=cclang("address")?></td>
                                                         <td>
-                                                            <a href="javascript:void(0)" id="address" data-url="<?= base_url("setting/update_action")?>" data-type="textarea" data-rows="4"  data-pk="6" class="editable editable-click" title="Edit"><?=setting('address')?></a>
+                                                            <a href="javascript:void(0)" id="address" data-url="<?= base_url("admin/setting/update_action")?>" data-type="textarea" data-rows="4"  data-pk="6" class="editable editable-click" title="Edit"><?=setting('address')?></a>
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -301,82 +303,4 @@
     </div>
 </div>
 
-
-<script type="text/javascript">
-    window.base_url = '<?php echo base_url() ?>';
-</script>
-<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="<?=base_url()?>themes/admin/vendor/xeditable/bootstrap-editable.min.js"></script>
-
-
-<script type="text/javascript">
-    $(document).ready(function(){
-
-        $.fn.editable.defaults.mode = 'inline';
-        $.fn.editable.defaults.ajaxOptions = {type: "POST",dataType : 'JSON'};
-        $.fn.editableform.buttons ='<button type="submit" class="btn btn-primary btn-sm editable-submit">' +
-                                    '<i class="fa fa-fw fa-check"></i>' +
-                                    '</button>' +
-                                    '<button type="button" class="btn btn-default btn-sm editable-cancel">' +
-                                    '<i class="fa fa-fw fa-times"></i>' +
-                                    '</button>';
-
-        $('#web_name').editable({
-        inputclass: 'form-control-sm',
-        success: function(data) {
-            if (data.success != true) {
-            return data.msg;
-            }
-        }
-        });
-
-        $('#web_domain').editable({
-        inputclass: 'form-control-sm',
-        success: function(data) {
-        if (data.success != true) {
-            return data.msg;
-        }
-        }
-        });
-
-
-        $('#web_owner').editable({
-        inputclass: 'form-control-sm',
-        success: function(data) {
-        if (data.success != true) {
-            return data.msg;
-        }
-        }
-        });
-
-        $('#telepon').editable({
-        inputclass: 'form-control-sm',
-        success: function(data) {
-        if (data.success != true) {
-            return data.msg;
-        }
-        }
-        });
-
-        $('#email').editable({
-        inputclass: 'form-control-sm',
-        success: function(data) {
-        if (data.success != true) {
-            return data.msg;
-        }
-        }
-        });
-
-        $('#address').editable({
-        inputclass: 'form-control-sm',
-        success: function(data) {
-        if (data.success != true) {
-            return data.msg;
-        }
-        }
-        });
-
-    });
-</script>
 

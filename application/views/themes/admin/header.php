@@ -33,7 +33,8 @@
     <link rel="stylesheet" href="<?= base_url('themes/admin/') ?>css/vendor/component-custom-switch.min.css" />
 
     <link rel="stylesheet" href="<?= base_url('themes/admin/') ?>css/dore.light.bluenavy.min.css" />
-
+    <link rel="stylesheet" href="<?=base_url()?>themes/admin/vendor/xeditable/bootstrap-editable.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"/>
     <!-- <link rel="stylesheet" href="<?= base_url('themes/admin/') ?>css/dore.dark.bluenavy.min.css" /> -->
 
 	<link rel="stylesheet" href="<?= base_url('themes/admin/') ?>css/main.css" />

@@ -56,6 +56,81 @@
 
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script src="<?=base_url()?>themes/admin/vendor/xeditable/bootstrap-editable.min.js"></script>
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        $.fn.editable.defaults.mode = 'inline';
+        $.fn.editable.defaults.ajaxOptions = {type: "POST",dataType : 'JSON'};
+        $.fn.editableform.buttons ='<button type="submit" class="btn btn-primary btn-sm editable-submit">' +
+                                    '<i class="fa fa-fw fa-check"></i>' +
+                                    '</button>' +
+                                    '<button type="button" class="btn btn-default btn-sm editable-cancel">' +
+                                    '<i class="fa fa-fw fa-times"></i>' +
+                                    '</button>';
+        $('#web_name').editable({
+            inputclass: 'form-control',
+            success: function(data) {
+                if (data.success != true) {
+                    return data.msg;
+                }
+            }
+        });
+
+        $('#web_domain').editable({
+            inputclass: 'form-control',
+            success: function(data) {
+                if (data.success != true) {
+                    return data.msg;
+                }
+            }
+        });
+
+
+        $('#web_owner').editable({
+            inputclass: 'form-control',
+            success: function(data) {
+            if (data.success != true) {
+                return data.msg;
+            }
+            }
+        });
+
+        $('#telepon').editable({
+            inputclass: 'form-control-sm',
+            success: function(data) {
+            if (data.success != true) {
+                return data.msg;
+            }
+            }
+        });
+
+        $('#email').editable({
+            inputclass: 'form-control-sm',
+            success: function(data) {
+            if (data.success != true) {
+                return data.msg;
+            }
+            }
+        });
+
+        $('#address').editable({
+            inputclass: 'form-control-sm',
+            success: function(data) {
+            if (data.success != true) {
+                return data.msg;
+            }
+            }
+        });
+
+    });
+</script>
+
+
+
 <script>
     $('.custom-file-input').on('change', function() {
         let fileName = $(this).val().split('\\').pop();
@@ -129,7 +204,38 @@
 	});
 
 
+    (function($) {
+        'use strict';
+        $(function() {
+            /* Code for attribute data-custom-class for adding custom class to tooltip */
+            if (typeof $.fn.popover.Constructor === 'undefined') {
+            throw new Error('Bootstrap Popover must be included first!');
+            }
 
+            var Popover = $.fn.popover.Constructor;
+
+            // add customClass option to Bootstrap Tooltip
+            $.extend(Popover.Default, {
+            customClass: ''
+            });
+
+            var _show = Popover.prototype.show;
+
+            Popover.prototype.show = function() {
+
+            // invoke parent method
+            _show.apply(this, Array.prototype.slice.apply(arguments));
+
+            if (this.config.customClass) {
+                var tip = this.getTipElement();
+                $(tip).addClass(this.config.customClass);
+            }
+
+            };
+
+            $('[data-toggle="popover"]').popover()
+        });
+    })(jQuery);
 </script>
 </body>
 
