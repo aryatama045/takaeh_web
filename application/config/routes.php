@@ -49,14 +49,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
+$URI =& load_class('URI');
+if ($URI->segment(1) == ADMIN_ROUTE) {
+    $route['404_override'] = 'admin/auth/page404';
+}else {
+    $route['404_override'] = 'auth/page404';
+}
 
 
-$route['default_controller']    = 'home';
-$route['404_override']          = 'auth/page404';
+$route['default_controller'] = DEFAULT_CONTROLLER;
 $route['translate_uri_dashes']  = FALSE;
 
 $route['admin-login']   = 'admin/auth';
 $route['dashboard']     = 'admin/dashboard';
+
+$route['logout']        = 'admin/auth/logout';
+$route[LOGIN_ROUTE]     = 'admin/auth/login';
+$route[LOGIN_ROUTE.'/(:any)'] = 'admin/auth/login/$1';
 
 
 // $route['properti']      = 'properti/index';

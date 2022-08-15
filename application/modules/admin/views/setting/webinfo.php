@@ -84,29 +84,18 @@
                             <div class="card-header">
                                 <ul class="nav nav-tabs card-header-tabs " role="tablist">
 
-                                    <!-- Default -->
+                                    <!-- defaults -->
                                     <li class="nav-item font-weight-bold">
-                                        <a class="nav-link active" id="firsts-tab" data-toggle="tab" href="#firsts" role="tab"
-                                            aria-controls="firsts" aria-selected="true">Defaults</a>
+                                        <a class="nav-link active" id="defaults-tab" data-toggle="tab" href="#defaults" role="tab"
+                                            aria-controls="defaults" aria-selected="true"><?= ucfirst('defaults')?></a>
                                     </li>
 
-                                    <!-- pengalaman -->
+                                    <!-- core -->
                                     <li class="nav-item font-weight-bold">
-                                        <a class="nav-link" id="pengalaman-tab" data-toggle="tab" href="#pengalaman" role="tab"
-                                            aria-controls="pengalaman" aria-selected="false"> Pengalaman</a>
+                                        <a class="nav-link" id="core-tab" data-toggle="tab" href="#core" role="tab"
+                                            aria-controls="core" aria-selected="false"> <?= ucfirst('core')?></a>
                                     </li>
 
-                                    <!-- dokumen -->
-                                    <li class="nav-item font-weight-bold">
-                                        <a class="nav-link" id="dokumen-tab" data-toggle="tab" href="#dokumen" role="tab"
-                                            aria-controls="dokumen" aria-selected="false"> Dokumen</a>
-                                    </li>
-
-                                    <!-- penilaian -->
-                                    <li class="nav-item font-weight-bold">
-                                        <a class="nav-link" id="penilaian-tab" data-toggle="tab" href="#penilaian" role="tab"
-                                            aria-controls="penilaian" aria-selected="false"> Penilaian</a>
-                                    </li>
 
                                 </ul>
                             </div>
@@ -114,8 +103,8 @@
                                 <div class="tab-content">
 
                                     <!-- Details -->
-                                    <div class="tab-pane fade show active" id="firsts" role="tabpanel" aria-labelledby="first-tab">
-                                        <!-- Biodata -->
+                                    <div class="tab-pane fade show active" id="defaults" role="tabpanel" aria-labelledby="first-tab">
+                                        <!-- defaults -->
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <table class="table table-borderless">
@@ -126,7 +115,7 @@
                                                             data-url="<?= base_url("admin/setting/update_action")?>"
                                                             data-type="text" data-pk="1" class="editable editable-click"
                                                             title="Edit"><?=setting('web_name')?></a>
-                                                            <input type="text" class="form-control" name="web_name" value="<?=setting('web_name')?>">
+                                                            <!-- <input type="text" class="form-control" name="web_name" value="<?=setting('web_name')?>"> -->
                                                         </td>
                                                     </tr>
 
@@ -169,76 +158,81 @@
                                             </div>
                                         </div> <hr>
 
-                                        <!-- Data Keluarga -->
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <h4 class="font-weight-bold">Data Keluarga</h4>
-                                                <table class="table table-borderless">
-                                                    <thead>
-                                                        <tr>
-                                                            <th scope="col">#</th>
-                                                            <th scope="col">Nama</th>
-                                                            <th scope="col">Hubungan</th>
-                                                            <th scope="col">Tgl Lahir</th>
-                                                            <th scope="col">Alamat</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <!-- <?php $no=1;?>
-                                                            <?php if(empty($keluarga) || $keluarga == NULL || $keluarga == ""){?>
-                                                                <tr><td colspan="5" class="text-center">Tidak ada data</td></tr>
-                                                            <?php } else {   foreach($keluarga as $dk) {?>
-                                                                <tr>
-                                                                    <th scope="row"><?= $no++; ?></th>
-                                                                    <td><?= $dk['nama'] ?></td>
-                                                                    <td><?= $dk['hubungan'] ?></td>
-                                                                    <td><?= $dk['tgl_lahir'] ?></td>
-                                                                    <td><?= $dk['alamat'] ?></td>
-                                                                </tr>
-                                                            <?php } ?>
-                                                        <?php } ?> -->
-
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div> <hr>
-
                                     </div>
 
-                                    <!-- Pengalaman -->
-                                    <div class="tab-pane fade" id="pengalaman" role="tabpanel" aria-labelledby="pengalaman-tab">
+                                    <!-- core -->
+                                    <div class="tab-pane fade" id="core" role="tabpanel" aria-labelledby="core-tab">
 
-                                        <table class="table table-borderless">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col">#</th>
-                                                    <th scope="col">Nama Perusahaan</th>
-                                                    <th scope="col">Jabatan</th>
-                                                    <th scope="col">Lama Bekerja</th>
-                                                    <th scope="col">Bagian</th>
-                                                    <th scope="col">Penghargaan</th>
-                                                    <th scope="col">Keterangan</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
+                                        <table class="table-setting table-striped table-hover">
+                                            <tr>
+                                                <td class="table-title"><?=cclang("time_zone")?></td>
+                                                <td>
+                                                <a href="javascript:void(0);" id="time_zone" data-url="<?=url("setting/update_action")?>" data-type="select" data-value="<?=$this->config->item("time_zone")?>" data-pk="999" class="editable editable-click" title="<?=cclang("update")?>"><?=$this->config->item("time_zone")?></a>
+                                                </td>
+                                            </tr>
 
-                                                <?php $no=1;?>
-                                                    <?php if(empty($pengalaman) || $pengalaman == NULL || $pengalaman == ""){?>
-                                                        <tr><td colspan="7" class="text-center">Tidak ada data</td></tr>
-                                                    <?php } else {   foreach($pengalaman as $dk) {?>
-                                                        <tr>
-                                                            <th scope="row"><?= $no++; ?></th>
-                                                            <td><?= $dk['nama_perusahaan'] ?></td>
-                                                            <td><?= $dk['jabatan'] ?></td>
-                                                            <td><?= $dk['lama_krj_thn'] ?></td>
-                                                            <td><?= $dk['bagian'] ?></td>
-                                                            <td><?= $dk['penghargaan'] ?></td>
-                                                            <td><?= $dk['keterangan'] ?></td>
-                                                        </tr>
-                                                    <?php } ?>
-                                                <?php } ?>
+                                            <tr>
+                                                <td class="table-title">Encryption Key</td>
+                                                <td>
+                                                <a href="javascript:void(0);" id="encryption_key" data-url="<?=url("setting/update_action")?>" data-type="text" data-pk="999" class="editable editable-click" title="<?=cclang("update")?>"><?=$this->config->item("encryption_key")?></a>
+                                                </td>
+                                            </tr>
 
-                                            </tbody>
+                                            <tr>
+                                                <td class="table-title">Encryption Url</td>
+                                                <td>
+                                                <a href="javascript:void(0);" id="encryption_url" data-url="<?=url("setting/update_action")?>" data-type="select" data-pk="999" class="editable editable-click" title="<?=cclang("update")?>"><?=$this->config->item("encryption_url") == 1 ? "Y":"N"?></a>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td class="table-title">Url suffix</td>
+                                                <td>
+                                                <a href="javascript:void(0);" id="url_suffix" data-url="<?=url("setting/update_action")?>" data-type="text" data-pk="999" class="editable editable-click" title="<?=cclang("update")?>"><?=$this->config->item("url_suffix")?></a>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td class="table-title">Route admin</td>
+                                                <td>
+                                                <a href="javascript:void(0);" id="route_admin" data-url="<?=url("setting/update_action")?>" data-type="text" data-pk="998" class="editable editable-click" title="<?=cclang("update")?>"><?=ADMIN_ROUTE?></a>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td class="table-title">Route login</td>
+                                                <td>
+                                                <a href="javascript:void(0);" id="route_login" data-url="<?=url("setting/update_action")?>" data-type="text" data-pk="998" class="editable editable-click" title="<?=cclang("update")?>"><?=LOGIN_ROUTE?></a>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td class="table-title">Max Upload</td>
+                                                <td>
+                                                <a href="javascript:void(0);" id="max_upload" data-url="<?=url("setting/update_action")?>" data-type="text" data-pk="999" class="editable editable-click" title="<?=cclang("update")?>"><?=$this->config->item("max_upload")?></a> Kb
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td class="table-title"><?=cclang("language")?></td>
+                                                <td>
+                                                <a href="javascript:void(0);" id="language" data-url="<?=url("setting/update_action")?>" data-type="select" data-value="<?=$this->config->item("language")?>" data-pk="999" class="editable editable-click" title="<?=cclang("update")?>"><?=$this->config->item("language")?></a>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td class="table-title"><?=cclang("user_log_activity")?></td>
+                                                <td>
+                                                <a href="javascript:void(0);" id="user_log_status" data-url="<?=url("setting/update_action")?>" data-type="select" data-value="<?=setting('user_log_status')?>" data-pk="61" class="editable editable-click" title="<?=cclang("update")?>"><?=setting('user_log_status')?></a>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td class="table-title"><?=cclang("maintenance")?></td>
+                                                <td>
+                                                <a href="javascript:void(0);" id="maintenance_status" data-url="<?=url("setting/update_action")?>" data-type="select" data-value="<?=setting('maintenance_status')?>" data-pk="60" class="editable editable-click" title="<?=cclang("update")?>"><?=setting('maintenance_status')?></a>
+                                                </td>
+                                            </tr>
                                         </table>
 
                                     </div>
@@ -302,5 +296,80 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    window.base_url = '<?php echo base_url() ?>';
+</script>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        $.fn.editable.defaults.mode = 'inline';
+        $.fn.editable.defaults.ajaxOptions = {type: "POST",dataType : 'JSON'};
+        $.fn.editableform.buttons ='<button type="submit" class="btn btn-primary btn-sm editable-submit">' +
+                                    '<i class="fa fa-fw fa-check"></i>' +
+                                    '</button>' +
+                                    '<button type="button" class="btn btn-default btn-sm editable-cancel">' +
+                                    '<i class="fa fa-fw fa-times"></i>' +
+                                    '</button>';
+        $('#web_name').editable({
+            inputclass: 'form-control',
+            success: function(data) {
+                if (data.success != true) {
+                    return data.msg;
+                }
+            }
+        });
+
+        $('#web_domain').editable({
+            inputclass: 'form-control',
+            success: function(data) {
+                if (data.success != true) {
+                    return data.msg;
+                }
+            }
+        });
+
+
+        $('#web_owner').editable({
+            inputclass: 'form-control',
+            success: function(data) {
+            if (data.success != true) {
+                return data.msg;
+            }
+            }
+        });
+
+        $('#telepon').editable({
+            inputclass: 'form-control',
+            success: function(data) {
+            if (data.success != true) {
+                return data.msg;
+            }
+            }
+        });
+
+        $('#email').editable({
+            inputclass: 'form-control',
+            success: function(data) {
+            if (data.success != true) {
+                return data.msg;
+            }
+            }
+        });
+
+        $('#address').editable({
+            inputclass: 'form-control',
+            success: function(data) {
+            if (data.success != true) {
+                return data.msg;
+            }
+            }
+        });
+
+    });
+</script>
 
 

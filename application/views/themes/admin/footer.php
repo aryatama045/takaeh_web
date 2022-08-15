@@ -56,78 +56,10 @@
 
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script> -->
 <script src="<?=base_url()?>themes/admin/vendor/xeditable/bootstrap-editable.min.js"></script>
 
 
-<script type="text/javascript">
-    $(document).ready(function(){
-
-        $.fn.editable.defaults.mode = 'inline';
-        $.fn.editable.defaults.ajaxOptions = {type: "POST",dataType : 'JSON'};
-        $.fn.editableform.buttons ='<button type="submit" class="btn btn-primary btn-sm editable-submit">' +
-                                    '<i class="fa fa-fw fa-check"></i>' +
-                                    '</button>' +
-                                    '<button type="button" class="btn btn-default btn-sm editable-cancel">' +
-                                    '<i class="fa fa-fw fa-times"></i>' +
-                                    '</button>';
-        $('#web_name').editable({
-            inputclass: 'form-control',
-            success: function(data) {
-                if (data.success != true) {
-                    return data.msg;
-                }
-            }
-        });
-
-        $('#web_domain').editable({
-            inputclass: 'form-control',
-            success: function(data) {
-                if (data.success != true) {
-                    return data.msg;
-                }
-            }
-        });
-
-
-        $('#web_owner').editable({
-            inputclass: 'form-control',
-            success: function(data) {
-            if (data.success != true) {
-                return data.msg;
-            }
-            }
-        });
-
-        $('#telepon').editable({
-            inputclass: 'form-control-sm',
-            success: function(data) {
-            if (data.success != true) {
-                return data.msg;
-            }
-            }
-        });
-
-        $('#email').editable({
-            inputclass: 'form-control-sm',
-            success: function(data) {
-            if (data.success != true) {
-                return data.msg;
-            }
-            }
-        });
-
-        $('#address').editable({
-            inputclass: 'form-control-sm',
-            success: function(data) {
-            if (data.success != true) {
-                return data.msg;
-            }
-            }
-        });
-
-    });
-</script>
 
 
 

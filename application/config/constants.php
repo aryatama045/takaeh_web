@@ -83,3 +83,11 @@ defined('EXIT_USER_INPUT')     OR define('EXIT_USER_INPUT', 7); // invalid user 
 defined('EXIT_DATABASE')       OR define('EXIT_DATABASE', 8); // database error
 defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
+
+#------  Add
+$default_controller = "home";
+$admin_route = "admin";
+$login_route = "login";
+defined('DEFAULT_CONTROLLER')  OR define('DEFAULT_CONTROLLER', "$default_controller");
+defined('ADMIN_ROUTE')  OR define('ADMIN_ROUTE', "$admin_route");
+defined('LOGIN_ROUTE')  OR define('LOGIN_ROUTE', "$login_route");

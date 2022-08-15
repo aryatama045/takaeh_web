@@ -1,6 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+
+$config['time_zone'] = "Asia/Jakarta";
+date_default_timezone_set($config['time_zone']);
+//max upload Kb
+$config['max_upload'] = 10000;
+
 /*
 |--------------------------------------------------------------------------
 | Base Site URL
@@ -331,7 +337,8 @@ $config['cache_query_string'] = FALSE;
 | https://codeigniter.com/userguide3/libraries/encryption.html
 |
 */
-$config['encryption_key'] = 'https://takaeh.com/';
+$config['encryption_key'] = 'qwerty1234567';
+$config['encryption_url'] = TRUE;
 
 /*
 |--------------------------------------------------------------------------

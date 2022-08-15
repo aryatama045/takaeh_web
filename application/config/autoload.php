@@ -104,7 +104,8 @@ $autoload['helper'] = array('form','date','text','url', 'file', 'security', 'mai
 | config files.  Otherwise, leave it blank.
 |
 */
-$autoload['config'] = array();
+
+$autoload['config'] = array("app");
 
 /*
 | -------------------------------------------------------------------

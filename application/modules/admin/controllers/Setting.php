@@ -140,10 +140,30 @@ class Setting extends Admin_Controller
                     $constants_template = $this->parser->parse('core/constants_template.txt', $constants, TRUE);
                         write_file(FCPATH . '/application/config/constants.php', $constants_template);
                 }else {
-                    // $update = array("value" => );
-                    $this->db->set("value", $value);
-                    $this->db->where("id_setting", $pk);
-                    $this->db->update("setting");
+
+                    $this->db->where("options",$name);
+                    $this->db->from("setting");
+                    $cek = $this->db->get()->row_array();
+
+                    // tesx($pk, $name, $cek);
+
+                    if($cek == Null){
+                        $data = array(
+                            "id_setting" => $pk,
+                            "options"   => $name,
+                            "value"     => $value,
+                        );
+                        $this->db->insert("setting", $data);
+
+                    }else{
+                        $data = array(
+                            "value" => $value
+                        );
+                        $this->db->set($data);
+                        $this->db->where("id_setting", $pk);
+                        $this->db->update("setting");
+                    }
+                    // tesx($data);
                 }
 
                 $json['value'] = strtolower($value);
