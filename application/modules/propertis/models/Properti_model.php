@@ -66,6 +66,12 @@ class Properti_model extends CI_Model
 
 		$slug 		= url_title(strtolower($this->input->post('properties_title')));
 
+		$featured = $this->input->post('featured');
+
+		$rating = $this->input->post('rating');
+
+		tesx('tes',$featured,$rating, $_FILES['userfiles']['name']);
+
 		$xfasilitas[]=$this->input->post('properties_fasilitas');
 		foreach($xfasilitas as $fas){
 			$fasilitas = @implode(',', $fas);
@@ -108,7 +114,7 @@ class Properti_model extends CI_Model
 				'properties_aksebilitas'    => json_encode($this->input->post('properties_aksebilitas')),
 				'properties_fasilitas'      => json_encode($this->input->post('properties_fasilitas')),
 			/* -- Tipe Properties -- */
-			
+
 			/* -- Kondisi --*/
 				'properties_sertifikat'     => $this->security->xss_clean($this->input->post('properties_sertifikat')),
 				'properties_listrik'        => $this->security->xss_clean($this->input->post('properties_listrik')),
@@ -124,12 +130,12 @@ class Properti_model extends CI_Model
 				
 				'properties_alamat'         => $this->security->xss_clean($this->input->post('properties_alamat')),
 				'properties_video'          => $this->input->post('properties_video'),
-				'properties_cover'          => $this->upload->data('file_name'), 
-				'properties_active'         => $this->input->post('properties_active'),                   
+				'properties_cover'          => $this->upload->data('file_name'),
+				'properties_active'         => $this->input->post('properties_active'),
 				'created_date'              => time(),
 			/* -- Kondisi --*/
         );
-		$this->master->insert('properties', $dataProperties);
+		// $this->master->insert('properties', $dataProperties);
 
 		/* -- Properties Lokasi --*/
 			$id_properties_lokasi= $this->master->insert_id();
@@ -140,7 +146,7 @@ class Properti_model extends CI_Model
 				'kabupaten_id'   => $this->security->xss_clean($this->input->post('properties_kabupaten')),
 				'kecamatan_id'   => $this->security->xss_clean($this->input->post('properties_kecamatan'))
 			);
-			$this->master->insert('properties_lokasi', $dataPropertiesLokasi);
+			// $this->master->insert('properties_lokasi', $dataPropertiesLokasi);
 		/* -- Properties Lokasi --*/
 
 		/* --Add Item Slider --*/

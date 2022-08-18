@@ -15,6 +15,7 @@ $(function() {
     });
 });
 
+
 // alert('tes');
 
 $(document).ready(function() {
@@ -30,6 +31,10 @@ $(document).ready(function() {
     $('#kabupaten').change(function(){
         $('#kecamatan').prop('selectedIndex',0);
     });
+
+
+
+    
 
 });
 

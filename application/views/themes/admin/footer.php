@@ -44,7 +44,7 @@
     <script src="<?= base_url('themes/admin/') ?>js/vendor/select2.full.js"></script>
 	<script src="<?= base_url('themes/admin/') ?>js/vendor/jquery.smartWizard.min.js"></script>
     <script src="<?= base_url('themes/admin/') ?>js/vendor/nouislider.min.js"></script>
-    <!-- <script src="<?= base_url('themes/admin/') ?>jquery.magnific-popup.js"></script> -->
+    <script src="<?= base_url('themes/admin/') ?>js/vendor/dropzone.min.js"></script>
     <script src="<?= base_url('themes/admin/') ?>js/vendor/Sortable.js"></script>
     <script src="<?= base_url('themes/admin/') ?>js/vendor/mousetrap.min.js"></script>
     <script src="<?= base_url('themes/admin/') ?>js/vendor/glide.min.js"></script>
@@ -52,6 +52,7 @@
     <script src="<?= base_url('themes/admin/') ?>js/dore.script.js"></script>
     <script src="<?= base_url('themes/admin/') ?>js/scripts.js"></script>
 
+    <!-- <script src="<?= base_url('themes/admin/') ?>jquery.magnific-popup.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 
 

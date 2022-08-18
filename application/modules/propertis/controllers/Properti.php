@@ -32,8 +32,6 @@ class Properti extends Admin_Controller
 
 		if ($this->form_validation->run() == TRUE) {
 
-			// tesx('tes');
-
 			$save_action = $this->Properti_model->save_action();
 
 			if($save_action == true) {
@@ -52,7 +50,7 @@ class Properti extends Admin_Controller
 			$data['tipe'] 			= $this->Tipe_model->getData();
 
 
-			$this->template_admin('properti/tambah', $data);
+			$this->template_admin('properti/tambah_new', $data);
 		}
 
     }

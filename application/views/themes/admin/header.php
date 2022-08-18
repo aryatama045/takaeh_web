@@ -21,9 +21,11 @@
     <link rel="stylesheet" href="<?= base_url('themes/admin/') ?>css/vendor/fullcalendar.min.css" />
     <link rel="stylesheet" href="<?= base_url('themes/admin/') ?>css/vendor/dataTables.bootstrap4.min.css" />
     <link rel="stylesheet" href="<?= base_url('themes/admin/') ?>css/vendor/datatables.responsive.bootstrap4.min.css" />
+    <link rel="stylesheet" href="<?= base_url('themes/admin/') ?>css/vendor/bootstrap-float-label.min.css" />
 	<link rel="stylesheet" href="<?= base_url('themes/admin/') ?>css/vendor/select2.min.css" />
     <link rel="stylesheet" href="<?= base_url('themes/admin/') ?>css/vendor/select2-bootstrap.min.css" />
 	<link rel="stylesheet" href="<?= base_url('themes/admin/') ?>css/vendor/bootstrap-tagsinput.css" />
+    <link rel="stylesheet" href="<?= base_url('themes/admin/') ?>css/vendor/dropzone.min.css" />
     <link rel="stylesheet" href="<?= base_url('themes/admin/') ?>css/vendor/perfect-scrollbar.css" />
     <link rel="stylesheet" href="<?= base_url('themes/admin/') ?>css/vendor/glide.core.min.css" />
     <link rel="stylesheet" href="<?= base_url('themes/admin/') ?>css/vendor/bootstrap-stars.css" />
