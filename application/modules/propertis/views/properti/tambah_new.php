@@ -24,7 +24,7 @@
         border-radius: 5px;
     }
 </style>
-
+<!-- https://elevenstechwebtutorials.com/detail/39/preview-and-remove-image-before-upload-jquery-and-codeigniter -->
 
 <div class="container-fluid">
     <div class="row">
