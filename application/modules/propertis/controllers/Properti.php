@@ -55,6 +55,11 @@ class Properti extends Admin_Controller
 
     }
 
+	public function add_img()
+	{
+		tesx($_FILES['userfiles']['name']);
+	}
+
 	public function edit($id)
     {
 		$this->form_validation->set_rules('properties_title','Nama Properti','required',

@@ -3304,25 +3304,33 @@ $.dore = function(element, options) {
 
         /* 03.20. Dropzone */
         if ($().dropzone && !$(".dropzone").hasClass("disabled")) {
-            // var currentFile = 5;
-            Dropzone.autoDiscover = false;
-            $(".dropzone").dropzone({
+            // alert(base_url);
+            $(".mydropzone").dropzone({
+                autoProcessQueue: false,
+                // https://httpbin.org/post
+                paramName:'userfiles',
+                parallelUploads: 10,
+                uploadMultiple: true,
                 maxFilesize:1,
                 maxFiles: 5,
                 acceptedFiles: ".jpeg,.jpg,.png,.gif",
-                url: "https://httpbin.org/post",
+                // url: base_url + "propertis/properti/add_img",
+
                 accept: function(file, done) {
                     console.log("uploaded");
                     done();
                 },
                 init: function() {
+                    var myDropzone = this;
 
-                    // this.on("addedfile", function(file) {
-                    //     if (file ) {
-                    //         this.removeFile(currentFile);
-                    //     }
-                    //     currentFile = file;
-                    // });
+                    // First change the button to actually tell Dropzone to process the queue.
+                    this.element.querySelector("button[type=submit]").addEventListener("click", function(e) {
+                    // Make sure that the form isn't actually being sent.
+                    e.preventDefault();
+                    e.stopPropagation();
+                    myDropzone.processQueue();
+                    });
+
 
                     this.on("maxfilesexceeded", function(file){
                         this.removeFile(file);
@@ -3337,6 +3345,8 @@ $.dore = function(element, options) {
                     this.on("success", function(file, responseText) {
                         console.log(responseText);
                     });
+
+
                 },
                 thumbnailWidth: 160,
                 previewTemplate: '<div class="dz-preview dz-file-preview mb-3">' +
@@ -3355,22 +3365,10 @@ $.dore = function(element, options) {
                     '</div></div>'+
                         '<a href="#/" class="remove" data-dz-remove><i class="glyph-icon simple-icon-trash"></i></a>'+
                 '</div>',
-                // addRemoveLinks: true,
-                removedfile: function(file) {
-                    var fileName = file.name;
-                    $.ajax({
-                    type: 'POST',
-                    url: 'upload.php',
-                    data: {name: fileName,request: 'delete'},
-                    sucess: function(data){
-                        console.log('success: ' + data);
-                    }
-                    });
-
-                    var _ref;
-                    return (_ref = file.previewElement) != null ? _ref.parentNode.removeChild(file.previewElement) : void 0;
-                }
             });
+            $('#uploadFile').click(function(){  
+                myDropzone.processQueue();  
+             });  
         }
 
 

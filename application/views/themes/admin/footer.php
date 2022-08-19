@@ -30,7 +30,7 @@
             </div>
         </div>
 </footer>
-
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
     <script src="<?= base_url('themes/admin/') ?>js/vendor/jquery-3.3.1.min.js"></script>
     <script src="<?= base_url('themes/admin/') ?>js/vendor/bootstrap.bundle.min.js"></script>
     <script src="<?= base_url('themes/admin/') ?>js/vendor/Chart.bundle.min.js"></script>
@@ -59,7 +59,6 @@
 
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script> -->
 <script src="<?=base_url()?>themes/admin/vendor/xeditable/bootstrap-editable.min.js"></script>
-
 
 
 
@@ -104,7 +103,6 @@
 		function goBack() {
 			window.history.back();
 		}
-        
 
 		$('#smartWizardClickTable').smartWizard({
 			selected: 0,
@@ -170,6 +168,8 @@
         });
     })(jQuery);
 </script>
+
+
 </body>
 
 </html>

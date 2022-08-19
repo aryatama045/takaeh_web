@@ -1,3 +1,4 @@
+
 <style>
     #imagePreview {
         margin-top: 7px;
@@ -9,6 +10,19 @@
         display: inline-block;
     }
     .dz-max-files-reached {background-color: red};
+
+    .thumb {
+        margin: 24px 5px 20px 0;
+        width: 150px;
+        height: auto;
+        float: left;
+    }
+    #blah {
+        border: 2px solid;
+        display: block;
+        background-color: white;
+        border-radius: 5px;
+    }
 </style>
 
 
@@ -60,7 +74,7 @@
                     </div>
             <?php endif; ?>
 
-            <?php echo form_open_multipart('propertis/properti/tambah', array('class' => 'form-horizontal', 'name' => 'add_name', 'id' => 'add_name')); ?>
+            <?php echo form_open_multipart('propertis/properti/tambah', array('id' => 'upload_image')); ?>
 
                 <div class="tab-pane show active" id="first" role="tabpanel" aria-labelledby="first-tab">
                     <div class="row">
@@ -106,11 +120,40 @@
 
                                                     </table>
                                                     <hr>
-                                                    <div class="card-body">
+                                                    <div class="card-body" id="blah">
                                                         <h5 class="mb-4">Dropzone</h5>
-                                                        <div class="dropzone" id="myAwesomeDropzone">
-                                                            <input name="userfiles"  type="hidden" />
+                                                        <!-- <input type="file"
+                                                            class="btn btn-default btn-file"
+                                                            id="image_file"
+                                                            name="userfiles[]"
+                                                            multiple
+                                                            maxlength="3"
+                                                            accept="gif|jpg|png"
+                                                            data-maxfile="1024"
+                                                            required /> -->
+                                                        <br>
+                                                        <input type="file"
+                                                            class="image-file"
+                                                            name="userfiles[]"
+                                                            multiple
+                                                            required=""
+                                                            data-maxfile="1024"
+                                                            accept="image/png, image/jpeg">
+
+                                                        <br>
+                                                        <div class="row" style="margin-top: 20px;">
+                                                            <span id="selected-images"></span>
                                                         </div>
+                                                        <!-- <div id="uploadPreview"></div> -->
+                                                        <!-- <div class="dropzone"> -->
+                                                            <!-- <input type="file" name="userfiles[]"
+                                                            multiple
+                                                            maxlength="3"
+                                                            accept="gif|jpg|png"
+                                                            data-maxfile="1024"
+                                                            id="mydropzone" class="multi with-preview"
+                                                            /> -->
+                                                        <!-- </div> -->
                                                     </div>
 
                                                 </div>
@@ -205,7 +248,7 @@
                                     </div>
 
                                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                                        <button type="submit" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                                        <button type="submit" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm upload-image">
                                             <i class="fa fa-save"></i> Save
                                         </button>
                                     </div>
@@ -252,7 +295,7 @@
                         </div>
                     </div>
                 </div>
-                <?php echo form_close(); ?>
+            <?php echo form_close(); ?>
 
                 <div class="tab-pane fade" id="second" role="tabpanel" aria-labelledby="second-tab">
                     <div class="row">
@@ -308,10 +351,67 @@
 
 </div>
 
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+
 <script type="text/javascript">
     window.base_url = '<?php echo base_url() ?>';
 </script>
 
 
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 <?php echo $this->load->assetsadmin('properti', 'tambah', 'js');  ?>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        if (window.File && window.FileList && window.FileReader)
+        {
+        $(".image-file").on("change", function(e)
+        {
+            var file = e.target.files,
+            imagefiles = $(".image-file")[0].files;
+            var i = 0;
+            $.each(imagefiles, function(index, value){
+            var f = file[i];
+            var fileReader = new FileReader();
+            fileReader.onload = (function(e) {
+
+                $('<div class="pip col-sm-3 col-4 boxDivs" align="center" style="margin-bottom: 20px;">' +
+                '<img style="width: 120px; height: 100px;" src="' + e.target.result + '" class="prescriptions">'+
+                '<p style="word-break: break-all;">' + value.name + '</p>'+
+                '<p class="cross-image remove">Remove</p>'+
+                '<input type="hidden" name="image[]" value="' + e.target.result + '">' +
+                '<input type="hidden" name="imageName[]" value="' + value.name + '">' +
+                '</div>').insertAfter("#selected-images");
+                $(".remove").click(function(){
+                    $(this).parent(".pip").remove();
+                });
+            });
+            fileReader.readAsDataURL(f);
+                i++;
+            });
+        });
+        } else {
+        alert("Your browser doesn't support to File API")
+        }
+    });
+</script>
+
+<script>
+    $('document').ready(function(e){
+        $('.upload-image').click(function(e){
+            var imageDiv = $(".boxDivs").length;
+            if(imageDiv == ''){
+                alert('Please upload image'); // Check here image selected or not
+            return false;
+            }
+            else if(imageDiv > 5){
+                alert('You can upload only 5 images'); //You can select only 5 images at a time to upload
+                return false;
+            }
+            else if(imageDiv != '' && imageDiv < 6){ // image should not be blank or not greater than 5
+                $("#upload_image").submit();
+            }
+        });
+    });
+</script>
+

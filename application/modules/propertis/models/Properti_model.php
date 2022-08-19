@@ -70,7 +70,9 @@ class Properti_model extends CI_Model
 
 		$rating = $this->input->post('rating');
 
-		tesx('tes',$featured,$rating, $_FILES['userfiles']['name']);
+		$ImgData = $this->input->post('imageName');
+
+		tesx('tes',$featured,$rating, $ImgData);
 
 		$xfasilitas[]=$this->input->post('properties_fasilitas');
 		foreach($xfasilitas as $fas){
