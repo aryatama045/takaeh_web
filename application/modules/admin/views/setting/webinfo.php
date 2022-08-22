@@ -3,6 +3,11 @@
 .editable-empty{
     color:red!important;
 }
+.editable-click, a.editable-click, a.editable-click:hover {
+    text-decoration: none;
+    border-bottom: dashed 1px #797979!important;
+    color: #797979!important;
+}
 </style>
 
 <div class="row">
@@ -111,7 +116,7 @@
                                         <!-- defaults -->
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <table class="table table-borderless">
+                                                <table class="table table-borderless table-striped table-hover">
                                                     <tr>
                                                         <td class="table-title"><?=cclang("title")?> Web/App</td>
                                                         <td>
@@ -190,6 +195,13 @@
                                                 <td class="table-title">Encryption Url</td>
                                                 <td>
                                                 <a href="javascript:void(0);" id="encryption_url" data-url="<?= base_url("admin/setting/update_action")?>" data-type="select" data-pk="999" class="editable editable-click" title="<?=cclang("update")?>"><?=$this->config->item("encryption_url") == 1 ? "Y":"N"?></a>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td class="table-title">Enable Hooks</td>
+                                                <td>
+                                                <a href="javascript:void(0);" id="enable_hooks" data-url="<?= base_url("admin/setting/update_action")?>" data-type="select" data-pk="999" class="editable editable-click" title="<?=cclang("update")?>"><?=$this->config->item("enable_hooks") == 1 ? "Y":"N"?></a>
                                                 </td>
                                             </tr>
 
@@ -410,6 +422,19 @@
             return data.msg;
             }
         }
+        });
+
+        $('#enable_hooks').editable({
+            inputclass: 'form-control select-single',
+            source: [
+                    {value: "TRUE", text: 'Y'},
+                    {value: "FALSE", text: 'N'}
+                ],
+            success: function(data) {
+                if (data.success != true) {
+                return data.msg;
+                }
+            }
         });
 
         $('#url_suffix').editable({

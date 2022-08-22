@@ -13,6 +13,24 @@ class Propertis_model extends CI_Model {
         $this->area 	= $this->load->database('db_area',TRUE);
     }
 
+    function update_counter($slug)
+    {
+        //return current article views
+        $this->master->where('properties_url', urldecode($slug));
+        $this->master->select('properties_view'); 
+        $count = $this->master->get('properties')->row();
+        $tot    = $count->properties_view;
+        if($tot==Null){
+            $jum=0;
+        } else {
+            $jum=$tot;
+        }
+        // then increase by one
+        $this->master->where('properties_url', urldecode($slug));
+        $this->master->set('properties_view', ($jum + 1));
+        $this->master->update('properties');
+    }
+
     
     function home_properti($limit)
     {

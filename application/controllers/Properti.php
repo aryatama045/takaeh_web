@@ -33,8 +33,12 @@ class Properti extends Takaeh_Controller {
 			$data['slider'] 		= $this->mPropertis->slider_properti($url);
 			$data['tipe'] 			= $this->mPropertis->properti_tipe();
 			$data['count_slider']	= count($data['slider']);
-			// tesx($data, $url);
+			
 			$this->templates_public('takaeh/properti/detail', $data);
+
+			$this->add_count($url);
+
+			tesx($data, $url);
         }else{
             //jika data tidak ditemukan, maka kembali ke blog
             redirect('properti');
@@ -165,6 +169,29 @@ class Properti extends Takaeh_Controller {
 
 
 
+	// This is the counter function..
+	function add_count($slug)
+	{
 
+		// load cookie helper
+		$this->load->helper('cookie');
+		// this line will return the cookie which has slug name
+		$check_visitor = $this->input->cookie(urldecode($slug), FALSE);
+
+		
+		// this line will return the visitor ip address
+		$ip = $this->input->ip_address();
+
+		tesx($slug,$ip, $check_visitor);
+		// if the visitor visit this article for first time then //
+		// //set new cookie and update article_views column ..
+		// //you might be notice we used slug for cookie name and ip
+		// //address for value to distinguish between articles views
+		if ($check_visitor == false) {
+			$cookie = array("name" => urldecode($slug), "value" => "$ip", "expire" => time() + 7200, "secure" => false);
+			$this->input->set_cookie($cookie);
+			$this->mPropertis->update_counter(urldecode($slug));
+		}
+	}
 
 }

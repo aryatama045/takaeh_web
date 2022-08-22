@@ -82,11 +82,13 @@ class Setting extends Admin_Controller
     {
         if ($this->input->is_ajax_request()) {
             $enc_url = $this->config->item("encryption_url") ? "TRUE":"FALSE";
+            $hooks = $this->config->item("enable_hooks") ? "TRUE":"FALSE";
             $config = array('php_tag_open' 	=> '<?php',
                             'time_zone' => $this->config->item("time_zone"),
                             'language' => $this->config->item("language"),
                             'encryption_key' => $this->config->item("encryption_key"),
                             'encryption_url' => $enc_url,
+                            'enable_hooks' => $hooks,
                             'url_suffix' => $this->config->item("url_suffix"),
                             'max_upload' => $this->config->item("max_upload")
                             );

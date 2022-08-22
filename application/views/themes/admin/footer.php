@@ -8,10 +8,16 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12 col-sm-6">
-                        <p class="mb-0 text-muted">Copyright &copy; <?= date('Y') ?> All rights reserved.
+                        <p class="mb-0 text-muted">Copyright &copy; <?= date('Y') ?> All rights reserved. <br>
                         | <?= $_SERVER['HTTP_HOST'] ?> 
                         | <?= (ENVIRONMENT!='production')?ENVIRONMENT:""?>
-                        | <b>CI </b> <?php echo CI_VERSION; ?></p></p>
+                        | <b>CI </b> <?php echo CI_VERSION; ?>
+                        | rendered in <strong>{elapsed_time}</strong> seconds.
+                        <?=$this->config->item("author") ?> - <?=$this->config->item("version") ?>
+                        </p>
+                        
+
+                    
                     </div>
                     <div class="col-sm-6 d-none d-sm-block">
                         <ul class="breadcrumb pt-0 pr-0 float-right">
