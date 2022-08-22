@@ -16,6 +16,7 @@ class Setting extends Admin_Controller
     public function index()
     {
         $data['title']  = 'Setting';
+        $data['time_zone'] = $this->time_zone();
         $this->template_admin('admin/setting/webinfo', $data);
 
     }
@@ -91,9 +92,9 @@ class Setting extends Admin_Controller
                             );
 
             $constants = array('php_tag_open' 	=> '<?php',
-                                // 'route_default' => 'backend/login',
-                                // 'route_admin' => ADMIN_ROUTE,
-                                // 'route_login' => LOGIN_ROUTE,
+                                'route_default' => 'home',
+                                'route_admin' => ADMIN_ROUTE,
+                                'route_login' => LOGIN_ROUTE,
                                 );
 
             $pk = $this->input->post("pk", true);
@@ -131,13 +132,13 @@ class Setting extends Admin_Controller
                     $this->load->library("parser");
                     $this->load->helper("file");
                     $config[$name] = $value;
-                    $config_template = $this->parser->parse('core/config_template.txt', $config, TRUE);
-                        write_file(FCPATH . '/application/config/config.php', $config_template);
+                    $config_template = $this->parser->parse('admin/setting/config_template.txt', $config, TRUE);
+                        write_file(FCPATH . '/application/config/'.ENVIRONMENT.'/config.php', $config_template);
                 }elseif ($pk == "998") {
                     $this->load->library("parser");
                     $this->load->helper("file");
                     $constants[$name] = strtolower($value);
-                    $constants_template = $this->parser->parse('core/constants_template.txt', $constants, TRUE);
+                    $constants_template = $this->parser->parse('admin/setting/constants_template.txt', $constants, TRUE);
                         write_file(FCPATH . '/application/config/constants.php', $constants_template);
                 }else {
 
@@ -178,5 +179,57 @@ class Setting extends Admin_Controller
     }
 
 
+    function time_zone()
+    {
+        $timezones = [];
+        foreach(timezone_abbreviations_list() as $abbr => $timezone){
+            foreach($timezone as $val){
+                if(isset($val['timezone_id'])){
+                            $timezones[$val['timezone_id']] = $val['timezone_id'];
+                }
+            }
+        }
 
+        foreach ($timezones as $tmzid) {
+            $json[] = array("value" => $tmzid,
+                "text" => $tmzid
+            );
+        }
+
+        sort($json);
+        return json_encode($json);
+    }
+
+    function _cek_route_admin($str)
+    {
+        if ($str == LOGIN_ROUTE) {
+            $this->form_validation->set_message('_cek_route_admin', $str.' characters may not be used.');
+            return FALSE;
+        }else {
+            return true;
+        }
+    }
+
+    function _cek_route_login($str)
+    {
+        if ($str == "backend" OR $str == ADMIN_ROUTE) {
+            $this->form_validation->set_message('_cek_route_login', $str.' characters may not be used.');
+            return FALSE;
+        }else {
+            return true;
+        }
+
+    }
+
+    function _cek_url_suffix($str)
+    {
+        $params = substr($str, 0,1);
+        if ($str != "") {
+        if ($params != ".") {
+            $this->form_validation->set_message('_cek_url_suffix', ' character must start with (dot).');
+            return FALSE;
+        }
+        }
+        return TRUE;
+    }
 }

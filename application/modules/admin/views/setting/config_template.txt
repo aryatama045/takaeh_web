@@ -1,10 +1,10 @@
-<?php
+{php_tag_open}
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-$config['time_zone'] = "Asia/Jakarta";
+$config['time_zone'] = "{time_zone}";
 date_default_timezone_set($config['time_zone']);
 //max upload Kb
-$config['max_upload'] = 10000;
+$config['max_upload'] = {max_upload};
 /*
 |--------------------------------------------------------------------------
 | Base Site URL
@@ -69,7 +69,7 @@ $config['uri_protocol']	= 'REQUEST_URI';
 |
 | https://codeigniter.com/user_guide/general/urls.html
 */
-$config['url_suffix'] = '';
+$config['url_suffix'] = '{url_suffix}';
 
 /*
 |--------------------------------------------------------------------------
@@ -81,7 +81,7 @@ $config['url_suffix'] = '';
 | than english.
 |
 */
-$config['language']	= 'english';
+$config['language']	= '{language}';
 
 /*
 |--------------------------------------------------------------------------
@@ -329,8 +329,8 @@ $config['cache_query_string'] = FALSE;
 | https://codeigniter.com/user_guide/libraries/encryption.html
 |
 */
-$config['encryption_key'] = 'takaehweb045';
-$config['encryption_url'] = TRUE;
+$config['encryption_key'] = '{encryption_key}';
+$config['encryption_url'] = {encryption_url};
 /*
 |--------------------------------------------------------------------------
 | Session Variables
