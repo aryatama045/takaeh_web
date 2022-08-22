@@ -37,8 +37,6 @@ class Properti extends Takaeh_Controller {
 			$this->templates_public('takaeh/properti/detail', $data);
 
 			$this->add_count($url);
-
-			tesx($data, $url);
         }else{
             //jika data tidak ditemukan, maka kembali ke blog
             redirect('properti');
