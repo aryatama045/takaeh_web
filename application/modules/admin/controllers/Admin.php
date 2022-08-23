@@ -25,7 +25,12 @@ class Admin extends Admin_Controller
     {
         $data['title']    = 'Dashboard';
 
+        $data['jml_posting'] = $this->properti_model->getDataPosting();
+        $data['jml_pending'] = $this->properti_model->getDataDraft();
+        $data['data_view'] = $this->properti_model->getDataView();
         $data['jml_properti'] = $this->properti_model->getDataProperti2();
+
+        // tesx( $data['data_view']);
 
         $this->template_admin('admin/dashboard/index', $data);
     }

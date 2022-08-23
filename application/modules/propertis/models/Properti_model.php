@@ -32,21 +32,65 @@ class Properti_model extends CI_Model
 
 		$this->master->select('t0.*,');
 		$this->master->from('properties t0');
-		// $this->master->join('user_role t1','t0.role_id = t1.id','left');
-
 		$this->master->order_by('t0.created_date', 'DESC');
 		$jum=$this->master->get();
 
 		return $jum->num_rows();
 	}
 
-	public function getDataProperti($id)
+	public function getDataPosting($search_no = "")
 	{
+		if($search_no != "") $this->master->like('t0.properties_title',$search_no);
+
 		$this->master->select('t0.*,');
 		$this->master->from('properties t0');
-		$this->master->where('id_properties',$id);
-		$query = $this->master->get();
-		return $query->row_array();
+		$this->master->where('properties_active', '1');
+		$this->master->order_by('t0.created_date', 'DESC');
+		$jum=$this->master->get();
+
+		return $jum->num_rows();
+	}
+
+	public function getDataDraft($search_no = "")
+	{
+		if($search_no != "") $this->master->like('t0.properties_title',$search_no);
+
+		$this->master->select('t0.*,');
+		$this->master->from('properties t0');
+		$this->master->where('properties_active', '0');
+		$this->master->order_by('t0.created_date', 'DESC');
+		$jum=$this->master->get();
+
+		return $jum->num_rows();
+	}
+
+	public function getDataView()
+	{
+			$this->master->select('t0.properties_title, t0.properties_view');
+			$this->master->from('properties t0');
+			$this->master->limit('24');
+			$this->master->order_by('t0.properties_view', 'DESC');
+			$query = $this->master->get();
+			return $query->result_array();
+		
+	}
+
+	public function getDataProperti($id)
+	{
+		if($id){
+			$this->master->select('t0.*,');
+			$this->master->from('properties t0');
+			$this->master->where('id_properties',$id);
+			$query = $this->master->get();
+			return $query->row_array();
+
+		} else {
+			$this->master->select('t0.*,');
+			$this->master->from('properties t0');
+			$query = $this->master->get();
+			return $query->result_array();
+		}
+		
 	}
 
 	public function getDataSlider($id)

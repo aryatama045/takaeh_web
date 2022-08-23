@@ -28,7 +28,7 @@
                     <div>
                         <i class="iconsminds-clock mr-2 text-white align-text-bottom d-inline-block"></i>
                         <div>
-                            <p class="lead text-white">5 Posts</p>
+                            <p class="lead text-white"><?= $jml_pending ?> Posts</p>
                             <p class="text-small text-white">Pending for publish</p>
                         </div>
                     </div>
@@ -36,7 +36,7 @@
                     <div>
                         <div role="progressbar"
                             class="progress-bar-circle progress-bar-banner position-relative" data-color="white"
-                            data-trail-color="rgba(255,255,255,0.2)" aria-valuenow="5" aria-valuemax="12"
+                            data-trail-color="rgba(255,255,255,0.2)" aria-valuenow="<?= $jml_posting ?>" aria-valuemax="<?= $jml_properti ?>"
                             data-show-percent="false">
                         </div>
                     </div>
@@ -145,102 +145,18 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <?php foreach($data_view as $v) {
+                                if($v['properties_view'] != Null) { ?>
                             <tr>
                                 <td>
-                                    <p class="list-item-heading">Wedding Cake with Flowers Macarons</p>
+                                    <p class="list-item-heading" title="<?= $v['properties_title']?>"><?= character_limiter($v['properties_title'], '25') ?></p>
                                 </td>
                                 <td>
-                                    <p class="text-muted">1452</p>
+                                    <p class="text-muted"><?= $v['properties_view'] ?></p>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>
-                                    <p class="list-item-heading">Cheesecake with Chocolate Cookies</p>
-                                </td>
-                                <td>
-                                    <p class="text-muted">1420</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p class="list-item-heading">Homemade Cheesecake with Fresh Berries</p>
-                                </td>
-                                <td>
-                                    <p class="text-muted">1360</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p class="list-item-heading">Cheesecake with Fresh Berries</p>
-                                </td>
-                                <td>
-                                    <p class="text-muted">1310</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p class="list-item-heading">Tea Loaf with Fresh Oranges</p>
-                                </td>
-                                <td>
-                                    <p class="text-muted">1245</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p class="list-item-heading">Cheesecake with Chocolate Cookies</p>
-                                </td>
-                                <td>
-                                    <p class="text-muted">1100</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p class="list-item-heading">Homemade Cheesecake with Fresh Berries</p>
-                                </td>
-                                <td>
-                                    <p class="text-muted">1003</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p class="list-item-heading">Homemade Cheesecake with Fresh Berries</p>
-                                </td>
-                                <td>
-                                    <p class="text-muted">952</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p class="list-item-heading">Cheesecake with Fresh Berries</p>
-                                </td>
-                                <td>
-                                    <p class="text-muted">924</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p class="list-item-heading">Tea Loaf with Fresh Oranges</p>
-                                </td>
-                                <td>
-                                    <p class="text-muted">842</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p class="list-item-heading">Cheesecake with Chocolate Cookies</p>
-                                </td>
-                                <td>
-                                    <p class="text-muted">810</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p class="list-item-heading">Homemade Cheesecake with Fresh Berries</p>
-                                </td>
-                                <td>
-                                    <p class="text-muted">605</p>
-                                </td>
-                            </tr>
+                            <?php } } ?>
+                            
                         </tbody>
                     </table>
                 </div>

@@ -180,7 +180,7 @@ class Properti extends Takaeh_Controller {
 		// this line will return the visitor ip address
 		$ip = $this->input->ip_address();
 
-		tesx($slug,$ip, $check_visitor);
+		// tesx($slug,$ip, $check_visitor);
 		// if the visitor visit this article for first time then //
 		// //set new cookie and update article_views column ..
 		// //you might be notice we used slug for cookie name and ip
