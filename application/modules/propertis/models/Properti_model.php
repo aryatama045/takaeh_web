@@ -116,7 +116,7 @@ class Properti_model extends CI_Model
 
 		$ImgData = $this->input->post('imageName');
 
-		tesx('tes',$featured,$rating, $ImgData);
+		// tesx('tes',$featured,$rating, $ImgData);
 
 		$xfasilitas[]=$this->input->post('properties_fasilitas');
 		foreach($xfasilitas as $fas){
@@ -200,39 +200,88 @@ class Properti_model extends CI_Model
 			$id_properties  = $this->master->insert_id();
 			$slug           = url_title(strtolower($this->input->post('properties_title')));
 			$photo_cover    = $slug.'.html';
-			$data           = array();
-			$filesCount = count($_FILES['userfile2']['name']);
-			for ($i = 0; $i < $filesCount; ++$i) {
-				$type 		= strtolower($_FILES['userfile2']['name'][$i]);
+			// $filesCount 	= count($_FILES['userfile2']['name']);
 
-				$name_sub 	= str_replace(' ', '-', strtolower($type));
+			$countfiles = implode(' @$ ', $this->input->post('image'));
+			$imgaeview 	= explode(' @$ ', $countfiles);
 
-				$_FILES['file']['name'] 	= $slug.'-'.+'1'.'-'.time().'-'.$name_sub;
-				$_FILES['file']['type'] 	= $_FILES['userfile2']['type'][$i];
-				$_FILES['file']['tmp_name']	= $_FILES['userfile2']['tmp_name'][$i];
-				$_FILES['file']['error'] 	= $_FILES['userfile2']['error'][$i];
-				$_FILES['file']['size']		= $_FILES['userfile2']['size'][$i];
+			// tesx($countfiles ,$imgaeview);
+			$no=0;
+			$result=array();
+			foreach ($imgaeview as $key => $val)
+			{
+				$image_parts 	= explode(";base64,", $val);
+				$image_type_aux = explode("image/", $image_parts[0]);
+				$image_type 	= $image_type_aux[0];
+				$image_base64 	= base64_decode($image_parts[0]);
+				$filename 		= $slug.'-'.time().'-thumb'.$no.'.jpg';
+				$file 			= FCPATH.'/www/properties/sliders/'.$filename;
+				file_put_contents($file, $image_base64);
 
-				// File upload configuration
-				$uploadPath = FCPATH.'/www/properties/sliders/';
-				$configs['upload_path'] = $uploadPath;
-				$configs['allowed_types'] = 'jpg|jpeg|png|gif';
+				array_push($result, $filename);
+				// $img = str_replace('[removed]', '', $val);
+				// $encoded = str_replace('[removed]', 'data:image/png;base64,', $val);
 
+				// // tesx($val, $encoded);
+				// $decoded = base64_decode($encoded);
+				// $filename 		= $slug.'-'.time().'-thumb.png';
+				// $path 			= FCPATH.'/www/properties/sliders/'.$filename;
 
-				// Load and initialize upload library
-				$this->load->library('upload', $configs);
-				$this->upload->initialize($configs);
+				// file_put_contents($path,$decoded);
 
-				// Upload file to server
-				if ($this->upload->do_upload('file')) {
-					// Uploaded file data
-					$fileData = $this->upload->data();
-					$ImgData[$i]['id_properties'] 	= $id_properties;
-					$ImgData[$i]['photo_slider'] 	= $slug.'-'.+'1'.'-'.time().'-'.$name_sub ;
-					$ImgData[$i]['properties_url'] 	= $photo_cover;
-				}
+				$imageData = array(
+					'id_properties' => $id_properties,
+					'photo_slider' 	=> $filename,
+					'properties_url' => $photo_cover,
+				);
+				// $this->db->insert('properties_slider',$imageData);
+				$no++;
 			}
-			$this->master->insert_batch('properties_slider', $ImgData);
+
+			tesx($result, $imgaeview);
+			// $result = array();
+			// for ($i = 0; $i < $filesCount; ) {
+
+			// 	$ImgThumb = $ImgData[$i];
+			// 	$img = str_replace('data:image/png;base64,', '', $ImgThumb);
+			// 	$encoded = str_replace(' ', '+', $img);
+			// 	$decoded = base64_decode($encoded);
+
+			// 	$path = FCPATH.'/www/properties/sliders/'.$slug[$i].'-'.+'1'.'-thumb.png';
+
+			// 	file_put_contents($path,$decoded);
+
+			// 	array_push($result, $ImgThumb);
+			// 	$type 		= strtolower($_FILES['userfile2']['name'][$i]);
+
+			// 	$name_sub 	= str_replace(' ', '-', strtolower($type));
+
+			// 	$_FILES['file']['name'] 	= $slug.'-'.+'1'.'-'.time().'-'.$name_sub;
+			// 	$_FILES['file']['type'] 	= $_FILES['userfile2']['type'][$i];
+			// 	$_FILES['file']['tmp_name']	= $_FILES['userfile2']['tmp_name'][$i];
+			// 	$_FILES['file']['error'] 	= $_FILES['userfile2']['error'][$i];
+			// 	$_FILES['file']['size']		= $_FILES['userfile2']['size'][$i];
+
+			// 	// File upload configuration
+			// 	$uploadPath = FCPATH.'/www/properties/sliders/';
+			// 	$configs['upload_path'] = $uploadPath;
+			// 	$configs['allowed_types'] = 'jpg|jpeg|png|gif';
+
+
+			// 	// Load and initialize upload library
+			// 	$this->load->library('upload', $configs);
+			// 	$this->upload->initialize($configs);
+
+			// 	// Upload file to server
+			// 	if ($this->upload->do_upload('file')) {
+			// 		// Uploaded file data
+			// 		$fileData = $this->upload->data();
+			// 		$ImgData[$i]['id_properties'] 	= $id_properties;
+			// 		$ImgData[$i]['photo_slider'] 	= $slug.'-'.+'1'.'-'.time().'-'.$name_sub ;
+			// 		$ImgData[$i]['properties_url'] 	= $photo_cover;
+			// 	}
+			// }
+			// $this->master->insert_batch('properties_slider', $ImgData);
 		/* --Add Item Slider --*/
 
 		// tesx($nama_rumah, $dataProperties, $ImgData);

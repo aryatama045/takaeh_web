@@ -122,21 +122,9 @@
                                                     <hr>
                                                     <div class="card-body" id="blah">
                                                         <h5 class="mb-4">Dropzone</h5>
-                                                        <!-- <input type="file"
-                                                            class="btn btn-default btn-file"
-                                                            id="image_file"
-                                                            name="userfiles[]"
-                                                            multiple
-                                                            maxlength="3"
-                                                            accept="gif|jpg|png"
-                                                            data-maxfile="1024"
-                                                            required /> -->
-                                                        <br>
                                                         <input type="file"
                                                             class="image-file"
-                                                            name="userfiles[]"
-                                                            multiple
-                                                            required=""
+                                                            multiple=""
                                                             data-maxfile="1024"
                                                             accept="image/png, image/jpeg">
 
@@ -351,11 +339,9 @@
 
 </div>
 
-
 <script type="text/javascript">
     window.base_url = '<?php echo base_url() ?>';
 </script>
-
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 <?php echo $this->load->assetsadmin('properti', 'tambah', 'js');  ?>
@@ -365,53 +351,51 @@
 
         if (window.File && window.FileList && window.FileReader)
         {
-        $(".image-file").on("change", function(e)
-        {
-            var file = e.target.files,
-            imagefiles = $(".image-file")[0].files;
-            var i = 0;
-            $.each(imagefiles, function(index, value){
-            var f = file[i];
-            var fileReader = new FileReader();
-            fileReader.onload = (function(e) {
-
-                $('<div class="pip col-sm-3 col-4 boxDivs" align="center" style="margin-bottom: 20px;">' +
-                '<img style="width: 120px; height: 100px;" src="' + e.target.result + '" class="prescriptions">'+
-                '<p style="word-break: break-all;">' + value.name + '</p>'+
-                '<p class="cross-image remove">Remove</p>'+
-                '<input type="hidden" name="image[]" value="' + e.target.result + '">' +
-                '<input type="hidden" name="imageName[]" value="' + value.name + '">' +
-                '</div>').insertAfter("#selected-images");
-                $(".remove").click(function(){
-                    $(this).parent(".pip").remove();
+            $(".image-file").on("change", function(e)
+            {
+                var file = e.target.files,
+                imagefiles = $(".image-file")[0].files;
+                var i = 0;
+                $.each(imagefiles, function(index, value){
+                var f = file[i];
+                var fileReader = new FileReader();
+                fileReader.onload = (function(e) {
+                    $('<div class="pip col-sm-3 col-4 boxDiv" align="center" style="margin-bottom: 20px;">' +
+                    '<img name="thumb[]" style="width: 120px; height: 100px;" src="' + e.target.result + '" class="prescriptions">'+
+                    '<p style="word-break: break-all;">' + value.name + '</p>'+
+                    '<p class="cross-image remove btn btn-warning"><i class="fa fa-trash"></i> Remove</p>'+
+                    '<input type="hidden" name="image[]" value="' + e.target.result + '">' +
+                    '<input type="hidden" name="imageName[]" value="' + value.name + '">' +
+                    '</div>').insertAfter("#selected-images");
+                    $(".remove").click(function(){
+                        $(this).parent(".pip").remove();
+                    });
+                });
+                fileReader.readAsDataURL(f);
+                    i++;
                 });
             });
-            fileReader.readAsDataURL(f);
-                i++;
-            });
-        });
         } else {
-        alert("Your browser doesn't support to File API")
+            alert("Your browser doesn't support to File API")
         }
     });
 </script>
 
-<script>
+<script type="text/javascript">
     $('document').ready(function(e){
         $('.upload-image').click(function(e){
-            var imageDiv = $(".boxDivs").length;
+            var imageDiv = $(".boxDiv").length;
             if(imageDiv == ''){
                 alert('Please upload image'); // Check here image selected or not
-            return false;
-            }
-            else if(imageDiv > 5){
-                alert('You can upload only 5 images'); //You can select only 5 images at a time to upload
                 return false;
             }
-            else if(imageDiv != '' && imageDiv < 6){ // image should not be blank or not greater than 5
+            else if(imageDiv > 3){
+                alert('You can upload only 3 images'); //You can select only 3 images at a time to upload
+                return false;
+            }
+            else if(imageDiv != '' && imageDiv <= 3){ // image should not be blank or not greater than 3
                 $("#upload_image").submit();
             }
         });
     });
 </script>
-

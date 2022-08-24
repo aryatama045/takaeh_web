@@ -171,7 +171,6 @@ class Propertis_model extends CI_Model {
                                     <a href="'.base_url('properti/detail/'.$row['properties_url']).'" class="overlay-link">
                                         <i class="fa fa-link"></i>
                                     </a>
-                                    
                                     <div class="property-magnify-gallery">
                                         <a href="https://placehold.co/750x540" class="overlay-link">
                                             <i class="fa fa-expand"></i>
