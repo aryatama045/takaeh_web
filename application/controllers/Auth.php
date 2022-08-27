@@ -239,14 +239,21 @@ class Auth extends Takaeh_Controller
             $this->load->view('themes/admin/pages/page404', $data);
             $this->load->view('themes/admin/footer', $data);      // Not found controller for backend
         }else {
-            $data['title'] = 'Page 404';
+            if($req_uri == 'properties'){
 
-            $this->load->view('themes/takaeh/header',$data);
-			$this->load->view('themes/takaeh/topbar',$data);
-			$this->load->view('themes/takaeh/menu_header',$data);
-			$this->load->view('themes/takaeh/pages/page404', $data);
-			$this->load->view('themes/takaeh/footer',$data);
-                // Not found controller for frontend
+                redirect('properti');
+
+            }else{
+                $data['title'] = 'Page 404';
+
+                $this->load->view('themes/takaeh/header',$data);
+                $this->load->view('themes/takaeh/topbar',$data);
+                $this->load->view('themes/takaeh/menu_header',$data);
+                $this->load->view('themes/takaeh/pages/page404', $data);
+                $this->load->view('themes/takaeh/footer',$data);
+                    // Not found controller for frontend
+            }
+
         }
 
     }
