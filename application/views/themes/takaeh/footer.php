@@ -8,21 +8,26 @@
                 <div class="footer-item">
                     <h4>Contact Us</h4>
                     <ul class="contact-info">
+
+                        <?php if(setting('address')!="System not available") { ?>
                         <li>
-                            <i class="flaticon-facebook-placeholder-for-locate-places-on-maps"></i>20/F Green Road, Dhanmondi, Dhaka
+                            <i class="flaticon-facebook-placeholder-for-locate-places-on-maps"></i> <?=setting('address')?>
                         </li>
+                        <?php } ?>
+
+                        <?php if(setting('address')!="System not available") { ?>
                         <li>
-                            <i class="fa fa-envelope"></i><a href="mailto:sales@hotelempire.com">info@themevessel.com</a>
+                            <i class="fa fa-envelope"></i><a href="mailto:<?=setting('email')?>"> <?=setting('email')?></a>
                         </li>
+                        <?php } ?>
+
+                        <?php if(setting('phone')!="System not available") { ?>
                         <li>
-                            <i class="fa fa-phone"></i><a href="tel:+55-417-634-7071">+0477 85X6 552</a>
+                            <i class="fa fa-phone"></i><a href="tel:+55-417-634-7071"> +0477 85X6 552</a>
                         </li>
-                        <li>
-                            <i class="fa fa-fax"></i>+0487 85X6 224
-                        </li>
-                        <li>
-                            <i class="fa fa-skype"></i><a href="mailto:info@green.com">info@green.com</a>
-                        </li>
+                        <?php } ?>
+                        
+                        
                     </ul>
                 </div>
             </div>
