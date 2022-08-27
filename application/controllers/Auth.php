@@ -227,8 +227,8 @@ class Auth extends Takaeh_Controller
 
 
         // tesx($req_uri);
-
-        if($req_uri == 'admin' || $req_uri == 'properties' || $req_uri == 'user' || $req_uri == 'feature' ){
+        // || $req_uri == 'properties' || $req_uri == 'user' || $req_uri == 'feature'
+        if($req_uri == 'admin'  ){
             $data['title'] = 'Page 404';
             $data['linkM']  = 'Not Found';
             $data['user']   = $this->Website_model->getSessionUser();
