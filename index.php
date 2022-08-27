@@ -65,7 +65,7 @@
 			$env = 'development';
 			break;
 		case 'takaeh.com':
-			$env = 'production';
+			$env = 'development';
 			break;
 		default:
 			$env = 'development';
