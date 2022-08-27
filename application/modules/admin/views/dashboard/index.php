@@ -8,10 +8,7 @@
             <nav class="breadcrumb-container d-none d-sm-block d-lg-inline-block" aria-label="breadcrumb">
                 <ol class="breadcrumb pt-0">
                     <li class="breadcrumb-item">
-                        <a href="#">Home</a>
-                    </li>
-                    <li class="breadcrumb-item">
-                        <a href="#">Library</a>
+                        <a href="<?= base_url('dashboard')?>">Home</a>
                     </li>
                     <li class="breadcrumb-item active" aria-current="page"> <?= $title?></li>
                 </ol>
@@ -28,8 +25,8 @@
                     <div>
                         <i class="iconsminds-clock mr-2 text-white align-text-bottom d-inline-block"></i>
                         <div>
-                            <p class="lead text-white"><?= $jml_pending ?> Posts</p>
-                            <p class="text-small text-white">Pending for publish</p>
+                            <p class="lead text-white"><?= $jml_posting ?> Posts</p>
+                            <p class="text-small text-white"> <?= $jml_pending ?> Pending for publish</p>
                         </div>
                     </div>
 
@@ -96,8 +93,8 @@
                                 <a href="#" class="card">
                                     <div class="card-body text-center">
                                         <i class="iconsminds-clock"></i>
-                                        <p class="card-text mb-0">Pending Posts</p>
-                                        <p class="lead text-center">16</p>
+                                        <p class="card-text mb-0">Pending </p>
+                                        <p class="lead text-center"><?= $jml_pending ?></p>
                                     </div>
                                 </a>
                             </li>
