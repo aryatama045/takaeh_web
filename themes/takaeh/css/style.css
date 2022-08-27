@@ -2023,6 +2023,7 @@ a {
 
 .property-box .property-img img {
     width: 100%;
+    height: 350px;
 }
 
 .property-box .detail .title {
