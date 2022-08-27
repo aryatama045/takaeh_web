@@ -56,7 +56,7 @@
 	// PENGECEKAN DYNAMIC ENVIRONMENT SESUAI HOST SERVER
 	switch ($_SERVER['HTTP_HOST']) {
 		case 'localhost':
-			$env = 'testing';
+			$env = 'development';
 			break;
 		case 'takaeh.development':
 			$env = 'testing';
