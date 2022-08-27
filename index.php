@@ -56,19 +56,19 @@
 	// PENGECEKAN DYNAMIC ENVIRONMENT SESUAI HOST SERVER
 	switch ($_SERVER['HTTP_HOST']) {
 		case 'localhost':
-			$env = 'developments';
+			$env = 'testing';
 			break;
 		case 'takaeh.development':
 			$env = 'testing';
 			break;
 		case 'testing.takaeh.com':
-			$env = 'testing';
+			$env = 'development';
 			break;
 		case 'takaeh.com':
-			$env = 'production';
+			$env = 'development';
 			break;
 		default:
-			$env = 'developments';
+			$env = 'testing';
 			break;
 	}
 	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : $env);
@@ -83,12 +83,21 @@
  */
 switch (ENVIRONMENT)
 {
-	case 'developments':
+	case 'development':
+		ini_set('display_errors', 0);
+		if (version_compare(PHP_VERSION, '5.3', '>='))
+		{
+			error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT & ~E_USER_NOTICE & ~E_USER_DEPRECATED);
+		}
+		else
+		{
+			error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT & ~E_USER_NOTICE);
+		}
+		break;
+	case 'testing':
 		error_reporting(-1);
 		ini_set('display_errors', 1);
-	break;
-
-	case 'testing':
+		break;
 	case 'production':
 		ini_set('display_errors', 0);
 		if (version_compare(PHP_VERSION, '5.3', '>='))
@@ -99,8 +108,7 @@ switch (ENVIRONMENT)
 		{
 			error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT & ~E_USER_NOTICE);
 		}
-	break;
-
+		break;
 	default:
 		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
 		echo 'The application environment is not set correctly.';
