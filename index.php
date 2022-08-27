@@ -65,10 +65,10 @@
 			$env = 'development';
 			break;
 		case 'takaeh.com':
-			$env = 'development';
+			$env = 'production';
 			break;
 		default:
-			$env = 'testing';
+			$env = 'production';
 			break;
 	}
 	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : $env);
