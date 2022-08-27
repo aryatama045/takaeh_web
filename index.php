@@ -68,7 +68,7 @@
 			$env = 'production';
 			break;
 		default:
-			$env = 'development';
+			$env = 'production';
 			break;
 	}
 	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : $env);
