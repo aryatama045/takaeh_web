@@ -33,7 +33,6 @@ class Properti extends Takaeh_Controller {
 			$data['slider'] 		= $this->mPropertis->slider_properti($url);
 			$data['tipe'] 			= $this->mPropertis->properti_tipe();
 			$data['count_slider']	= count($data['slider']);
-			
 			$this->templates_public('takaeh/properti/detail', $data);
 
 			$this->add_count($url);
@@ -107,7 +106,7 @@ class Properti extends Takaeh_Controller {
 	public function search()
 	{
 		sleep(1);
-		
+
 		$title 		= $this->input->post('title');
 		$lokasi 	= $this->input->post('lokasi');
 		$tipe 		= $this->input->post('tipe');

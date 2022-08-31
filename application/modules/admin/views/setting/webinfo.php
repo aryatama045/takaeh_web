@@ -1,4 +1,4 @@
-
+<link rel="stylesheet" href="<?=base_url()?>themes/admin/vendor/xeditable/bootstrap-editable.css">
 <style media="screen">
 .editable-empty{
     color:red!important;
@@ -9,7 +9,7 @@
     color: #797979!important;
 }
 </style>
-
+<script src="<?=base_url()?>themes/admin/vendor/xeditable/bootstrap-editable.min.js"></script>
 <div class="row">
     <div class="col-12">
         <h1> <?= $title ?></h1>
@@ -352,7 +352,6 @@
             }
         });
 
-
         $('#web_owner').editable({
             inputclass: 'form-control',
             success: function(data) {
@@ -443,7 +442,7 @@
             if (data.success != true) {
             return data.msg;
             }else {
-            location.href='<?=base_url()?><?=ADMIN_ROUTE?>/setting/core'+newValue;
+            location.href='<?=base_url()?><?=ADMIN_ROUTE?>/setting'+newValue;
             }
         }
         });
@@ -454,7 +453,7 @@
             if (data.success != true) {
             return data.msg;
             }else {
-            location.href='<?=base_url()?>'+data.value+"/setting/core<?=$this->config->item("url_suffix")?>";
+            location.href='<?=base_url()?>'+data.value+"/setting<?=$this->config->item("url_suffix")?>";
             }
         }
         });

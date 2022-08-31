@@ -81,29 +81,29 @@ class Setting extends Admin_Controller
     function update_action()
     {
         if ($this->input->is_ajax_request()) {
-            $enc_url = $this->config->item("encryption_url") ? "TRUE":"FALSE";
-            $hooks = $this->config->item("enable_hooks") ? "TRUE":"FALSE";
-            $config = array('php_tag_open' 	=> '<?php',
-                            'time_zone' => $this->config->item("time_zone"),
-                            'language' => $this->config->item("language"),
-                            'encryption_key' => $this->config->item("encryption_key"),
-                            'encryption_url' => $enc_url,
-                            'enable_hooks' => $hooks,
-                            'url_suffix' => $this->config->item("url_suffix"),
-                            'max_upload' => $this->config->item("max_upload")
+            $enc_url    = $this->config->item("encryption_url") ? "TRUE":"FALSE";
+            $hooks      = $this->config->item("enable_hooks") ? "TRUE":"FALSE";
+            $config     =   array('php_tag_open' 	=> '<?php',
+                                'time_zone' => $this->config->item("time_zone"),
+                                'language' => $this->config->item("language"),
+                                'encryption_key' => $this->config->item("encryption_key"),
+                                'encryption_url' => $enc_url,
+                                'enable_hooks' => $hooks,
+                                'url_suffix' => $this->config->item("url_suffix"),
+                                'max_upload' => $this->config->item("max_upload")
                             );
 
-            $constants = array('php_tag_open' 	=> '<?php',
+            $constants =    array('php_tag_open' 	=> '<?php',
                                 'route_default' => 'home',
                                 'route_admin' => ADMIN_ROUTE,
                                 'route_login' => LOGIN_ROUTE,
-                                );
+                            );
 
             $pk = $this->input->post("pk", true);
             $name = $this->input->post("name", true);
             $value = htmlspecialchars($this->input->post("value", true));
 
-            // $json = array('success'=>false, 'msg'=>array());
+            $json = array('success'=>false, 'msg'=>array());
             // if (!is_allowed("config_update_".strtolower($name))) {
             // return $this->response([
             //     'success' => false,
@@ -112,20 +112,21 @@ class Setting extends Admin_Controller
             // }
 
             if ($name == "email") {
-            $this->form_validation->set_rules("value","* ","trim|xss_clean|required|valid_email");
+                $this->form_validation->set_rules("value","* ","trim|xss_clean|required|valid_email");
             }elseif($name == "max_upload"){
-            $this->form_validation->set_rules("value","* ","trim|xss_clean|required|numeric");
+                $this->form_validation->set_rules("value","* ","trim|xss_clean|required|numeric");
             }elseif ($name == "route_admin") {
-            $this->form_validation->set_rules("value","* ","trim|xss_clean|alpha_numeric|required|callback__cek_route_admin");
+                $this->form_validation->set_rules("value","* ","trim|xss_clean|alpha_numeric|required|callback__cek_route_admin");
             }elseif($name == "route_login"){
-            $this->form_validation->set_rules("value","* ","trim|xss_clean|alpha_numeric|required|callback__cek_route_login");
+                $this->form_validation->set_rules("value","* ","trim|xss_clean|alpha_numeric|required|callback__cek_route_login");
             }elseif ($name == "logo" or $name == "logo_mini" or $name == "favicon") {
-            $this->form_validation->set_rules("value","* ","trim|xss_clean|required");
+                $this->form_validation->set_rules("value","* ","trim|xss_clean|required");
             }elseif ($name == "url_suffix") {
-            $this->form_validation->set_rules("value","* ","trim|xss_clean|max_length[5]|callback__cek_url_suffix");
+                $this->form_validation->set_rules("value","* ","trim|xss_clean|max_length[5]|callback__cek_url_suffix");
             }else {
-            $this->form_validation->set_rules("value","* ","trim|xss_clean|htmlspecialchars|required");
+                $this->form_validation->set_rules("value","* ","trim|xss_clean|htmlspecialchars|required");
             }
+
             $this->form_validation->set_error_delimiters('','');
 
             if ($this->form_validation->run()) {
@@ -174,9 +175,6 @@ class Setting extends Admin_Controller
             }else {
                 $json['msg'] = form_error("value");
             }
-
-            // $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Your profile cant updated!</div>');
-            // redirect('admin/setting');
         }
     }
 
@@ -227,10 +225,10 @@ class Setting extends Admin_Controller
     {
         $params = substr($str, 0,1);
         if ($str != "") {
-        if ($params != ".") {
-            $this->form_validation->set_message('_cek_url_suffix', ' character must start with (dot).');
-            return FALSE;
-        }
+            if ($params != ".") {
+                $this->form_validation->set_message('_cek_url_suffix', ' character must start with (dot).');
+                return FALSE;
+            }
         }
         return TRUE;
     }

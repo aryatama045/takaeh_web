@@ -201,14 +201,47 @@ class Auth extends Takaeh_Controller
 
     public function blocked()
     {
-        $data['title']  = 'My Profile';
-        $data['user']   = $this->Website_model->getSessionUser();
+        $req_uri = $_SERVER['REQUEST_URI'];
+        $req_uri = explode('/', $req_uri); // $req_uri = /myproject/backend
 
-        $this->load->view('themes/admin/header', $data);
-        // $this->load->view('themes/admin/sidebar', $data);
-        $this->load->view('themes/admin/topbar', $data);
-        $this->load->view('themes/admin/pages/blocked', $data);
-        $this->load->view('themes/admin/footer', $data);
+        $base_url = base_url();
+        // tesx($base_url, $req_uri);
+        if($base_url != 'http://localhost/'){
+            $req_uri = $req_uri[1];
+        } else {
+            $req_uri = $req_uri[3];
+        }
+
+
+        // tesx($req_uri);
+        // || $req_uri == 'properties' || $req_uri == 'user' || $req_uri == 'feature'
+        if($req_uri == 'admin'  ){
+            $data['title'] = 'Page 404';
+            $data['linkM']  = 'Not Found';
+            $data['user']   = $this->Website_model->getSessionUser();
+
+            $this->load->view('themes/admin/header', $data);
+            // $this->load->view('themes/admin/sidebar', $data);
+            $this->load->view('themes/admin/topbar', $data);
+            $this->load->view('themes/admin/pages/page404', $data);
+            $this->load->view('themes/admin/footer', $data);      // Not found controller for backend
+        }else {
+            // if($req_uri == 'properties'){
+
+            //     redirect('properti');
+
+            // }else{
+                $data['title'] = 'Page 404';
+
+                $this->load->view('themes/takaeh/header',$data);
+                $this->load->view('themes/takaeh/topbar',$data);
+                $this->load->view('themes/takaeh/menu_header',$data);
+                $this->load->view('themes/takaeh/pages/page404', $data);
+                $this->load->view('themes/takaeh/footer',$data);
+                    // Not found controller for frontend
+            // }
+
+        }
     }
 
     public function page404()
@@ -239,11 +272,11 @@ class Auth extends Takaeh_Controller
             $this->load->view('themes/admin/pages/page404', $data);
             $this->load->view('themes/admin/footer', $data);      // Not found controller for backend
         }else {
-            if($req_uri == 'properties'){
+            // if($req_uri == 'properties'){
 
-                redirect('properti');
+            //     redirect('properti');
 
-            }else{
+            // }else{
                 $data['title'] = 'Page 404';
 
                 $this->load->view('themes/takaeh/header',$data);
@@ -252,7 +285,7 @@ class Auth extends Takaeh_Controller
                 $this->load->view('themes/takaeh/pages/page404', $data);
                 $this->load->view('themes/takaeh/footer',$data);
                     // Not found controller for frontend
-            }
+            // }
 
         }
 
