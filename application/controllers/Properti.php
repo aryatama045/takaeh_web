@@ -87,7 +87,7 @@ class Properti extends Takaeh_Controller {
 		# Tambahan untuk styling
 
 
-		$config['num_links'] 	= 3;
+		$config['num_links'] 	= 5;
 		$this->pagination->initialize($config);
 		$page 		= $this->uri->segment(3);
 		$start	 	= ($page - 1) * $config['per_page'];
@@ -151,7 +151,7 @@ class Properti extends Takaeh_Controller {
 		$this->pagination->initialize($config);
 		$page 		= $this->uri->segment(2);
 
-		tesx($page);
+		// tesx($page);
 		$start	 	= ($page - 1) * $config['per_page'];
 		$output 	= array(
 			'total_data'		=> $total.' Data Found',
@@ -162,6 +162,96 @@ class Properti extends Takaeh_Controller {
 		tesx($output);
 		$this->templates_public('takaeh/properti/list', $output);
 
+	}
+
+	public function kategori($url)
+	{
+		sleep(1);
+		// $minimum_price 	= $this->input->post('minimum_price');
+		// $maximum_price 	= $this->input->post('maximum_price');
+
+		tesx($url);
+		$title 		= $this->input->post('title');
+		$lokasi 	= $this->input->post('lokasi');
+		$tipe 		= $this->input->post('tipe');
+		$status 	= $this->input->post('status');
+		$pages 		= $this->input->post('pages');
+
+		$total		= $this->mPropertis->count_all($title, $tipe, $lokasi, $status);
+
+		$this->load->library('pagination');
+		$config = array();
+		$config['base_url'] = '#';
+		$config['total_rows'] 	= $total;
+		$config['per_page'] 	= $pages;
+		$config['uri_segment'] 	= 3;
+		$config['use_page_numbers'] = TRUE;
+
+		# Tambahan untuk styling
+			$config['full_tag_open']    = '<nav aria-label="Page navigation example"><ul class="pagination">';
+			$config['full_tag_close']   = '</ul></nav>';
+			$config['num_tag_open']     = '<li class="page-item"><span class="page-link">';
+			$config['num_tag_close']    = '</span></li>';
+			$config['cur_tag_open']     = '<li class="page-item active"><span class="page-link current">';
+			$config['cur_tag_close']    = '<span class="sr-only">(current)</span></span></li>';
+			$config['next_tag_open']    = '<li class="page-item"><span class="page-link">';
+			$config['next_tagl_close']  = '<span aria-hidden="true">&raquo;</span></span></li>';
+			$config['prev_tag_open']    = '<li class="page-item"><span class="page-link">';
+			$config['prev_tagl_close']  = '</span>Next</li>';
+			$config['first_tag_open']   = '<li class="page-item"><span class="page-link">';
+			$config['first_tagl_close'] = '</span></li>';
+			$config['last_tag_open']    = '<li class="page-item"><span class="page-link">';
+			$config['last_tagl_close']  = '</span></li>';
+			$config['first_link'] 		= 'First';
+			$config['last_link'] 		= 'Last';
+			$config['next_link'] 		= 'Next';
+			$config['prev_link'] 		= 'Prev';
+		# Tambahan untuk styling
+
+
+		$config['num_links'] 	= 3;
+		$this->pagination->initialize($config);
+		$page 		= $this->uri->segment(3);
+		$start	 	= ($page - 1) * $config['per_page'];
+
+		// tesx($page);
+
+		$output 	= array(
+			'total_data'		=> $total.' Data Found',
+			'pagination_link'  	=> $this->pagination->create_links(),
+			'properti_list'  	=> $this->mPropertis->fetch_data($config["per_page"], $start, $title, $tipe, $lokasi, $status)
+		);
+
+		echo json_encode($output);
+	}
+
+
+	function kategori2(){
+		$kategori=str_replace("-"," ",$this->uri->segment(3));
+		$query = $this->db->query("SELECT tbl_tulisan.*,DATE_FORMAT(tulisan_tanggal,'%d/%m/%Y') AS tanggal FROM tbl_tulisan WHERE tulisan_kategori_nama LIKE '%$kategori%' ORDER BY tulisan_views DESC LIMIT 5");
+		if($query->num_rows() > 0){
+			$x['data']=$query;
+			$x['category']=$this->db->get('tbl_kategori');
+			 $x['populer']=$this->db->query("SELECT * FROM tbl_tulisan ORDER BY tulisan_views DESC LIMIT 5");
+			$this->load->view('depan/v_blog',$x);
+		}else{
+			echo $this->session->set_flashdata('msg','<div class="alert alert-danger">Tidak Ada artikel untuk kategori <b>'.$kategori.'</b></div>');
+			redirect('artikel');
+		}
+	}
+
+	function search2(){
+		$keyword=str_replace("'", "", htmlspecialchars($this->input->get('keyword',TRUE),ENT_QUOTES));
+		$query=$this->m_tulisan->cari_berita($keyword);
+				if($query->num_rows() > 0){
+					$x['data']=$query;
+					$x['category']=$this->db->get('tbl_kategori');
+					$x['populer']=$this->db->query("SELECT * FROM tbl_tulisan ORDER BY tulisan_views DESC LIMIT 5");
+			$this->load->view('depan/v_blog',$x);
+				}else{
+					echo $this->session->set_flashdata('msg','<div class="alert alert-danger">Tidak dapat menemukan artikel dengan kata kunci <b>'.$keyword.'</b></div>');
+					redirect('artikel');
+				}
 	}
 
 

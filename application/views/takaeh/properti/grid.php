@@ -92,7 +92,7 @@
                             </div>
                             <div class="search-area">
                                 <select class="selectpicker search-fields" id="pages" name="pages">
-                                    <option value="20" selected>20</option>
+                                    <option value="21" selected>20</option>
                                     <option value="50">50</option>
                                 </select>
                             </div>
