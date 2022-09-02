@@ -151,7 +151,6 @@
                                 <label class="col-form-label s-12"></label>
                                 <input name="properties_masuk_mobil" placeholder="Apakah Masuk Mobil ?" class="form-control r-0 light s-12 " type="text" value="<?= set_value('properties_masuk_mobil'); ?>">
                             </div>
-                            
                         </div>
                         <div class="form-row">
                             <div class="form-group col-4 m-0">

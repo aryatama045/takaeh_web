@@ -90,10 +90,16 @@
                                                 aria-controls="defaults" aria-selected="true"><?= ucfirst('defaults')?></a>
                                         </li>
 
-                                        <!-- core -->
+                                        <!-- feature -->
                                         <li class="nav-item font-weight-bold">
-                                            <a class="nav-link" id="core-tab" data-toggle="tab" href="#core" role="tab"
-                                                aria-controls="core" aria-selected="false"> <?= ucfirst('core')?></a>
+                                            <a class="nav-link" id="feature-tab" data-toggle="tab" href="#feature" role="tab"
+                                                aria-controls="feature" aria-selected="false"> <?= ucfirst('feature')?></a>
+                                        </li>
+
+                                        <!-- lokasi -->
+                                        <li class="nav-item font-weight-bold">
+                                            <a class="nav-link" id="lokasi-tab" data-toggle="tab" href="#lokasi" role="tab"
+                                                aria-controls="lokasi" aria-selected="false"> <?= ucfirst('lokasi')?></a>
                                         </li>
 
 
@@ -104,22 +110,210 @@
 
                                         <!-- Details -->
                                         <div class="tab-pane fade show active" id="defaults" role="tabpanel" aria-labelledby="first-tab">
-                                            <!-- defaults -->
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <table class="table table-borderless">
                                                         <tr>
-                                                            <td class="table-title"><?=cclang("Properti Title")?></td>
+                                                            <td class="table-title">Properti Title</td>
                                                             <td>
                                                                 <label class="form-group has-float-label">
-                                                                    <input name="properties_title" class="form-control" type="text"  id="properties_title" value="<?= set_value('properties_title'); ?>" required>
-                                                                    <span><?=cclang("Properti Title")?></span>
+                                                                    <input name="properties_title" class="form-control" type="text"  id="properties_title"
+                                                                    value="<?= set_value('properties_title'); ?>" required>
+                                                                    <span>Properti Title</span>
                                                                 </label>
                                                             </td>
                                                         </tr>
-
+                                                        <tr>
+                                                            <td class="table-title">Harga</td>
+                                                            <td>
+                                                                <label class="form-group has-float-label">
+                                                                    <input name="properties_harga" class="form-control" type="text" id="properties_harga"
+                                                                    value="<?= set_value('properties_harga'); ?>" required>
+                                                                    <span>Harga</span>
+                                                                </label>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="table-title">Luas Tanah</td>
+                                                            <td>
+                                                                <label class="form-group has-float-label">
+                                                                    <input name="properties_luas_tanah" class="form-control" type="text"  id="properties_luas_tanah"
+                                                                    value="<?= set_value('properties_luas_tanah'); ?>" required>
+                                                                    <span>Luas Tanah</span>
+                                                                </label>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="table-title">Luas Bangunan</td>
+                                                            <td>
+                                                                <label class="form-group has-float-label">
+                                                                    <input name="properties_luas_bangunan" class="form-control" type="text"  id="properties_luas_bangunan"
+                                                                    value="<?= set_value('properties_luas_bangunan'); ?>" required>
+                                                                    <span>Luas Bangunan</span>
+                                                                </label>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="table-title">Jumlah Lantai</td>
+                                                            <td>
+                                                                <label class="form-group has-float-label">
+                                                                    <input name="properties_jumlah_lantai" class="form-control" type="text"  id="properties_jumlah_lantai"
+                                                                    value="<?= set_value('properties_jumlah_lantai'); ?>" required>
+                                                                    <span>Jumlah Lantai</span>
+                                                                </label>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="table-title">Kamar Tidur</td>
+                                                            <td>
+                                                                <label class="form-group has-float-label">
+                                                                    <input name="properties_kamar_tidur" class="form-control" type="text"  id="properties_kamar_tidur"
+                                                                    value="<?= set_value('properties_kamar_tidur'); ?>">
+                                                                    <span>Kamar Tidur</span>
+                                                                </label>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="table-title">Kamar Mandi</td>
+                                                            <td>
+                                                                <label class="form-group has-float-label">
+                                                                    <input name="properties_kamar_mandi" class="form-control" type="text"  id="properties_kamar_mandi"
+                                                                    value="<?= set_value('properties_kamar_mandi'); ?>">
+                                                                    <span>Kamar Mandi</span>
+                                                                </label>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="table-title">Kamar Tidur Pembantu</td>
+                                                            <td>
+                                                                <label class="form-group has-float-label">
+                                                                    <input name="properties_kamar_tidur_p" class="form-control" type="text"  id="properties_kamar_tidur_p"
+                                                                    value="<?= set_value('properties_kamar_tidur_p'); ?>">
+                                                                    <span>Kamar Tidur Pembantu</span>
+                                                                </label>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="table-title">Toilet Pembantu</td>
+                                                            <td>
+                                                                <label class="form-group has-float-label">
+                                                                    <input name="properties_kamar_mandi_p" class="form-control" type="text"  id="properties_kamar_mandi_p"
+                                                                    value="<?= set_value('properties_kamar_mandi_p'); ?>">
+                                                                    <span>Toilet Pembantu</span>
+                                                                </label>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="table-title">Garasi</td>
+                                                            <td>
+                                                                <label class="form-group has-float-label">
+                                                                    <input name="properties_garasi" class="form-control" type="text"  id="properties_garasi"
+                                                                    value="<?= set_value('properties_garasi'); ?>">
+                                                                    <span>Garasi</span>
+                                                                </label>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="table-title">Dapur</td>
+                                                            <td>
+                                                                <label class="form-group has-float-label">
+                                                                    <input name="properties_dapur" class="form-control" type="text"  id="properties_dapur"
+                                                                    value="<?= set_value('properties_dapur'); ?>">
+                                                                    <span>Dapur</span>
+                                                                </label>
+                                                            </td>
+                                                        </tr>
                                                     </table>
                                                     <hr>
+
+                                                    <div class="form-row">
+                                                        <div class="form-group col-4 m-0">
+                                                            <label class="col-form-label s-12"></label>
+                                                            <select class="form-control" name="properties_kondisi_bangunan" required="">
+                                                                <option value=""> -- Kondisi Bangunan --</option>
+                                                                <option value="Baru">Baru</option>
+                                                                <option value="Lama">Lama</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-4 m-0">
+                                                            <label class="col-form-label s-12"></label>
+                                                            <select class="form-control" name="properties_tipe_market" required="">
+                                                                <option value=""> -- Tipe Market --</option>
+                                                                <option value="Primary">Primary</option>
+                                                                <option value="Secondary">Secondary</option>
+                                                                <option value="Apapun">Apapun</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-4 m-0">
+                                                            <label class="col-form-label s-12"></label>
+                                                            <select class="form-control" name="properties_sertifikat" required="">
+                                                                <option value=""> -- Sertifikat --</option>
+                                                                <option value="SHM">SHM</option>
+                                                                <option value="SHGB">SHGB  </option>
+                                                                <option value="SGHU">SHGU</option>
+                                                                <option value="AJB">AJB</option>
+                                                                <option value="GIRIK">GIRIK</option>
+                                                                <option value="LAINNYA">LAINNYA</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-row">
+                                                        <div class="form-group col-4 m-0">
+                                                            <label class="col-form-label s-12"></label>
+                                                            <input name="properties_listrik" placeholder="Listrik" class="form-control r-0 light s-12 " type="text" id="properties_listrik" value="<?= set_value('properties_listrik'); ?>">
+                                                        </div>
+                                                        <div class="form-group col-4 m-0">
+                                                            <label class="col-form-label s-12"></label>
+                                                            <input name="properties_sumber_air" placeholder="Sumber Air" class="form-control r-0 light s-12 " type="text" id="properties_sumber_air" value="<?= set_value('properties_sumber_air'); ?>">
+                                                        </div>
+                                                        <div class="form-group col-4 m-0">
+                                                            <label class="col-form-label s-12"></label>
+                                                            <input name="properties_masuk_mobil" placeholder="Apakah Masuk Mobil ?" class="form-control r-0 light s-12 " type="text" value="<?= set_value('properties_masuk_mobil'); ?>">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-row">
+                                                        <div class="form-group col-4 m-0">
+                                                            <label class="col-form-label s-12"></label>
+                                                            <input name="properties_bebas_banjir" placeholder="Bebas Banjir" class="form-control r-0 light s-12 " type="text" id="properties_bebas_banjir" value="<?= set_value('properties_bebas_banjir'); ?>">
+                                                        </div>
+                                                        <div class="form-group col-4 m-0">
+                                                            <label class="col-form-label s-12"></label>
+                                                            <input name="properties_internet" placeholder="Internet" class="form-control r-0 light s-12 " type="text" id="properties_internet" value="<?= set_value('properties_internet'); ?>">
+                                                        </div>
+                                                        <div class="form-group col-4 m-0">
+                                                            <label class="col-form-label s-12"></label>
+                                                            <input name="properties_ac" placeholder="Pendingin Ruangan (AC)" class="form-control r-0 light s-12 " type="text" id="properties_ac" value="<?= set_value('properties_ac'); ?>">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-row">
+                                                        <div class="form-group col-4 m-0">
+                                                            <label class="col-form-label s-12"></label>
+                                                            <input name="properties_line_telpon" placeholder="Line Telpon" class="form-control r-0 light s-12 " type="text" id="properties_line_telpon" value="<?= set_value('properties_line_telpon'); ?>">
+                                                        </div>
+                                                        <div class="form-group col-4 m-0">
+                                                            <label class="col-form-label s-12"></label>
+                                                            <input name="properties_genset" placeholder="Genset" class="form-control r-0 light s-12 " type="text" id="properties_genset" value="<?= set_value('properties_genset'); ?>">
+                                                        </div>
+                                                    </div>
+
+                                                    <hr>
+
+                                                    <div class="form-row">
+                                                        <div class="form-group col-8 m-0">
+                                                            <label class="col-form-label s-12"><b>Deskripsi / Detail</b> </label>
+                                                            <div class="summernote-theme-3">
+                                                                <textarea class="summernote form-control" name="properties_deskripsi">
+                                                                <?= set_value('properties_deskripsi'); ?>
+                                                                </textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <hr>
+
                                                     <div class="card-body" id="blah">
                                                         <h5 class="mb-4">Dropzone</h5>
                                                         <input type="file"
@@ -146,94 +340,106 @@
 
                                                 </div>
                                             </div>
-                                            <hr>
-
                                         </div>
 
-                                        <!-- core -->
-                                        <div class="tab-pane fade" id="core" role="tabpanel" aria-labelledby="core-tab">
+                                        <!-- Feature -->
+                                        <div class="tab-pane fade" id="feature" role="tabpanel" aria-labelledby="feature-tab">
                                             <div class="row">
                                                 <div class="col-lg-12">
-                                                    <table class="table table-borderless table-striped table-hover">
-                                                        <tr>
-                                                            <td class="table-title"><?=cclang("time_zone")?></td>
-                                                            <td>
-                                                            <a href="javascript:void(0);" id="time_zone" data-url="<?=url("setting/update_action")?>" data-type="select" data-value="<?=$this->config->item("time_zone")?>" data-pk="999" class="editable editable-click" title="<?=cclang("update")?>"><?=$this->config->item("time_zone")?></a>
-                                                            </td>
-                                                        </tr>
+                                                        <h5 class="with-border m-t-lg"><b>Tipe Properti</b></h5>
+                                                        <div class="row m-t-lg">
+                                                            <?php foreach ($tipe as $dataTipe) { ?>
+                                                                <div class="col-md-4 col-sm-6">
+                                                                    <div class="custom-control custom-radio">
+                                                                        <input class="custom-control-input" value="<?= $dataTipe['id_tipe']; ?>" type="radio" name="properties_tipe"  id="tipe-<?= $dataTipe['id_tipe']; ?>" <?= ($dataTipe['id_tipe']=='1')?'checked':''; ?> >
+                                                                        <label class="custom-control-label" for="tipe-<?= $dataTipe['id_tipe']; ?>"><?= $dataTipe['nama']; ?></label>
+                                                                    </div>
+                                                                </div>
 
-                                                        <tr>
-                                                            <td class="table-title">Encryption Key</td>
-                                                            <td>
-                                                            <a href="javascript:void(0);" id="encryption_key" data-url="<?=url("setting/update_action")?>" data-type="text" data-pk="999" class="editable editable-click" title="<?=cclang("update")?>"><?=$this->config->item("encryption_key")?></a>
-                                                            </td>
-                                                        </tr>
+                                                            <?php } ?>
 
-                                                        <tr>
-                                                            <td class="table-title">Encryption Url</td>
-                                                            <td>
-                                                            <a href="javascript:void(0);" id="encryption_url" data-url="<?=url("setting/update_action")?>" data-type="select" data-pk="999" class="editable editable-click" title="<?=cclang("update")?>"><?=$this->config->item("encryption_url") == 1 ? "Y":"N"?></a>
-                                                            </td>
-                                                        </tr>
+                                                        </div>
 
-                                                        <tr>
-                                                            <td class="table-title">Url suffix</td>
-                                                            <td>
-                                                            <a href="javascript:void(0);" id="url_suffix" data-url="<?=url("setting/update_action")?>" data-type="text" data-pk="999" class="editable editable-click" title="<?=cclang("update")?>"><?=$this->config->item("url_suffix")?></a>
-                                                            </td>
-                                                        </tr>
+                                                        <hr>
+                                                        <h5 class="with-border m-t-lg"><b>Aksebilitas</b></h5>
+                                                        <div class="row m-t-lg">
+                                                            <?php foreach ($aksebilitas as $dataAks) { ?>
+                                                                <div class="col-md-4 col-sm-6">
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input class="custom-control-input" value="<?= $dataAks['id_aksebilitas']; ?>" type="checkbox" name="properties_aksebilitas[]" id="check-toggle-<?= $dataAks['id_aksebilitas']; ?>" checked="">
+                                                                        <label class="custom-control-label" for="check-toggle-<?= $dataAks['id_aksebilitas']; ?>"> <?= $dataAks['nama']; ?></label>
+                                                                    </div>
+                                                                </div>
+                                                            <?php } ?>
+                                                        </div>
 
-                                                        <tr>
-                                                            <td class="table-title">Route admin</td>
-                                                            <td>
-                                                            <a href="javascript:void(0);" id="route_admin" data-url="<?=url("setting/update_action")?>" data-type="text" data-pk="998" class="editable editable-click" title="<?=cclang("update")?>"><?=ADMIN_ROUTE?></a>
-                                                            </td>
-                                                        </tr>
+                                                        <hr>
 
-                                                        <tr>
-                                                            <td class="table-title">Route login</td>
-                                                            <td>
-                                                            <a href="javascript:void(0);" id="route_login" data-url="<?=url("setting/update_action")?>" data-type="text" data-pk="998" class="editable editable-click" title="<?=cclang("update")?>"><?=LOGIN_ROUTE?></a>
-                                                            </td>
-                                                        </tr>
 
-                                                        <tr>
-                                                            <td class="table-title">Max Upload</td>
-                                                            <td>
-                                                            <a href="javascript:void(0);" id="max_upload" data-url="<?=url("setting/update_action")?>" data-type="text" data-pk="999" class="editable editable-click" title="<?=cclang("update")?>"><?=$this->config->item("max_upload")?></a> Kb
-                                                            </td>
-                                                        </tr>
+                                                        <h5 class="with-border m-t-lg"><b>Fasilitas</b></h5>
+                                                        <div class="row m-t-lg">
 
-                                                        <tr>
-                                                            <td class="table-title"><?=cclang("language")?></td>
-                                                            <td>
-                                                            <a href="javascript:void(0);" id="language" data-url="<?=url("setting/update_action")?>" data-type="select" data-value="<?=$this->config->item("language")?>" data-pk="999" class="editable editable-click" title="<?=cclang("update")?>"><?=$this->config->item("language")?></a>
-                                                            </td>
-                                                        </tr>
+                                                            <?php foreach ($fasilitas as $dataFas) { ?>
+                                                                <div class="col-md-4 col-sm-6">
+                                                                    <div class="checkbox-toggle">
+                                                                        <input value="<?= $dataFas['id_fasilitas']; ?>" type="checkbox" name="properties_fasilitas[]" id="check-toggle-<?= $dataFas['id_fasilitas']; ?>" checked="">
+                                                                        <label for="check-toggle-<?= $dataFas['id_fasilitas']; ?>"> <?= $dataFas['nama']; ?></label>
+                                                                    </div>
+                                                                </div>
+                                                            <?php } ?>
 
-                                                        <tr>
-                                                            <td class="table-title"><?=cclang("user_log_activity")?></td>
-                                                            <td>
-                                                            <a href="javascript:void(0);" id="user_log_status" data-url="<?=url("setting/update_action")?>" data-type="select" data-value="<?=setting('user_log_status')?>" data-pk="61" class="editable editable-click" title="<?=cclang("update")?>"><?=setting('user_log_status')?></a>
-                                                            </td>
-                                                        </tr>
-
-                                                        <tr>
-                                                            <td class="table-title"><?=cclang("maintenance")?></td>
-                                                            <td>
-                                                            <a href="javascript:void(0);" id="maintenance_status" data-url="<?=url("setting/update_action")?>" data-type="select" data-value="<?=setting('maintenance_status')?>" data-pk="60" class="editable editable-click" title="<?=cclang("update")?>"><?=setting('maintenance_status')?></a>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-
+                                                        </div>
                                                 </div>
                                             </div>
-                                            <hr>
-
                                         </div>
 
+                                        <!-- Lokasi -->
+                                        <div class="tab-pane fade" id="lokasi" role="tabpanel" aria-labelledby="lokasi-tab">
+                                            <h5 class="card-title"><b>Alamat Lengkap</b></h5>
+                                            <div class="form-row m-2">
+                                                <div class="form-group">
+                                                    <textarea name="properties_alamat" class="form-control" cols="30" rows="4"
+                                                    id="properties_alamat"><?= set_value('properties_alamat'); ?></textarea>
+                                                </div>
+                                            </div>
+
+                                            <hr>
+
+                                            <h5 class="card-title"><b>Area / Lokasi</b></h5>
+                                            <div class="form-row">
+                                                <div class="form-group col-3 m-0">
+                                                    <label class="col-form-label s-12">Provinsi</label>
+                                                    <select name="properties_provinsi" id="provinsi_id" class="form-control select2" >
+                                                        <option value=""> --Select-- </option>
+                                                        <?php foreach ($provinsi as $dataProvinsi) { ?>
+                                                            <option value="<?php echo $dataProvinsi['id'] ?>" ><?php echo $dataProvinsi['name'] ?></option>
+                                                        <?php } ?>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-3 m-0">
+                                                    <label class="col-form-label s-12">Kota</label>
+                                                    <select name="properties_kota" id="kota" class="form-control select2" >
+                                                        <option value=""> --Select -- </option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-3 m-0">
+                                                    <label class="col-form-label s-12">Kabupaten</label>
+                                                    <select name="properties_kabupaten" id="kabupaten" class="form-control select2" >
+                                                        <option value=""> --Select -- </option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-3 m-0">
+                                                    <label class="col-form-label s-12">Kecamatan</label>
+                                                    <select name="properties_kecamatan" id="kecamatan" class="form-control select2" >
+                                                        <option value=""> --Select-- </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
 
                                     </div>
+
+                                    <hr>
 
                                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                                         <button type="submit" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm upload-image">
