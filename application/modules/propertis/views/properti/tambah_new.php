@@ -465,11 +465,17 @@
 
 
                                     <div class="form-group row mb-1">
-                                        <label class="col-12 col-form-label">Featured</label>
-                                        <div class="col-12">
-                                            <div class="custom-switch custom-switch-primary mb-2">
-                                                <input name="featured" value="1" class="custom-switch-input" id="switch" type="checkbox">
-                                                <label class="custom-switch-btn" for="switch"></label>
+                                        <label class="col-12 col-form-label">Tipe Jual</label>
+                                        <div class="col-md-4 col-sm-6">
+                                            <div class="custom-control custom-radio">
+                                                <input class="custom-control-input" value="Dijual" type="radio" name="properties_tipe_jual"  id="tipe-jual" checked>
+                                                <label class="custom-control-label" for="tipe-jual">Dijual</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-sm-6">
+                                            <div class="custom-control custom-radio">
+                                                <input class="custom-control-input" value="Disewa" type="radio" name="properties_tipe_jual"  id="tipe-sewa">
+                                                <label class="custom-control-label" for="tipe-sewa">Disewa</label>
                                             </div>
                                         </div>
                                     </div>
@@ -484,6 +490,28 @@
                                             <option value="5">5</option>
                                         </select>
                                     </div>
+
+                                    <div class="form-group row mb-1">
+                                        <label class="col-12 col-form-label">Featured</label>
+                                        <div class="col-12">
+                                            <div class="custom-switch custom-switch-primary mb-2">
+                                                <input name="featured" value="1" class="custom-switch-input" id="Featured" type="checkbox">
+                                                <label class="custom-switch-btn" for="Featured"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row mb-1">
+                                        <label class="col-12 col-form-label">Posting</label>
+                                        <div class="col-12">
+                                            <div class="custom-switch custom-switch-primary mb-2">
+                                                <input name="properties_active" value="1" class="custom-switch-input" id="Posting" type="checkbox" checked>
+                                                <label class="custom-switch-btn" for="Posting"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
                                 </div>
                             </div>
                         </div>
