@@ -200,35 +200,22 @@ class Properti_model extends CI_Model
 			$id_properties  = $this->master->insert_id();
 			$slug           = url_title(strtolower($this->input->post('properties_title')));
 			$photo_cover    = $slug.'.html';
-			// $filesCount 	= count($_FILES['userfile2']['name']);
 
-			$countfiles = implode(' @$ ', $this->input->post('image'));
-			$imgaeview 	= explode(' @$ ', $countfiles);
+
+			$filesCount 	= count($_FILES['itemimage']['name']);
+
+			// $countfiles = implode(' @$ ', $this->input->post('file'));
+			// $imgaeview 	= explode(' @$ ', $countfiles);
 
 			// $imgaeview	= $this->input->post('image');
-			// $countfiles = count($this->input->post('image'));
+			$countfiles = count($this->input->post('itemimage'));
 
-			// tesx($countfiles ,$imgaeview);
+			tesx($countfiles,$filesCount );
 
 			// foreach ($imgaeview as $key => $val)
 			$ximg = $this->input->post('image');
 			foreach($ximg as $key =>$val){
 
-
-				// if($this->is_base64($base64string) == true ){
-				// 	$base64string = "data:image/jpeg;base64,".$base64string;
-				// 	$this->check_size($base64string);
-				// 	$this->check_dir($path);
-				// 	$this->check_file_type($base64string);
-
-				// 	/*=================uploads=================*/
-				// 	list($type, $base64string) = explode(';', $base64string);
-				// 	list(,$extension)          = explode('/',$type);
-				// 	list(,$base64string)       = explode(',', $base64string);
-				// 	$fileName                  = uniqid().date('Y_m_d').'.'.$extension;
-				// 	$base64string              = base64_decode($base64string);
-				// 	file_put_contents($path.$fileName, $base64string);
-				// }
 				$base64string = "data:image/jpg;base64,".$val;
 				list($type, $base64string) = explode(';', $base64string);
 				list(,$extension)          = explode('/',$type);

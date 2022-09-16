@@ -22,11 +22,11 @@
                                             <div class="search-area search-area-6">
                                                 <div class="search-area-inner">
                                                     <div class="search-contents">
-                                                        <form method="GET">
+                                                        <form method="post" action="<?= base_url('properti/search2') ?>">
                                                             <div class="row">
                                                                 <div class="col-lg-4 col-md-12 col-sm-12 col-xs-6 col-pad2">
                                                                     <div class="form-group">
-                                                                        <input type="text" name="name" class="search-fields sf2 fc2" placeholder="Enter Keyword">
+                                                                        <input type="text" name="title" class="search-fields sf2 fc2" placeholder="Enter Keyword">
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-lg-2 col-md-12 col-sm-12 col-xs-6 col-pad2">
@@ -41,7 +41,7 @@
                                                                 </div>
                                                                 <div class="col-lg-2 col-md-12 col-sm-12 col-xs-6 col-pad2">
                                                                     <div class="form-group">
-                                                                        <select class="selectpicker search-fields" name="location">
+                                                                        <select class="selectpicker search-fields" name="lokasi">
                                                                             <option>Location</option>
                                                                             <option>United Kingdom</option>
                                                                             <option>American Samoa</option>
@@ -53,7 +53,7 @@
                                                                 </div>
                                                                 <div class="col-lg-2 col-md-12 col-sm-12 col-xs-6 col-pad2">
                                                                     <div class="form-group">
-                                                                        <select class="selectpicker search-fields" name="make">
+                                                                        <select class="selectpicker search-fields" name="tipe">
                                                                             <option>Room</option>
                                                                             <option>1</option>
                                                                             <option>2</option>
@@ -64,7 +64,7 @@
                                                                 </div>
                                                                 <div class="col-lg-2 col-md-12 col-sm-12 col-xs-6 col-pad2 cp3">
                                                                     <div class="form-group fg2">
-                                                                        <button class="search-button btn-md btn-color">Search</button>
+                                                                        <button type="submit" class="search-button btn-md btn-color">Search</button>
                                                                     </div>
                                                                 </div>
                                                             </div>

@@ -317,6 +317,7 @@
                                                     <div class="card-body" id="blah">
                                                         <h5 class="mb-4">Dropzone</h5>
                                                         <input type="file"
+                                                            name="itemimage[]"
                                                             class="image-file"
                                                             multiple=""
                                                             data-maxfile="1024"

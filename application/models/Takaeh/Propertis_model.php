@@ -129,6 +129,8 @@ class Propertis_model extends CI_Model {
 
         // die(nl2br($this->master->last_query()));
 
+        // tesx($data);
+
         $output = '';
 
         if($data->num_rows() > 0)
