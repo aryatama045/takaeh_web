@@ -239,7 +239,7 @@ class Properti extends Takaeh_Controller {
 		}
 	}
 
-	function search2(){
+	function search2($page = NULL){
 
 
 		// $title 		= str_replace("'", "", htmlspecialchars($this->input->post('title',TRUE),ENT_QUOTES));
@@ -256,7 +256,7 @@ class Properti extends Takaeh_Controller {
 
 		$this->load->library('pagination');
 		$config = array();
-		$config['base_url'] = '#';
+		$config['base_url'] = base_url() . 'properti/search2/';
 		$config['total_rows'] 	= $total;
 		$config['per_page'] 	= $pages;
 		$config['uri_segment'] 	= 3;
@@ -287,6 +287,8 @@ class Properti extends Takaeh_Controller {
 		$config['num_links'] 	= 3;
 		$this->pagination->initialize($config);
 		$page 		= $this->uri->segment(3);
+		// $start	 	= ($page) * $config['per_page'];
+		if($page==Null){$page =0;}else{$page = $page;}
 		$start	 	= ($page) * $config['per_page'];
 
 		// tesx($page, $start);
@@ -298,9 +300,9 @@ class Properti extends Takaeh_Controller {
 			$x['pagination_link'] 	= $this->pagination->create_links();
 			$x['tipe'] 				= $this->mPropertis->properti_tipe();
 
-			tesx($x['properti_list'],$x['pagination_link']);
+			// tesx($x['properti_list']);
 
-			$this->templates_public('takaeh/properti/grid', $x);
+			$this->templates_public('takaeh/properti/search', $x);
 		// }else{
 		// 	tesx('error-page');
 		// 		echo $this->session->set_flashdata('msg','<div class="alert alert-danger">Tidak dapat menemukan artikel dengan kata kunci <b>'.$keyword.'</b></div>');

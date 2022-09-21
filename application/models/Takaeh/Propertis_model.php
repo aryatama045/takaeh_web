@@ -131,7 +131,7 @@ class Propertis_model extends CI_Model {
 
         // tesx($data);
 
-        $output = '';
+        $output = "";
 
         if($data->num_rows() > 0)
         {
@@ -200,7 +200,7 @@ class Propertis_model extends CI_Model {
                                         <i class="flaticon-bath"></i> '.$row['properties_kamar_mandi'].' Bathrooms
                                     </li>
                                     <li>
-                                        <i class="flaticon-square-layouting-with-black-square-in-east-area"></i> 
+                                        <i class="flaticon-square-layouting-with-black-square-in-east-area"></i>
                                         Sq Ft: '.$row['properties_luas_tanah'].'
                                     </li>
                                     <li>
