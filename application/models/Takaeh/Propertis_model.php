@@ -267,6 +267,7 @@ class Propertis_model extends CI_Model {
                 $output .= '
                     <div class="property-box-5">
                         <div class="row">
+                        <a href="'.base_url('properti/detail/'.$row['properties_url']).'">
                             <div class="col-lg-5 col-md-5 col-pad">
                                 <div class="property-thumbnail">
                                     <a href="'.base_url('properti/detail/'.$row['properties_url']).'" class="property-img">
@@ -286,18 +287,18 @@ class Propertis_model extends CI_Model {
                                         '.$img.'
                                     </a>
                                     <div class="property-overlay">
-                                        <a href="properties-details.html" class="overlay-link">
+                                        <a href="'.base_url('properti/detail/'.$row['properties_url']).'" class="overlay-link">
                                             <i class="fa fa-link"></i>
                                         </a>
-                                        <a class="overlay-link property-video" title="Test Title">
+                                        <a class="overlay-link property-video" title="'.$row['properties_url'].'">
                                             <i class="fa fa-video-camera"></i>
                                         </a>
-                                        <div class="property-magnify-gallery">
-                                            <a href="http://placehold.it/750x540" class="overlay-link">
+                                        <div class="property-magnify-gallery" title="Image Detail">
+                                            <a href="https://placehold.co/750x540" class="overlay-link">
                                                 <i class="fa fa-expand"></i>
                                             </a>
-                                            <a href="http://placehold.it/750x540" class="hidden"></a>
-                                            <a href="http://placehold.it/750x540" class="hidden"></a>
+                                            <a href="https://placehold.co/1080x740" class="hidden"></a>
+                                            <a href="https://placehold.co/750x540" class="hidden"></a>
                                         </div>
                                     </div>
                                 </div>
@@ -311,7 +312,12 @@ class Propertis_model extends CI_Model {
                                     <div class="location">
                                         <a href="'.base_url('properti/detail/'.$row['properties_url']).'">
                                             <i class="fa fa-map-marker"></i>
-                                            '. character_limiter($row['properties_title'], '20') .'
+                                            '. character_limiter($row['properties_title'], '50') .'
+                                        </a>
+                                    </div>
+                                    <div class="location">
+                                        <a href="'.base_url('properti/detail/'.$row['properties_url']).'">
+                                            <i class="fa fa-calendar"></i> '.date('d-m-Y' ,$date).'
                                         </a>
                                     </div>
                                     <ul class="facilities-list clearfix">
@@ -328,16 +334,17 @@ class Propertis_model extends CI_Model {
                                         <li>
                                             <i class="flaticon-car-repair"></i> '.$row['properties_garasi'].' Garage
                                         </li>
-                                        <i class="fa fa-calendar"></i> '.date('d-m-Y' ,$date).'
                                     </ul>
-                                    
-                                </div>
-                                <div class="footer">
-                                    <a href="'.base_url('properti/detail/'.$row['properties_url']).'">
-                                        <i class="fa fa-arrow-right"></i> Detail
-                                    </a>
+                                    <p>'. character_limiter($row['properties_deskripsi'], '100') .'</p>
+                                    <div class="location">
+                                        <a href="'.base_url('properti/detail/'.$row['properties_url']).'">
+                                            <i class="fa fa-arrow-right"></i> Detail
+                                        </a>
+                                    </div>
+
                                 </div>
                             </div>
+                        </a>
                         </div>
                     </div>';
             }

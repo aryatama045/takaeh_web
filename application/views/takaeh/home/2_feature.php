@@ -60,12 +60,12 @@
                     </div>
                     <div class="detail">
                         <h1 class="title" >
-                            <a href="<?= base_url('properti/detail/'.$row['properties_url'])?>" title="<?= $row['properties_title']?>" > 
+                            <a href="<?= base_url('properti/detail/'.$row['properties_url'])?>" title="<?= $row['properties_title']?>" >
                             <?= character_limiter($row['properties_title'], '12') ?></a>
                         </h1>
                         <div class="location">
                             <a href="<?= base_url('properti/detail/'.$row['properties_url'])?>">
-                                <i class="flaticon-facebook-placeholder-for-locate-places-on-maps"></i> 
+                                <i class="flaticon-facebook-placeholder-for-locate-places-on-maps"></i>
                                 <?= character_limiter($row['properties_alamat'], '20') ?>
                             </a>
                         </div>
@@ -77,7 +77,7 @@
                                 <i class="flaticon-bath"></i> <?= $row['properties_kamar_mandi'] ?> Bathrooms
                             </li>
                             <li>
-                                <i class="flaticon-square-layouting-with-black-square-in-east-area"></i> 
+                                <i class="flaticon-square-layouting-with-black-square-in-east-area"></i>
                                 Sq Ft: <?= $row['properties_luas_tanah'] ?>
                             </li>
                             <li>
@@ -108,7 +108,7 @@
             </div>
         </div>
         <div class="col-lg-12 text-center pt-5">
-                <a data-animation="animated fadeInUp delay-10s" 
+                <a data-animation="animated fadeInUp delay-10s"
                 href="<?= base_url('properti')?>" class="btn btn-lg btn-theme">More Properties</a>
         </div>
     </div>

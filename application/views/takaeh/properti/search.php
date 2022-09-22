@@ -1,5 +1,21 @@
 
 
+<!-- Sub banner start -->
+<div class="sub-banner">
+    <div class="container">
+        <div class="breadcrumb-area">
+            <h1><?= $title_page ?></h1>
+            <ul class="breadcrumbs">
+                <li ><?= ucfirst($this->uri->segment(1)) ?></li>
+                <?php $link=$this->uri->segment(2); if(isset($link)) { ?>
+                <li class="active"><?= ucfirst($this->uri->segment(2)) ?></li><?php } ?>
+
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Sub banner end -->
+
 <!-- properties list rightside start -->
 <div class="properties-list-rightside content-area-2">
     <div class="container">
