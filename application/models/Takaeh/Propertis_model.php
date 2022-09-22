@@ -223,6 +223,127 @@ class Propertis_model extends CI_Model {
             // <img src="'.base_url().'images/'. $row['properties_title'] .'" alt="" class="img-responsive" >
 
         } else {
+            $output = '<h3>Data not found</h3>';
+        }
+        return $output;
+    }
+
+
+    function fetch_search($limit, $start, $title, $tipe, $lokasi, $status)
+    {
+        $query = $this->make_query($title, $tipe, $lokasi, $status);
+
+        $query .= ' ORDER BY created_date DESC ';
+
+        $query .= ' LIMIT '.$start.', ' . $limit ;
+
+        $data = $this->master->query($query);
+
+        $output = "";
+
+        if($data->num_rows() > 0)
+        {
+            foreach($data->result_array() as $row)
+            {
+                $url = FCPATH.'www/properties/'.$row['properties_cover'];
+
+                if(file_exists($url)){
+                    $img = '<img style="width:350px; height:250px;" data-original="'.base_url('www/properties/'.$row['properties_cover']).'"
+                            src="'.base_url('www/properties/'.$row['properties_cover']).'" alt="property-box" class="img-fluid">';
+                } else {
+                    $img = '<img data-original="https://placehold.co/350x250" src="https://placehold.co/350x250" alt="property-box" class="img-fluid">';
+                }
+
+                if($row['properties_tipe_jual'] == 'Dijual'){
+                    $status = '<div class="tag-for">For Sale</div>';
+                } else {
+                    $status = '<div class="tag-for">For Rent</div>';
+                }
+
+                $harga= '<div class="plan-price"><sup>$</sup>820<span>/month</span> </div>';
+
+                $date= $row['created_date'];
+
+                $output .= '
+                    <div class="property-box-5">
+                        <div class="row">
+                            <div class="col-lg-5 col-md-5 col-pad">
+                                <div class="property-thumbnail">
+                                    <a href="'.base_url('properti/detail/'.$row['properties_url']).'" class="property-img">
+                                        <div class="listing-badges">
+                                            <span class="featured">Featured</span>
+                                        </div>
+                                        '.$status.'
+                                        <div class="price-ratings-box">
+                                            <div class="ratings">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-o"></i>
+                                            </div>
+                                        </div>
+                                        '.$img.'
+                                    </a>
+                                    <div class="property-overlay">
+                                        <a href="properties-details.html" class="overlay-link">
+                                            <i class="fa fa-link"></i>
+                                        </a>
+                                        <a class="overlay-link property-video" title="Test Title">
+                                            <i class="fa fa-video-camera"></i>
+                                        </a>
+                                        <div class="property-magnify-gallery">
+                                            <a href="http://placehold.it/750x540" class="overlay-link">
+                                                <i class="fa fa-expand"></i>
+                                            </a>
+                                            <a href="http://placehold.it/750x540" class="hidden"></a>
+                                            <a href="http://placehold.it/750x540" class="hidden"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-7 col-md-7 align-self-center col-pad">
+                                <div class="detail">
+                                    <h1 class="title">
+                                        <a href="'.base_url('properti/detail/'.$row['properties_url']).'"
+                                        title="'. $row['properties_title'] .'">'. character_limiter($row['properties_title'], '20') .'</a>
+                                    </h1>
+                                    <div class="location">
+                                        <a href="'.base_url('properti/detail/'.$row['properties_url']).'">
+                                            <i class="fa fa-map-marker"></i>
+                                            '. character_limiter($row['properties_title'], '20') .'
+                                        </a>
+                                    </div>
+                                    <ul class="facilities-list clearfix">
+                                        <li>
+                                            <i class="flaticon-bed"></i> '.$row['properties_kamar_tidur'].' Beds
+                                        </li>
+                                        <li>
+                                            <i class="flaticon-bath"></i> '.$row['properties_kamar_mandi'].' Baths
+                                        </li>
+                                        <li>
+                                            <i class="flaticon-square-layouting-with-black-square-in-east-area"></i>
+                                            Sq Ft: '.$row['properties_luas_tanah'].'
+                                        </li>
+                                        <li>
+                                            <i class="flaticon-car-repair"></i> '.$row['properties_garasi'].' Garage
+                                        </li>
+                                        <i class="fa fa-calendar"></i> '.date('d-m-Y' ,$date).'
+                                    </ul>
+                                    
+                                </div>
+                                <div class="footer">
+                                    <a href="'.base_url('properti/detail/'.$row['properties_url']).'">
+                                        <i class="fa fa-arrow-right"></i> Detail
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>';
+            }
+            // <img src="'.base_url().'images/'. $row['properties_title'] .'" alt="" class="img-responsive" >
+
+        } else {
             $output = '<h3>No Data Found</h3>';
         }
         return $output;

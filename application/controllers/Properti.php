@@ -267,8 +267,8 @@ class Properti extends Takaeh_Controller {
 			$config['full_tag_close']   = '</ul></nav>';
 			$config['num_tag_open']     = '<li class="page-item"><span class="page-link">';
 			$config['num_tag_close']    = '</span></li>';
-			$config['cur_tag_open']     = '<li class="page-item active"><span class="page-link current">';
-			$config['cur_tag_close']    = '<span class="sr-only">(current)</span></span></li>';
+			$config['cur_tag_open']     = '<li class="page-item active"><a class="page-link active">';
+			$config['cur_tag_close']    = '<span class="sr-only">(current)</span></a></li>';
 			$config['next_tag_open']    = '<li class="page-item"><span class="page-link">';
 			$config['next_tagl_close']  = '<span aria-hidden="true">&raquo;</span></span></li>';
 			$config['prev_tag_open']    = '<li class="page-item"><span class="page-link">';
@@ -296,7 +296,7 @@ class Properti extends Takaeh_Controller {
 		// if($total > 0){
 
 			$x['title_page']		= 'Properti - Search';
-			$x['properti_list']		= $this->mPropertis->fetch_data($config["per_page"], $start, $title, $tipe, $lokasi, $status);
+			$x['properti_list']		= $this->mPropertis->fetch_search($config["per_page"], $start, $title, $tipe, $lokasi, $status);
 			$x['pagination_link'] 	= $this->pagination->create_links();
 			$x['tipe'] 				= $this->mPropertis->properti_tipe();
 
