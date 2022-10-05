@@ -35,7 +35,6 @@
                     <li>
                         <a href="<?= base_url('register') ?>" class="sign-in"><i class="fa fa-user"></i> Register</a>
                     </li>
-                    
                     <?php } ?>
                 </ul>
             </div>

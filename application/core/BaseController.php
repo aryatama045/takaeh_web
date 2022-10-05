@@ -34,13 +34,13 @@ class BaseController extends CI_Controller {
 		$this->output->set_status_header ( 200 )->set_content_type ( 'application/json', 'utf-8' )->set_output ( json_encode ( $data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES ) )->_display ();
 		exit ();
 	}
-	
+
 	/**
 	 * This function used to check the user is logged in or not
 	 */
 	function isLoggedIn() {
 		$isLoggedIn = $this->session->userdata ( 'isLoggedIn' );
-		
+
 		if (! isset ( $isLoggedIn ) || $isLoggedIn != TRUE) {
 			redirect ( 'login' );
 		} else {
@@ -50,7 +50,7 @@ class BaseController extends CI_Controller {
 			$this->roleText = $this->session->userdata ( 'roleText' );
 			$this->lastLogin = $this->session->userdata ( 'lastLogin' );
 			$this->uimage = $this->session->userdata ( 'uimage' );
-			
+
 			$this->global ['name'] = $this->name;
 			$this->global ['role'] = $this->role;
 			$this->global ['role_text'] = $this->roleText;
@@ -58,7 +58,7 @@ class BaseController extends CI_Controller {
 			$this->global ['uimage'] = $this->uimage;
 		}
 	}
-	
+
 	/**
 	 * This function is used to check the access
 	 */

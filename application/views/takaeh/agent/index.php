@@ -22,7 +22,7 @@
                     <div class="header clearfix">
                         <h2>Emma Connor</h2>
                         <h4>Creative Director</h4>
-                        <img src="http://placehold.it/160x160" alt="avatar" class="img-fluid profile-img">
+                        <img src="https://place-hold.it/160x160" alt="avatar" class="img-fluid profile-img">
                     </div>
                     <!-- Detail -->
                     <div class="detail clearfix">
@@ -75,7 +75,7 @@
                         <tbody class="responsive-table">
                         <tr>
                             <td class="listing-photoo">
-                                <img alt="my-properties" src="http://placehold.it/163x108" class="img-fluid">
+                                <img alt="my-properties" src="https://place-hold.it/163x108" width="163" height="108" class="img-fluid">
                             </td>
                             <td class="title-container">
                                 <h5><a href="#">Real Luxury Villa</a></h5>
@@ -105,7 +105,7 @@
                         <tbody>
                         <tr>
                             <td class="listing-photoo">
-                                <img alt="my-properties" src="http://placehold.it/163x108" class="img-fluid">
+                                <img alt="my-properties" src="https://place-hold.it/163x108" width="163" height="108" class="img-fluid">
                             </td>
                             <td class="title-container">
                                 <h5><a href="#">Luxury Villa</a></h5>
@@ -135,7 +135,7 @@
                         <tbody>
                         <tr>
                             <td class="listing-photoo">
-                                <img alt="my-properties" src="http://placehold.it/163x108" class="img-fluid">
+                                <img alt="my-properties" src="https://place-hold.it/163x108" width="163" height="108" class="img-fluid">
                             </td>
                             <td class="title-container">
                                 <h5><a href="#">Relaxing Apartment</a></h5>
@@ -165,7 +165,7 @@
                         <tbody>
                         <tr>
                             <td class="listing-photoo">
-                                <img alt="my-properties" src="http://placehold.it/163x108" class="img-fluid">
+                                <img alt="my-properties" src="https://place-hold.it/163x108" width="163" height="108" class="img-fluid">
                             </td>
                             <td class="title-container">
                                 <h5><a href="#">Luxury Villa</a></h5>
@@ -195,7 +195,7 @@
                         <tbody>
                         <tr>
                             <td class="listing-photoo">
-                                <img alt="my-properties" src="http://placehold.it/163x108" class="img-fluid">
+                                <img alt="my-properties" src="https://place-hold.it/163x108" width="163" height="108" class="img-fluid">
                             </td>
                             <td class="title-container">
                                 <h5><a href="#">Relaxing Apartment</a></h5>

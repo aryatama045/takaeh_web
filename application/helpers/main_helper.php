@@ -94,28 +94,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     function is_logged_agent()
     {
         $ci = get_instance();
-        if (!$ci->session->userdata('email')) {
-            redirect('agent-login');
+        // tesx($_SESSION['user']['email']);
+        if (!$_SESSION['user']['email']) {
+            redirect('login');
         } else {
             $role_id = $ci->session->userdata('role_id');
             $url = uri_string(1);
             $menu2 = ($ci->uri->segment(2));
             // $menu2 = '/'.$menu[2];
 
-            $ci->db->like('url' , $url);
-            $queryMenu = $ci->db->get_where('menus')->row_array();
+            // $ci->db->like('url' , $url);
+            // $queryMenu = $ci->db->get_where('menus')->row_array();
 
             // tesx($url, $menu2);
             // $menu_id = $queryMenu['id'];
 
-            $userAccess = $ci->db->get_where('user_access_menu', [
-                'role_id' => $role_id,
-                // 'menu_id' => $menu_id
-            ]);
+            // $userAccess = $ci->db->get_where('user_access_menu', [
+            //     'role_id' => $role_id,
+            //     'menu_id' => $menu_id
+            // ]);
 
-            if ($userAccess->num_rows() < 1) {
-                redirect('auth/blocked');
-            }
+            // if ($userAccess->num_rows() < 1) {
+            //     redirect('auth/blocked');
+            // }
         }
     }
 

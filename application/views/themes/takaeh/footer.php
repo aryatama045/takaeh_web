@@ -8,7 +8,6 @@
                 <div class="footer-item">
                     <h4>Contact Us</h4>
                     <ul class="contact-info">
-
                         <?php if(setting('address')!="System not available") { ?>
                         <li>
                             <i class="flaticon-facebook-placeholder-for-locate-places-on-maps"></i> <?=setting('address')?>
@@ -26,8 +25,6 @@
                             <i class="fa fa-phone"></i><a href="tel:+55-417-634-7071"> +0477 85X6 552</a>
                         </li>
                         <?php } ?>
-                        
-                        
                     </ul>
                 </div>
             </div>
@@ -61,7 +58,6 @@
                     </ul>
                 </div>
             </div>
-            
         </div>
     </div>
     <div class="sub-footer">
@@ -110,16 +106,16 @@
             <aside class="canvas-widget">
                 <ul class="menu">
                     <li class="menu-item menu-item-has-children">
-                        <a href="index.html">Account</a>
+                        <a href="<?= base_url('agent/account') ?>">Account</a>
                     </li>
                     <li class="menu-item">
-                        <a href="properties-grid-leftside.html">Properties List</a>
+                        <a href="<?= base_url('agent/account') ?>">Properties List</a>
                     </li>
                     <li class="menu-item">
-                        <a href="properties-details.html">Submit Property </a>
+                        <a href="<?= base_url('agent/account') ?>">Submit Property </a>
                     </li>
                     <li class="menu-item">
-                        <a href="contact-3.html">Contact US</a>
+                        <a href="<?= base_url('agent/account') ?>">Contact US</a>
                     </li>
                 </ul>
             </aside>
