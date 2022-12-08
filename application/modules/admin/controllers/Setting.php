@@ -232,4 +232,81 @@ class Setting extends Admin_Controller
         }
         return TRUE;
     }
+
+    
+
+    function _reupload_image(){
+		$config['upload_path'] = FCPATH. 'www/upload/'; //path folder
+		$config['allowed_types'] = 'gif|jpg|png|jpeg|bmp'; //type yang dapat diakses bisa anda sesuaikan
+		$config['max_size']      = 1524;
+		$config['encrypt_name'] = TRUE; //Enkripsi nama yang terupload
+		$this->upload->initialize($config);
+
+		$tdk_masuk_h_id = $this->input->post('id_doc');
+		$no_doc = $this->input->post('no_docs');
+
+		// tesx($tdk_masuk_h_id,$no_doc);
+
+		$list = array('1','2','3');
+		$file = array('no_dok' => $no_doc);
+		foreach($list as $key => $val){
+
+			if(!empty($_FILES['lampiran'.$val]['name'])){
+
+				if($this->upload->do_upload('lampiran'.$val)){
+					$query = $this->hrd->get_where('hrd_all.trn_dokumen_ijin', array('no_dok' => $no_doc));
+					$row = $query->row_array();
+					$foto = $row['file_'.$val];
+
+					if(!empty($foto)){
+						$path = FCPATH. 'www/upload/';
+						unlink($path . $foto);
+					}
+
+					$gbr = $this->upload->data();
+					//Compress Image
+					$config['image_library']='gd2';
+					$config['source_image']= FCPATH. 'www/upload/'.$gbr['file_name'];
+					$config['create_thumb']= FALSE;
+					$config['maintain_ratio']= TRUE;
+
+					if($_FILES['lampiran'.$val]['size'] <= '1565000'){
+						$config['quality']	= '95%';
+						$config['width']	= 800;
+						$config['height']	= 650;
+					} else if($_FILES['lampiran'.$val]['size'] > '1565000'){
+						$this->session->set_flashdata('errors', ' Lampiran '.$val.' Max File Size 1Mb !!');
+						redirect('leaves/cuti_dispensasi/detail/'.$tdk_masuk_h_id , 'refresh');
+					}else {
+						$config['quality']	= '100%';
+						$config['width']	= '100%';
+						$config['height']	= '100%';
+					}
+
+					$config['new_image']=  FCPATH. 'www/upload/'.$gbr['file_name'];
+					$file['file_'.$val] = $gbr['file_name'];
+					$this->load->library('image_lib', $config);
+					$this->image_lib->resize();
+					$this->image_lib->clear();
+
+
+				}
+
+			} else {
+				$this->session->set_flashdata('error', 'Lampiran '.$val.' Image Kosong');
+				redirect('leaves/cuti_dispensasi/detail/'.$tdk_masuk_h_id , 'refresh');
+			}
+		}
+
+		$this->hrd->set($file);
+		$this->hrd->where('no_dok', $no_doc);
+		$this->hrd->update('hrd_all.trn_dokumen_ijin');
+
+		// tesx($file);
+
+		$this->session->set_flashdata('success', 'Berhasil Re-upload');
+		redirect('leaves/cuti_dispensasi/detail/'.$tdk_masuk_h_id , 'refresh');
+
+
+	}
 }

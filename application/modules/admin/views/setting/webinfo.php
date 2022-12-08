@@ -1,13 +1,37 @@
 <link rel="stylesheet" href="<?=base_url()?>themes/admin/vendor/xeditable/bootstrap-editable.css">
 <style media="screen">
-.editable-empty{
-    color:red!important;
-}
-.editable-click, a.editable-click, a.editable-click:hover {
-    text-decoration: none;
-    border-bottom: dashed 1px #797979!important;
-    color: #797979!important;
-}
+    .editable-empty{
+        color:red!important;
+    }
+    .editable-click, a.editable-click, a.editable-click:hover {
+        text-decoration: none;
+        border-bottom: dashed 1px #797979!important;
+        color: #797979!important;
+    }
+    .form-input img {
+        width: 100%;
+        display:none;
+        margin-bottom:30px;
+    }
+
+    .center {
+        height:100%;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+    }
+
+    .form-input {
+        width:350px;
+        padding:20px;
+        background:#fff;
+        box-shadow: -3px -3px 7px rgba(94, 104, 121, 0.377),
+                3px 3px 7px rgba(94, 104, 121, 0.377);
+    }
+
+    .form-input input {
+        display:none;
+    }
 </style>
 <script src="<?=base_url()?>themes/admin/vendor/xeditable/bootstrap-editable.min.js"></script>
 <div class="row">
@@ -54,6 +78,7 @@
                                         </p>
                                     </div>
                                 </div>
+
                                 <p class="text-muted mb-1"> Dept</p>
 
                                 <p class="text-muted mb-1"> Divisi</p>
@@ -105,6 +130,11 @@
                                             aria-controls="core" aria-selected="false"> <?= ucfirst('core')?></a>
                                     </li>
 
+                                    <!-- logo -->
+                                    <li class="nav-item font-weight-bold">
+                                        <a class="nav-link" id="logo-tab" data-toggle="tab" href="#logo" role="tab"
+                                            aria-controls="logo" aria-selected="false"> <?= ucfirst('logo')?></a>
+                                    </li>
 
                                 </ul>
                             </div>
@@ -257,6 +287,71 @@
 
                                     </div>
 
+                                    <!-- logo -->
+                                    <div class="tab-pane fade" id="logo" role="tabpanel" aria-labelledby="logo-tab">
+
+                                        <h5><span>Upload Image </span></h5>
+                                        <div class="row ">
+                                            <div class="col-12 col-xl-12 drop-area-container">
+                                                <form action="<?= base_url('leaves/cuti_dispensasi/reupload_image')?>" method="post" enctype="multipart/form-data">
+                                                    <input type="text" hidden class="form-control" name="id_doc" value="<?= $header_data['header']['cuti_dispensasi_h_id'] ?>" readonly>
+                                                    <input type="text" hidden class="form-control" name="no_docs" value="<?= $header_data['header']['no_dok_cuti'] ?>" readonly>
+                                                    <div class="card drop-area">
+                                                        <div class="card-body">
+                                                            <h5><span> Lampiran 1</span></h5>
+                                                            <div class="center">
+                                                                <div class="form-input">
+                                                                    <div class="preview1">
+                                                                        <img id="file-ip-1-preview">
+                                                                    </div>
+                                                                    <label class="btn btn-primary" for="file-ip-1">Select Image</label>
+                                                                    <input type="file" name="lampiran1" id="file-ip-1" accept="image/*" onchange="showPreview(event);">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="card drop-area mt-4">
+                                                        <div class="card-body">
+                                                            <h5><span> Lampiran 2</span></h5>
+                                                            <div class="center">
+                                                                <div class="form-input">
+                                                                    <div class="preview2">
+                                                                        <img id="file-ip-2-preview">
+                                                                    </div>
+                                                                    <label class="btn btn-primary" for="file-ip-2">Select Image</label>
+                                                                    <input type="file" name="lampiran2" id="file-ip-2" accept="image/*" onchange="showPreview2(event);">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="card drop-area mt-4">
+                                                        <div class="card-body">
+                                                            <h5><span> Lampiran 3</span></h5>
+                                                            <div class="center">
+                                                                <div class="form-input">
+                                                                    <div class="preview3">
+                                                                        <img id="file-ip-3-preview">
+                                                                    </div>
+                                                                    <label class="btn btn-primary" for="file-ip-3">Select Image</label>
+                                                                    <input type="file" name="lampiran3" id="file-ip-3" accept="image/*" onchange="showPreview3(event);">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group row mt-4">
+                                                        <div class="col-12 col-right">
+                                                            <button type="submit" class="btn btn-primary mb-0">
+                                                            Upload</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                    </div>
 
                                 </div>
                             </div>
@@ -322,6 +417,35 @@
 </script>
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+
+<script>
+    function showPreview(event){
+        if(event.target.files.length > 0){
+            var src = URL.createObjectURL(event.target.files[0]);
+            var preview1 = document.getElementById("file-ip-1-preview");
+            preview1.src = src;
+            preview1.style.display = "block";
+        }
+    }
+    function showPreview2(event){
+        if(event.target.files.length > 0){
+            var src = URL.createObjectURL(event.target.files[0]);
+            var preview2 = document.getElementById("file-ip-2-preview");
+            preview2.src = src;
+            preview2.style.display = "block";
+        }
+    }
+    function showPreview3(event){
+        if(event.target.files.length > 0){
+            var src = URL.createObjectURL(event.target.files[0]);
+            var preview3 = document.getElementById("file-ip-3-preview");
+            preview3.src = src;
+            preview3.style.display = "block";
+        }
+    }
+</script>
+
+
 
 <script type="text/javascript">
     $(document).ready(function(){
