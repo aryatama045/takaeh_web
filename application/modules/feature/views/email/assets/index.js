@@ -91,7 +91,7 @@ jQuery(document).ready(function(){
             var filesLength = files.length;
             var oversizefile = null;
             for (var i = 0; i < filesLength; i++) {
-                var f = files[i]
+                var f = files[i];
                 var arrayName = f.name;
                 arrayName = arrayName.replace(".", "_");
 
