@@ -26,7 +26,7 @@ class Email extends Admin_Controller
         $this->load->helper('download');
         $this->email = new PhpMailer\PHPMailer(true);
         $this->email->isSMTP();                                 // Set mailer to use SMTP
-        $this->email->Host       = 'srv118.niagahoster.com';    // Specify main and backup SMTP servers
+        $this->email->Host       = 'mail.takaeh.com';    // Specify main and backup SMTP servers
         $this->email->SMTPAuth   = true;                        // Enable SMTP authentication
         $this->email->Username   = $this->username;             // SMTP username
         $this->email->Password   = $this->password;             // SMTP password
@@ -41,7 +41,7 @@ class Email extends Admin_Controller
     function index()
     {
         $mailbox = new PhpImap\Mailbox(
-            '{srv118.niagahoster.com:993/imap/ssl}INBOX',
+            '{mail.takaeh.com:993/imap/ssl}INBOX',
             'info@takaeh.com',
             'Kayogadang045'
             , __DIR__, 'UTF-8');
@@ -118,7 +118,7 @@ class Email extends Admin_Controller
     {
         $box_name_no = $this->input->get('boxname');
         if ($box_name_no == "") die('IMAP connection failed');
-        $this->mailbox = new PhpImap\Mailbox('{srv118.niagahoster.com:993/imap/ssl}INBOX.'
+        $this->mailbox = new PhpImap\Mailbox('{mail.takaeh.com:993/imap/ssl}INBOX.'
             .(strtolower($box_name_no)=="junk"?"spam":$box_name_no), $this->username, $this->password
             , __DIR__.DIRECTORY_SEPARATOR.'loadtemp', 'UTF-8');
         try {
@@ -170,7 +170,7 @@ class Email extends Admin_Controller
     function getContent(){
         $mail_id = $this->input->get('mail_id');
         $mail_box = $this->input->get('mail_box');
-        $this->mailbox = new PhpImap\Mailbox('{srv118.niagahoster.com:993/imap/ssl}'
+        $this->mailbox = new PhpImap\Mailbox('{mail.takaeh.com:993/imap/ssl}'
             .(strtolower($mail_box)=="inbox.junk"?"INBOX.spam":$mail_box), $this->username, $this->password
             , __DIR__.DIRECTORY_SEPARATOR.'loadtemp', 'UTF-8');
         try {
@@ -192,7 +192,7 @@ class Email extends Admin_Controller
     function getHeader(){
         $mail_id = $this->input->get('mail_id');
         $mail_box = $this->input->get('mail_box');
-        $this->mailbox = new PhpImap\Mailbox('{srv118.niagahoster.com:993/imap/ssl}'.(strtolower($mail_box)=="inbox.junk"?"INBOX.spam":$mail_box), $this->username, $this->password
+        $this->mailbox = new PhpImap\Mailbox('{mail.takaeh.com:993/imap/ssl}'.(strtolower($mail_box)=="inbox.junk"?"INBOX.spam":$mail_box), $this->username, $this->password
             , __DIR__.DIRECTORY_SEPARATOR.'loadtemp', 'UTF-8');
         if (intval($mail_id) == 0)
         {
@@ -205,7 +205,7 @@ class Email extends Admin_Controller
     function getAttachment(){
         $mail_id = $this->input->get('mail_id');
         $mail_box = $this->input->get('mail_box');
-        $this->mailbox = new PhpImap\Mailbox('{srv118.niagahoster.com:993/imap/ssl}'.(strtolower($mail_box)=="inbox.junk"?"INBOX.spam":$mail_box), $this->username, $this->password
+        $this->mailbox = new PhpImap\Mailbox('{mail.takaeh.com:993/imap/ssl}'.(strtolower($mail_box)=="inbox.junk"?"INBOX.spam":$mail_box), $this->username, $this->password
             , __DIR__.DIRECTORY_SEPARATOR.'loadtemp', 'UTF-8');
         if (intval($mail_id) == 0)
         {
@@ -259,7 +259,7 @@ class Email extends Admin_Controller
         $mail_id = $this->input->get('mail_id');
         $box_name_no = $this->input->get('boxname');
         if ($box_name_no == "") die('IMAP connection failed');
-        $this->mailbox = new PhpImap\Mailbox('{srv118.niagahoster.com:993/imap/ssl}'.(strtolower($box_name_no)=="inbox.junk"?"INBOX.spam":$box_name_no), $this->username, $this->password
+        $this->mailbox = new PhpImap\Mailbox('{mail.takaeh.com:993/imap/ssl}'.(strtolower($box_name_no)=="inbox.junk"?"INBOX.spam":$box_name_no), $this->username, $this->password
             , __DIR__.DIRECTORY_SEPARATOR.'loadtemp', 'UTF-8');
         $mail = $this->mailbox->getMail($mail_id);
         $html_base = $mail->textPlain==""?$mail->textHtml:"<HTML><BODY><pre>".$mail->textPlain."</pre></BODY></HTML>";
@@ -287,7 +287,7 @@ class Email extends Admin_Controller
         $mail_id = $this->input->get('mail_id');
         $box_name_no = $this->input->get('boxname');
         if ($box_name_no == "") die('IMAP connection failed');
-        $this->mailbox = new PhpImap\Mailbox('{srv118.niagahoster.com:993/imap/ssl}'.(strtolower($box_name_no)=="inbox.junk"?"INBOX.spam":$box_name_no), $this->username, $this->password
+        $this->mailbox = new PhpImap\Mailbox('{mail.takaeh.com:993/imap/ssl}'.(strtolower($box_name_no)=="inbox.junk"?"INBOX.spam":$box_name_no), $this->username, $this->password
             , __DIR__.DIRECTORY_SEPARATOR.'loadtemp', 'UTF-8');
         $mail = $this->mailbox->getMail($mail_id);
         $html = $mail->textHtml==""?"<HTML><BODY><pre>".$mail->textPlain."</pre></BODY></HTML>":$mail->textHtml;
@@ -372,7 +372,7 @@ class Email extends Admin_Controller
      * This function is used to save in sent folder after send the mail
      */
     function save_mail_sent($mail) {
-        $path = "{srv118.niagahoster.com:993/imap/ssl}INBOX.Sent";
+        $path = "{mail.takaeh.com:993/imap/ssl}INBOX.Sent";
         $imapStream = imap_open($path, $mail->Username, $mail->Password);
         $result = imap_append($imapStream, $path, $mail->getSentMIMEMessage());
         imap_close($imapStream);
