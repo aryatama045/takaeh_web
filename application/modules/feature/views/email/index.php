@@ -438,7 +438,6 @@
 
 
     var fileObject = {};
-    var arrayName = f.name;
 
     jQuery(document).ready(function(){
         // CKEDITOR.replace('editor1')
@@ -454,8 +453,8 @@
                 var filesLength = files.length;
                 var oversizefile = null;
                 for (var i = 0; i < filesLength; i++) {
-                    var f = files[i]
-                    
+                    var f = files[i];
+                    var arrayName = f.name;
                     arrayName = arrayName.replace(".", "_");
 
                     if(f.size/1024/1024 > 5)
