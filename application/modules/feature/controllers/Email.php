@@ -20,7 +20,7 @@ class Email extends Admin_Controller
         parent::__construct(); 
         
                                   // Enable SMTP authentication
-        $this->username   = 'gmail@rizkiaryatama.com';      // SMTP username
+        $this->username   = 'info@takaeh.com';      // SMTP username
         $this->password   = 'Kayogadang045';
 
         $this->load->helper('download');
@@ -42,7 +42,7 @@ class Email extends Admin_Controller
     {
         $mailbox = new PhpImap\Mailbox(
             '{srv118.niagahoster.com:993/imap/ssl}INBOX',
-            'gmail@rizkiaryatama.com',
+            'info@takaeh.com',
             'Kayogadang045'
             , __DIR__, 'UTF-8');
         try {
