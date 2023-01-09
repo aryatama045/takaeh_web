@@ -124,13 +124,9 @@
 
     <!-- DataTales Example -->
  <div class="row">
-    <div class="col-md-3">
-
-
-    </div>
     <div class="col-md-9">
 
-            <div class="card shadow mb-4">
+        <div class="card shadow mb-4">
             <div class="card-header py-3">
                     <a href="#" class="btn btn-app" data-toggle="modal" data-target="#TipeTambah">
                         <i class="fa fa-envelope"></i> New
@@ -195,10 +191,15 @@
         </div>
 
     </div>
+
+    <div class="col-md-3">
+
+
+    </div>
 </div>
 
-    <div id="preview" style="display: none;background-color: white" class="card shadow mb-4">
-    <div  class="card-body" >
+<div id="preview" style="display: none;background-color: white" class="card shadow mb-4">
+    <div class="card-body" >
         <div class="box box-primary"  >
             <div id="loader" style="display: none"></div>
             <div class = "row">
@@ -236,7 +237,7 @@
             </div>
         </div>
     </div>
-    </div>
+</div>
 
 
 
