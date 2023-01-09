@@ -353,7 +353,7 @@
 	</div>
 
 <script type="text/javascript">
-    window.base_url = '<?php echo base_url() ?>';
+    var base_url = '<?php echo base_url() ?>';
 
     
 
