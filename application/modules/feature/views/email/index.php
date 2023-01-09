@@ -354,14 +354,12 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-<script type="text/javascript">
-    window.base_url = '<?php echo base_url() ?>';
-</script>
+
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 
-<script>
-
+<script type="text/javascript">
+    var base_url = '<?php echo base_url() ?>';
     jQuery(document).ready(function(){
         var datatable = $('#example2').DataTable({
             'paging'      : true,
